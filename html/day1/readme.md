@@ -1,0 +1,1 @@
+# Trả về 1 kết quả gọi là tuyệt đối
