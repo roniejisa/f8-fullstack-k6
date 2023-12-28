@@ -1,0 +1,31 @@
+#about-box {
+	color: red;
+}
+
+#products-box {
+	color: blue;
+}
+
+#contact-box {
+	color: green;
+}
+
+* > .title {
+	color: blue;
+}
+
+.title {
+	color: red;
+}
+
+.box > .title {
+	color: violet;
+}
+
+.content h2.title {
+	color: red;
+}
+
+.content h3.title {
+	color: green;
+}
