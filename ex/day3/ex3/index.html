@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Form Access Manager</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main>
+			<form action="">
+				<label>
+					<span>Username:</span>
+					<input type="text" placeholder="Username" name="username" />
+				</label>
+				<label>
+					<span>Password:</span>
+					<input type="password" placeholder="Password" name="password" />
+				</label>
+				<label>
+					<span>City of Employment:</span>
+					<input type="text" placeholder="City" name="city" />
+				</label>
+				<label>
+					<span>Web server:</span>
+					<select name="" id="">
+						<option value="">-- Choose a server --</option>
+						<option value="1">Server 1</option>
+						<option value="2">Server 2</option>
+					</select>
+				</label>
+				<label>
+					<span>Please specify your role</span>
+					<ul>
+						<li>
+							<label>
+								<input type="radio" name="role" value="1" />
+								<span>Admin</span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="radio" name="role" value="2" />
+								<span>Engineer</span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="radio" name="role" value="3" />
+								<span>Manager</span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="radio" name="role" value="4" />
+								<span>Guest</span>
+							</label>
+						</li>
+					</ul>
+				</label>
+				<label>
+					<span>Single Sign-on to the following</span>
+					<ul>
+						<li>
+							<label>
+								<input type="checkbox" name="follow[]" value="1" />
+								<span>Mail</span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="checkbox" name="follow[]" value="2" />
+								<span>Payroll</span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="checkbox" name="follow[]" value="3" />
+								<span>Self-service</span>
+							</label>
+						</li>
+					</ul>
+				</label>
+                <label>
+                    <span></span>
+                    <div class="button-center">
+                        <button type="submit">Login</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </label>
+			</form>
+		</main>
+	</body>
+</html>

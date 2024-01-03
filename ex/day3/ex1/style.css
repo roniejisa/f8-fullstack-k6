@@ -1,0 +1,98 @@
+.contact-us {
+	padding: 50px 40px;
+}
+
+.contact-us .content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-us .info{
+    flex: 0 0 15%;
+}
+.contact-us h2{
+    position: relative;
+    display: inline-block;
+}
+.contact-us h2::before{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 50%;
+    height: 2px;
+    text-transform: uppercase;
+    background: #feb737;
+}
+ul {
+	list-style: none;
+    padding: 0;
+}
+
+ul li,
+ul li a {
+	color: #a1a1a1;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+ul li + li{
+    margin-top: 30px;
+}
+
+ul li i{
+    font-size: 25px;
+    min-width: 45px;
+}
+
+ul li span{
+    flex: 1;
+}
+
+ul li a {
+	text-decoration: none;
+}
+
+input,
+textarea,
+input::placeholder,
+textarea::placeholder {
+	color: #dedede;
+}
+
+.title {
+	color: #454545;
+}
+
+h2 {
+	color: #333333;
+}
+
+form button {
+	background: #0cb8b6;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.contact-us .form{
+    margin-left: 100px;
+    flex:1;
+}
+.contact-us .form textarea,
+.contact-us .form input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dedede;
+    outline: none;
+    appearance: none;
+    color: black;
+}
+.contact-us .form textarea,
+.contact-us .form button,
+.contact-us .form input + input{
+    margin-top: 10px;
+}
+

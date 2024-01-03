@@ -1,0 +1,17 @@
+form > label {
+	width: 100%;
+	display: flex;
+	margin-bottom: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+form > label > span {
+	flex: 0 0 110px;
+	max-width: 110px;
+}
+
+form ul {
+	padding: 0;
+	list-style: none;
+}

@@ -1,0 +1,64 @@
+* {
+	box-sizing: border-box;
+}
+main {
+	padding: 15px;
+}
+ul {
+	list-style: none;
+	padding: 0;
+}
+.location ul.tag {
+	display: flex;
+	list-style: none;
+}
+
+ul.tag li a {
+	display: block;
+	padding: 10px 20px;
+	background: transparent;
+	border: 1px solid #b09757;
+	text-decoration: none;
+	color: #b09757;
+}
+
+ul.tag li:not(:first-child) a {
+	border-left: none;
+}
+
+ul.tag li:not(:last-child) a {
+	border-right: none;
+}
+
+ul.tag li.active a {
+	background: #b09757;
+	color: white;
+}
+
+.map-info {
+	display: flex;
+	flex-wrap: wrap;
+	background: #f6f6f6;
+}
+
+.map-info .info {
+	flex: 0 0 350px;
+	max-width: 350px;
+	padding-right: 70px;
+	padding-top: 25px;
+	padding-left: 20px;
+	color: #62666e;
+}
+
+.map-info .info a {
+	text-decoration: none;
+	color: #62666e;
+}
+
+.map-info .info li:last-child a {
+	color: #b09757;
+}
+
+.map-info .map {
+	flex: 1;
+}
