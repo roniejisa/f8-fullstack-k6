@@ -1,0 +1,12 @@
+/* Chọn thẻ html có class bắt đầu bằng title và nằm sau thẻ h1 */
+h1 ~ [class^='title']{
+    color: hotpink;
+}
+
+/* Chọn tất cả các thẻ html: * 
+VD: Cọn tất cả các thể html nằm trong content
+ */
+
+.content *{
+    color: red;
+}

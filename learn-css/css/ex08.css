@@ -1,0 +1,9 @@
+
+/* .products h2:first-child{} */
+.products h2:first-of-type{
+    color: red;
+}
+
+.products h2:last-of-type{
+    color: blue;
+}

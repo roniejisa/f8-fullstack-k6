@@ -1,0 +1,34 @@
+/* 
+Pseudo Element:
+Cú pháp: selector::element
+- before
+- after
+- first-letter
+- first-line
+- selection
+- placeholder
+ */
+
+.title::before {
+	content: "a";
+}
+
+.title::after {
+	content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: red;
+}
+
+p::first-line{
+    color: red;
+}
+
+p::selection{
+    color: green;
+}
+
+input::placeholder{
+    color: red;
+}

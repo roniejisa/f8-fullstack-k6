@@ -1,0 +1,19 @@
+/* 
+Chọn thành phần đứng sau: ~
+- Ngang hàng
+- Cùng thuộc 1 cha
+
+Chọn thành phần liền kề: +
+ */
+
+ ul ~ h2{
+    color: red;
+ }
+
+ ul + h2{
+    color: blue;
+ }
+
+ .todos label input:checked + span{
+    text-decoration: line-through;
+ }

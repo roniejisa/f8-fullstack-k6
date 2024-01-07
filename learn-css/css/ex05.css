@@ -1,0 +1,20 @@
+/* 
+Attribute Selector
+- [ten thuoc tinh]:chọn thẻ html có thuộc tính là 'ten thuoc tinh'
+- [ten thuoc tinh ='gia tri']: Chọn thẻ html có thuộc tính là tenthuoctinh và giá trị là giatri
+- [tenthuoctinh^='giatri']: Chọn thuộc tính có giá trị bắt đầu
+ */
+
+/* ul li a[target] {
+	color: red;
+} */
+
+/* ul li a[href*="fullstack.edu.vn"]{
+    color: red;
+} */
+ul li a[href$="register"]{
+    color: green;
+}
+ul li a[href|="https://fullstack"]{
+    color: yellow;
+}
