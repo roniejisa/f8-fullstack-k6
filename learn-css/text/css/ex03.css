@@ -1,0 +1,68 @@
+/* Thuộc tính line-height: Dãn dòng, thiết lập chiều cao cho dòng */
+/* 
+    Không sử dụng line-height với đơn vị tuyệt đối
+
+    Thuộc tính font-family: Thiết lập font chữ cho văn bản
+
+    Cú pháp: font-family: font, font2, fontn
+ */
+
+/* AT-RULES */
+/* 
+    Họ font không chân: sans-serif
+    Họ font có chân: serif
+
+    Độ dày: font-weight: normal|100|200|300|400|500|600|700|800|900|bold
+    Nghiêng: font-style: normal|italic
+*/
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+/* @font-face {
+	font-family: "Lato";
+	src: url("../fonts/lato/Lato-Light.ttf");
+	font-weight: 300;
+} */
+
+/* @font-face {
+	font-family: "Lato";
+	src: url("../fonts/lato/Lato-Light.ttf");
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: "Lato";
+	src: url("../fonts/lato/Lato-Regular.ttf");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Lato";
+	src: url("../fonts/lato/Lato-Bold.ttf");
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: "Lato";
+	src: url("../fonts/lato/Lato-Black.ttf");
+	font-weight: 900;
+} */
+/* 
+@font-face {
+	font-family: "Lato";
+	src: url("../fonts/lato/Lato-BoldItalic.ttf");
+	font-weight: 700;
+    font-style: italic;
+} */
+
+p { 
+	font-family: "Lato", sans-serif;
+	line-height: 1.5;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: line-through underline overline;
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+    text-transform: initial;
+}

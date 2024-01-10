@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&display=swap');
+:root{
+    --title: #eb524e;
+    --color-main: #dcdcdc;
+    --hover: #333333;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    padding: 30px;
+    color: var(--color-main)
+}
+
+.title{
+    font-family: 'Lobster', sans-serif;
+    margin: 0 0 30px 0;
+    color: #000
+}
+
+.form-register{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 33px;
+    margin-top: 20px
+}
+
+.contact_content{
+    font-weight: 500;
+}
+
+.contact_content span{
+    color: var(--title) 
+}
+
+
+/* Form */
+
+/* Xử lý vị trí */
+.form-control{
+    position: relative
+}
+
+.form-control .error{
+    position: absolute;
+    border: 1px solid var(--hover);
+    background: var(--hover);
+    padding: 10px;
+    bottom: calc(100% + 20px);
+    left: 30px;
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+    transition-property: visibility, opacity, transform;
+    transition: .2s linear;
+}
+
+.form-control .error::after{
+    content: '';
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 20px 20px 20px 20px;
+    transform: rotate(45deg);
+    position: absolute;
+    top: calc(100% - 35px);
+    z-index: -1;
+    left: 30px;
+    border-color: transparent var(--hover) var(--hover) transparent;
+}
+
+.form-control label{
+    border: 1px solid var(--color-main);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-control label .head{
+    min-width: 60px;
+    min-height: 60px;
+    display: inline-flex;
+    justify-content: center;
+    padding-top: 20px;
+    background-color: var(--color-main)
+}
+.form-control label .head i{
+    font-size: 24px;
+    color: white
+}
+
+.form-control label input,
+.form-control label select,
+.form-control label textarea{
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 20px;
+}
+
+.form-control label textarea,
+.form-control label select{
+    appearance: none;
+    resize: none;
+}
+
+.form-control label textarea{
+    height: 200px;
+}
+
+.form-control label .last{
+    display: flex;
+    padding: 25px 10px 0;
+}
+.form-control label .last i{
+    font-size: 10px
+}
+
+.form-action{
+    position: relative;
+    display: flex;
+    justify-content: space-between
+}
+
+.form-action input{
+    display: none;
+}
+
+.form-action label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-action .checkbox{
+    height: 30px;
+    width: 30px;
+    display: inline-flex;
+    border: 3px solid var(--color-main);
+    position: relative;
+}
+.form-action .checkbox::before{
+    content: '';
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    border-width: 3px;
+    width: 11px;
+    height: 5px;
+    top: 2%;
+    left: 57%;
+    transform: rotate(-45deg) translate(-50%, -50%);
+    border-color: transparent transparent black black;
+    border-style: solid;
+    transition-property: opacity, visibility;
+    transition: .2s linear;
+}
+
+.form-action input:checked + span::before{
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-action button{
+    padding: 10px 40px;
+    background: var(--title);
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-control label:has(*:focus),
+.form-control label:has(*:active),
+.form-control label:hover{
+    border-color: var(--hover);
+}
+
+.form-control label:has(*:focus) .head,
+.form-control label:has(*:active) .head,
+.form-control label:hover .head{
+    background-color: var(--hover);
+}
+
+.form-control label:has(*:focus) .last i,
+.form-control label:has(*:active) .last i,
+.form-control label:hover .last i{
+    color: var(--hover);
+}
+
+.form-control label:has(*:focus) .last i::before,
+.form-control label:has(*:active) .last i::before{
+    content: '\f00d';
+}
+
+.form-control label:has(*:focus) select:has(option:checked[value=""]) + .error,
+.form-control label:has(*:active) select:has(option:checked[value=""]) + .error,
+.form-control label:has(*:focus) textarea:placeholder-shown + .error,
+.form-control label:has(*:active) textarea:placeholder-shown + .error,
+.form-control label:has(*:focus) input:placeholder-shown + .error,
+.form-control label:has(*:active) input:placeholder-shown + .error,
+.form-control label:has(*:focus) .error,
+.form-control label:has(*:active) .error{
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0)
+}
+
+.form-control label:has(*:focus) select:has(option:checked:not([value=""])) ~ .error,
+.form-control label:has(*:active) select:has(option:checked:not([value=""])) ~ .error,
+.form-control label:has(*:focus) textarea:not(:placeholder-shown) ~ .error,
+.form-control label:has(*:active) textarea:not(:placeholder-shown) ~ .error,
+.form-control label:has(*:focus) input:not(:placeholder-shown) ~ .error,
+.form-control label:has(*:active) input:not(:placeholder-shown) ~ .error{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px)
+}
+
+
+input:placeholder-shown {
+  border-color: red;
+}

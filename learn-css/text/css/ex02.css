@@ -1,0 +1,34 @@
+/* Thay đổi cỡ chữ */
+
+/* 
+    1. Đơn vi tuyệt đối
+    - px
+    - pt = 1.3 x px
+
+    2. Đơn vị tuyệt đối
+    - em (Kế thế theo thành phần cha)
+    - rem (Kế thừa theo thành phần root: html)
+    - %   (Kế thừa theo cha)
+    - vh  (viewport height)
+    - vw  (viewport width)
+    - fr (grid css)
+ */
+html{
+    font-size: 10px;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+.wrapper{
+    font-size: 1.5em;
+}
+
+ /* .wrapper .content{
+    font-size: 20px;
+ } */
+
+ /* .wrapper .content p{
+    font-size: 3rem;
+ } */

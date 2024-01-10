@@ -1,0 +1,16 @@
+
+/* .products h2:first-child{} */
+/* .products h2:first-of-type{
+    color: red;
+}
+
+.products h2:last-of-type{
+    color: blue;
+} */
+
+.products h2:nth-child(2n + 1){
+    color:red;
+}
+/* .product h2:nth-of-type(){
+    color:red;
+} */

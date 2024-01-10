@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+
+.list-item label {
+	display: block;
+	background-color: #d75428;
+	padding: 10px;
+	color: white;
+    cursor: pointer;
+}
+
+.list-item .content {
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	max-height: 0px;
+	transition-property: max-height;
+	transition: 0.2s linear;
+    
+}
+
+.list-item input {
+	display: none;
+}
+
+.list-item:has(input:checked) .content {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: all;
+	max-height: 400px;
+    padding: 5px;
+}
+
+.list-item:has(input:checked) i::before {
+	content: "\f068";
+}
