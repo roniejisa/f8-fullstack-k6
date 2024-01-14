@@ -53,13 +53,32 @@
     font-style: italic;
 } */
 
+/* Text-transform */
+/* 
+    + none
+    + lowercase
+    + uppercase
+    + capitalize
+ */
+
+ /* letter spacing: Tạo khoảng cách giữa các ký tự 
+    word-spacing: Tạo khoảng cách giữa các từ
+
+--> Chấp nhận giá trị âm
+ 
+ 
+ 
+ 
+ */
 p { 
 	font-family: "Lato", sans-serif;
 	line-height: 1.5;
     font-weight: 700;
     font-style: italic;
-    text-decoration: line-through underline overline;
-    text-transform: uppercase;
+    /* text-decoration: line-through underline overline; */
+    text-transform: capitalize;
+    letter-spacing: 5px;
+    word-spacing: -10px;
 }
 
 a{

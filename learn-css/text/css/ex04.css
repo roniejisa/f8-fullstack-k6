@@ -1,0 +1,23 @@
+/* 
+    text-align: Căn chỉnh văn bản theo chiều ngang
+    Chỉ áp dụng cho các thẻ block
+ */
+.content{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+/* Thụt lề */
+.content p{
+    /* text-indent: 20px; */
+    /* text-align: justify; */
+}
+
+
+.link {
+    text-align: center;
+    text-align-last: right;
+}
+
+.link div{
+    width: 50px;
+}

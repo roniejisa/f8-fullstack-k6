@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+	--mainCl: #666666;
+	--borderCl: #ebebeb;
+	--hoverCl: #fff;
+	--hoverBgCl: #52a5d3;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid var(--borderCl);
+	align-items: center;
+}
+
+header a.contact {
+	text-decoration: none;
+	color: var(--mainCl);
+	padding: 10px 20px;
+	display: block;
+	border-left: 1px solid var(--borderCl);
+	height: 100%;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+header nav > ul {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+header nav > ul > li {
+	padding: 1px;
+	position: relative;
+}
+` header nav > ul > li a i {
+	margin-left: 0;
+}
+
+header nav > ul > li > a {
+	padding: 10px 20px;
+	display: block;
+	color: var(--mainCl);
+	text-decoration: none;
+}
+header nav > ul > li > a:has(i + span) > i:first-child {
+	margin-right: 10px;
+}
+header nav > ul > li > a i ~ i {
+	font-size: 10px;
+}
+
+header nav > ul > li {
+	border-right: 1px solid var(--borderCl);
+}
+
+header nav > ul > li ul {
+	position: absolute;
+	background-color: white;
+	pointer-events: none;
+	visibility: hidden;
+	opacity: 0;
+	box-shadow: 0 0 10px 1px #000;
+	top: calc(100% + 10px);
+	left: 0;
+	transition-property: opacity, visibility, pointer-events;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+}
+
+header nav > ul > li ul::before {
+	content: "";
+	border-width: 5px;
+	border-color: transparent transparent var(--hoverCl) transparent;
+	border-style: solid;
+	border-top: none;
+	height: 0;
+	width: 0;
+	position: absolute;
+	top: 0;
+	left: 20px;
+	transform: translateY(-100%);
+}
+
+header nav > ul > li ul::after {
+	content: "";
+	height: 10px;
+	top: 0;
+	transform: translateY(-100%);
+	width: 100%;
+	background-color: transparent;
+	position: absolute;
+	left: 0;
+}
+
+header nav > ul > li ul a {
+	display: block;
+	padding: 15px 20px;
+	min-width: 150px;
+	color: var(--mainCl);
+	text-decoration: none;
+}
+
+header nav > ul > li ul a i {
+	margin-right: 10px;
+	font-weight: 800;
+}
+
+header nav > ul > li:hover ul,
+header nav > ul > li ul:hover {
+	opacity: 1;
+	pointer-events: all;
+	visibility: visible;
+}
+
+header nav > ul > li ul li:not(:last-child) a {
+	border-bottom: 1px solid var(--borderCl);
+}
+header a {
+	transition-property: background-color, color;
+	transition-duration: 0.2s;
+	transition-timing-function: linear;
+}
+
+header a:hover {
+	color: var(--hoverCl);
+	background-color: var(--hoverBgCl);
+}

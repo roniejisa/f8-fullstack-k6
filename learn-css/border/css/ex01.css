@@ -1,0 +1,26 @@
+/* 
+Thuộc tính border: Thiếp lập viền chô element
+- border-width: Chiều rộng
+- border-style: Kiểu: none|solid|dotted|dashed|double
+- border-color: Màu 
+- border
+*/
+
+.box {
+	border-width: 2px 10px 3px 5px;
+	border-style: solid dashed dotted double;
+	border-color: red yellow green purple;
+}
+
+.box2 {
+    height: 0;
+    width: 0;
+	border: 50px solid;
+    border-top: none;
+	border-color: transparent transparent red transparent;
+}
+
+/* 
+width, height
+max-width, max-height
+ */

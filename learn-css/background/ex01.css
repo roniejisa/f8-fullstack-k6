@@ -1,0 +1,35 @@
+/* Thuộc tính background: Thiết lập nền cho các element
+- background-color:
+- background-image:
+- background-size:
+- background-repeat:
+- background-position:
+- background-attachment:
+- background: Tổng hợp tất cả thuộc tính trên 
+
+lưu ý: trong color sẽ có giá trị transparent
+ */
+ body{
+    height: 2000px;
+ }
+
+ .banner{
+    height: 300px;
+    /* background-color: antiquewhite;
+    background-image: url(https://fastly.picsum.photos/id/180/1000/600.jpg?hmac=T0q1RKzxteFTbqU1dOR4FJB8lpqY7S2WoDjFxxePNKE);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top; */
+    /* background-position: center -100px; */
+    /* background-attachment: fixed; */
+    background: antiquewhite url(https://fastly.picsum.photos/id/180/1000/600.jpg?hmac=T0q1RKzxteFTbqU1dOR4FJB8lpqY7S2WoDjFxxePNKE) no-repeat 0 0 / cover fixed
+ }
+
+ .title{
+    background: pink;
+ }
+
+
+ .title:hover{
+    background: transparent;
+ }
