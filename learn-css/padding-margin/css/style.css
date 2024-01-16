@@ -1,0 +1,41 @@
+/* 
+padding: Khoảng cách giũa viền và nội dung
+Lưu ý: 
+- padding dùng theo đon vị phần trăm tỷ lệ theo width của thành phần cha
+- padding chỉ có tác dụng top bottom nếu thẻ html là block
+
+- Tỷ lệ:
+- 1x1: padding-top 100%
+- 4x3: padding-top: 75%
+- 3x2: padding-top: 66.66%
+- 8x5: padding-top: 62.5
+- 16x9: padding-top: 56.25%
+- 21x9: padding-top: 42.85%
+
+Tìm hiểu về thuộc tính aspect-ratio
+*/
+
+.box{
+    border: 1px solid red;
+    padding-top: 50%;
+}
+
+.link{
+    border: 1px solid green;
+    padding: 15px 30px;
+    text-decoration: none;
+}
+
+.content{
+    position: relative;
+    background-color: green;
+    width: 200px;
+}
+
+.content::before{
+    content: '';
+    width: inherit;
+    background: green;
+    aspect-ratio: 16/9;
+    display: block;
+}

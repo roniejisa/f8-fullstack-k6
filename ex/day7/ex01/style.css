@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+	--titleCl: #dc5a57;
+	--colorCl: #3f3424;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Asap", sans-serif;
+}
+
+.banner {
+	background: url("./images/ha-noi-melody-residences-cover.jpg") center/cover no-repeat;
+    position: relative;
+}
+
+.banner::before{
+    content: '';
+    padding-top: 33%;
+    display: block;
+}
+
+.box{
+    position: absolute;
+    padding: 10px 20px 50px;
+    background: rgba(255, 255, 255, 0.8);
+    top: 50%;
+    max-width: 500px;
+    word-break: break-all;
+    transform: translateY(-50%);
+    left: 10%;
+}
+
+.box .title{
+    color: var(--titleCl);
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.box p{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.box .location i{
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.box .price{
+    background: var(--titleCl);
+    color: white;
+    display: block;
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    transform: translateY(50%);
+    padding: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+}

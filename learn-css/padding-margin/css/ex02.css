@@ -1,0 +1,13 @@
+/* 
+    margin: Căn lề
+    Hỗ trợ các đon vị: %, px, em, rem
+    Đơn vị & --> Tỷ lệ theo width của thẻ cha
+    Lưu ý: margin hỗ trọ giá trị auto
+*/
+
+.box{
+    border: 1px solid red;
+    width: 200px;
+    padding: 20px;
+    margin: 0 auto;
+}

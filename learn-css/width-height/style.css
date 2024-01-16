@@ -1,0 +1,24 @@
+/* Các thuộc tính liên quan đến width height chỉ hỗ trợ ỏ thể block 
+
+    Các đon vị:
+    % --> Tỷ lệ vói thành phần cha
+    vw --> Tỷ lệ vói chiều rộng của view-port
+    vh --> Ty lệ vói chiều cao cua view-port
+
+
+*/
+
+.box{
+    width: 480px;
+    height: 400px;
+    background-color: yellow;
+}
+
+.text{
+    border: 1px solid red;
+    width: 300px;
+}
+
+.image{
+    width: 300px;
+}

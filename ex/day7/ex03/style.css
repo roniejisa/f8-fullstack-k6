@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+	--textCl: #3d4749;
+	--activeCl: #dc5b61;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+    font-family: "Asap";
+}
+
+.explore-area {
+	padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+}
+
+.explore-area .col {
+	flex: 0 0 calc(100% / 3);
+	padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.explore-area .col .item {
+    background-image:  var(--url-image-item);
+	border-radius: 5px;
+    position: relative;
+    height: auto;
+}
+
+.explore-area .col .item .content{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    color: white;
+    height: auto;
+}
+
+.explore-area .col .item .content *:last-child{
+    margin-top: 30%;
+}
+
+
+.explore-area .col .item::before{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .4;
+    border-radius: inherit;
+}
+
+.provinces{
+    display: flex;
+    gap: 20px;
+}
+ 
+.provinces .province{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 25px;
+    color: #333;
+    background: #e5e5e5;
+    cursor: pointer;
+}
+
+.provinces .province.active{
+    background: #af7a3a;
+    color: white;
+}
+
+.explore-area h3{
+    text-transform: uppercase;
+}

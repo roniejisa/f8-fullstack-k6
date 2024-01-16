@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --textCl: #3d4749;
+    --activeCl: #dc5b61;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Asap",sans-serif;
+    color: var(--textCl);
+}
+
+.profile{
+    position: relative;
+}
+
+.profile .banner{
+    background: url(https://picsum.photos/1920/300) center top/cover no-repeat;
+}
+
+.profile .banner::after{
+    content: '';
+    padding-top: 15%;
+    display: block;
+}
+
+.profile .info .image{
+    max-width: 150px;
+    display: block;
+    position: relative;
+    line-height: 0;
+}
+
+.profile .info .image img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.profile .info{
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    display: flex;
+    color: white;
+}
+.profile .info .body{
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.profile .info .body .history span + span{
+    margin-left: 20px;
+}
+.profile .info .body .history span + span::selection{
+    color: yellow;
+    background: black;
+}
+.profile .info .body h3{
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.profile ul{
+    justify-content: end;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0 20px;
+    box-shadow:0 2px 20px -5px #ebebeb
+}
+
+.profile ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 10px 0;
+    color: var(--textCl);
+    transition-property: color, border-color;
+    border-bottom: 2px solid transparent;
+    font-weight: 600;
+}
+
+.profile ul li a:hover,
+.profile ul li a.active{
+    border-color: var(--activeCl);
+    color: var(--activeCl);
+}

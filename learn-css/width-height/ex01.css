@@ -1,0 +1,21 @@
+.box{
+    /* border: 1px solid red;
+    max-width: 400px;
+    width: 600px;
+    min-width: 200px; */
+    width: 400px;
+    border: 1px solid green;
+    height: 200px;
+}
+
+.content{
+    border: 1px solid red;
+    width: 800px;
+    height: 400px;
+    /* max-width: 100%; */
+}
+
+.box img{
+    max-width: 100%;
+    height: auto;
+}

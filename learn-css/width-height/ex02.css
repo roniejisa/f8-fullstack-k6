@@ -1,0 +1,19 @@
+/* 
+    Thuộc tính overflow: Xử lý nội dung bị tràn
+    - visible: Giũ nguyên
+    - hidden: Ẩn
+    - scroll: Tạo thanh cuộn
+    - auto --> Tạo thanh cuộn khi nội dung bị tràn
+ */
+
+.box {
+	width: 200px;
+	height: 800px;
+	border: 1px solid red;
+	/* overflow: auto; */
+	overflow-x: auto;
+}
+
+p {
+	width: 400px;
+}

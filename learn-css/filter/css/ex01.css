@@ -1,0 +1,14 @@
+/* 
+    Thuộc tính filter -> Tạo ra 1 bộ lọc giúp thay đổi màu sác hiển thị của 1 thành phần html
+ */
+
+.map{
+    /* filter: grayscale(1); */
+    /* filter: blur(1px); */
+    filter: opacity(1);
+    transition: filter .4s ease;
+}
+
+.map:hover{
+    filter: opacity(0);
+}
