@@ -71,6 +71,8 @@ body{
 .provinces{
     display: flex;
     gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
 }
  
 .provinces .province{
