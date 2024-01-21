@@ -1,0 +1,30 @@
+.block-1{
+    border:1px solid red;
+    margin-bottom: -50px;
+}
+
+.block-2{
+    border:1px solid blue;
+    margin-top: 40px;
+}
+/* 
+Thu hẹp lề thành phần con
+- border
+- display: grid | flex | inline-block | table
+- float: left | right;
+- chuyển thành padding
+ */
+.box{
+    background: green;
+    color: #fff;
+    text-align: center;
+    /* border: .1px solid; */
+    /* position: fixed;/ */
+    /* display: grid; */
+    float: left;
+}
+
+h1{
+    margin: 30px 0;
+    width: 100%;
+}

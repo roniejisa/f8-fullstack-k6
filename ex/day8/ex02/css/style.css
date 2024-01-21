@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+:root {
+	--hover-cl: #eb5731;
+	--color-cl: #494949;
+	--count-cl: #3768f1;
+	--dark-cl: #5a5a5a;
+    --light-cl: #d1d1d1;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+	font-family: "Nunito", sans-serif;
+}
+
+.cart-fixed-right {
+	position: fixed;
+	top: 0;
+	right: 0;
+	max-width: 400px;
+	background: white;
+    height: 100vh;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-fixed-right .head {
+	background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 10px;
+}
+
+.cart-fixed-right .title{
+    color: var(--dark-cl);
+    position: relative;
+}
+
+.cart-fixed-right .title .count{
+    position: absolute;
+    background: var(--count-cl);
+    min-width: 16px;
+    min-height: 16px;
+    top: -5px;
+    right: -15px;
+    color: white;
+    font-size: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-fixed-right .head .close{
+    background: var(--hover-cl);
+    color: white;
+    min-width: 22px;
+    min-height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    border-radius: 50%;
+}
+
+.cart-fixed-right  .list-item .item{
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 10px;
+}
+
+.cart-fixed-right  .list-item .item .image{
+    flex: 0 0 20%;
+    padding: 10px;
+    background: #fbf6ec;
+}
+
+.cart-fixed-right  .list-item .item .image img{
+    max-width: 100%;
+    height: auto;
+}
+
+.cart-fixed-right .list-item .item .remove{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.cart-fixed-right .list-item .item + .item{
+    border-top: 1px solid var(--light-cl);
+}
+
+.cart-fixed-right .list-item .item button.remove{
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--light-cl);
+}
+
+.cart-fixed-right .bottom-cart{
+    padding: 20px;
+}
+
+.cart-fixed-right .bottom-cart .sub-total{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-fixed-right .bottom-cart .sub-total .name{
+    font-weight: bold;
+}
+
+.cart-fixed-right .bottom-cart .sub-total .price{
+    color: var(--hover-cl);
+}
+
+.cart-fixed-right .bottom-cart .taxes_and_shipping{
+    color: var(--light-cl);
+}
+
+.cart-fixed-right .view-cart,
+.cart-fixed-right .add-cart{
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: white;
+    border: 1px solid var(--light-cl);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--light-cl);
+    transition-property: color, border-color, background-color;
+    transition: .4s ease;
+}
+
+.cart-fixed-right .view-cart:hover{
+    color: var(--dark-cl);
+    border-color: var(--dark-cl);
+}
+
+.cart-fixed-right .add-cart:hover{
+    color: var(--count-cl);
+    background-color: white;
+}
+
+.cart-fixed-right .add-cart{
+    background-color: var(--count-cl);
+    color: white;
+    border-color: var(--count-cl);
+}
+
+.cart-fixed-right .shipping-sale{
+    margin-top: 20px;
+}
+
+.cart-fixed-right .shipping-sale .icon{
+    display: inline-block;
+    margin-right: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--count-cl);
+    padding:10px 12px;
+    color: var(--count-cl);
+}
+
+.cart-fixed-right .item .actions{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+}
+.cart-fixed-right .item .body{
+    flex: 1;
+}
+.cart-fixed-right .item .actions .plus-minus{
+    display: flex;
+    border: 1px solid var(--light-cl);
+    border-radius: 20px;
+    color: var(--light-cl);
+}
+
+.cart-fixed-right .item .actions .plus-minus input{
+    max-width: 30px;
+    padding: 0 5px;
+    border: none;
+    text-align: center;
+    color: var(--light-cl);
+}
+
+.cart-fixed-right .item .actions .plus-minus button{
+    border: none;
+    padding: 0 10px;
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--light-cl);
+}

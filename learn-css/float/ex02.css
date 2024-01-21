@@ -1,0 +1,18 @@
+
+.box{
+    border: 1px solid red;
+    padding: 20px;
+    
+}
+.box img{
+    position: relative;
+    border-radius: 50%;
+    margin: 30px;
+    float: left;
+    shape-outside: circle(50%);
+}
+.box::after{
+    content: '';
+    display: block;
+    clear: both;
+}

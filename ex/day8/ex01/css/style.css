@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+:root {
+	--color-cl: #3c4655;
+	--color-hover-cl: #992727;
+	--color-special-cl: #7e838e;
+}
+
+* {
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Manrope", sans-serif;
+	background-color: #fafafd;
+}
+
+header {
+	padding: 0 55px;
+    font-weight: 600;
+}
+
+header .layout {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	align-items: center;
+	position: relative;
+}
+
+header .logo {
+	max-width: 150px;
+	width: 100%;
+}
+
+header .logo img {
+	max-width: 100%;
+	height: auto;
+}
+
+header nav.menu {
+	flex: 1;
+	text-align: left;
+	display: flex;
+	justify-content: end;
+}
+
+header nav.menu > ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+header nav.menu > ul > li > a {
+	display: block;
+	padding: 30px !important;
+	text-decoration: none;
+	color: var(--color-cl);
+}
+
+header nav.menu > ul > li:last-child a {
+	color: var(--color-special-cl);
+}
+
+header nav.menu > ul > li > a i {
+	font-size: 12px;
+}
+
+header nav.menu > ul > li .mega-menu {
+    position: absolute;
+	left: 0;
+	top: calc(80px);
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: white;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition-property: opacity, visibility, pointer-events;
+    transition: .4s ease;
+}
+
+header nav.menu > ul > li .mega-menu:hover,
+header nav.menu > ul > li:hover .mega-menu {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
+}
+
+header nav.menu > ul > li .mega-menu .left-menu {
+	flex: 0 0 30%;
+}
+
+header nav.menu > ul > li .mega-menu .right-menu {
+	flex: 0 0 70%;
+}
+
+header nav.menu > ul > li .mega-menu .right-menu .list-menu-right,
+header nav.menu > ul > li .mega-menu .left-menu .list-menu-left {
+	display: flex;
+}
+header nav.menu > ul > li .mega-menu .left-menu .list-menu-left > * {
+	flex: 0 0 50%;
+}
+
+header nav.menu > ul > li .mega-menu .right-menu .list-menu-right > * {
+	flex: 0 0 calc(100% / 3);
+}
+
+header nav.menu > ul > li .mega-menu .left-menu h3,
+header nav.menu > ul > li .mega-menu .right-menu h3 {
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	color: var(--color-cl);
+}
+
+header nav.menu ul li a {
+	color: var(--color-cl);
+	text-decoration: none;
+	display: block;
+	padding: 8px 0;
+	transition: color 0.4s ease;
+}
+
+header nav.menu ul {
+	list-style: none;
+}
+
+header nav.menu > ul > li .mega-menu .menu-sub + .menu-sub {
+	margin-top: 20px;
+}
+
+header nav.menu ul li a:hover {
+	color: var(--color-hover-cl);
+}
+
+header .actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+header .actions button i {
+	line-height: 1;
+}
+header .actions button {
+	color: var(--color-cl);
+	background: none;
+	border: none;
+	min-width: 24px;
+	height: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+    transition-property: color, border-color;
+    transition: .4s ease;
+}
+
+
+
+header .actions button:first-child {
+	border: 1px solid var(--color-cl);
+	border-radius: 50%;
+}
+
+header .actions button:hover,
+header .actions button:first-child:hover{
+    color: var(--color-hover-cl);
+    border-color: var(--color-hover-cl);
+}
