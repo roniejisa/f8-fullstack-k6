@@ -18,14 +18,14 @@ body {
 	justify-content: space-between;
 }
 
-.line form .row > *{
+.line form .row > * {
 	flex: 0 0 calc(100% / 2 - 10px);
 }
 
 .line form label {
 	width: 100%;
 	position: relative;
-    display: block;
+	display: block;
 }
 
 .line form select,
@@ -40,31 +40,44 @@ body {
 .line form span {
 	position: absolute;
 	top: 20px;
-	color: red;
+	color: #b6bac2;
 	left: 20px;
-    transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.line form input:focus,
+.line form textarea:focus {
+	border: 1px solid #babec6;
 }
 
 .line form input:focus + span,
-.line form input:not(:placeholder-shown )+ span,
+.line form input:not(:placeholder-shown) + span,
 .line form textarea:not(:placeholder-shown) + span,
-.line form textarea:focus + span{
-    color: green;
-    top: 5px;
-    font-size: 10px;
+.line form textarea:focus + span {
+	top: 5px;
+	font-size: 10px;
 }
 
-.line form button{
-    position: relative;
-    left: 50%;
-    translate:-50% 0;
-    background: #4575cd;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 50px;
+.line form button {
+	position: relative;
+	left: 50%;
+	translate: -50% 0;
+	background: #4575cd;
+	border: none;
+	padding: 10px 20px;
+	color: white;
+	border-radius: 25px;
+	margin-top: 20px;
+	cursor: pointer;
 }
 
-.line form label:has(textarea){
-    margin-top: 20px;
+.line form label:has(textarea) {
+	margin-top: 20px;
+}
+.line h3 {
+	font-size: 32px;
+}
+.line p,
+.line h3 {
+	text-align: center;
+	margin-bottom: 20px;
 }
