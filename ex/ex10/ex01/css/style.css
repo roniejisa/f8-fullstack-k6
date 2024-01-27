@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root {
+    --color-main: #05a8f5;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    background: var(--color-main);
+}
+
+header {
+    filter: drop-shadow(0px 0px 1px black) width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+}
+
+nav {
+    background: white;
+    clip-path: ellipse(90px 90px at 0% 0%);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transition-property: clip-path, opacity;
+    transition: .4s ease;
+    box-shadow: 5px 5px;
+    z-index: 9999;
+}
+
+menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    opacity: 0;
+    visibility: visible;
+    pointer-events: all;
+    transition-property: opacity, visibility, pointer-events;
+    transition: .4s ease;
+    margin-top: 30px;
+}
+
+menu li a{
+    display: inline-block;
+    padding: 10px 80px 10px 50px;
+    text-decoration: none;
+    transition-property: color, background, font-weight;
+    transition: .3s ease;
+    color: var(--color-main);
+}
+
+menu li a:hover{
+    color: #111111;
+    font-weight: 600;
+    background: #33333320;
+}
+/* bar icon css */
+label:has(.burger) {
+    position: relative;
+    display: block;
+    top: 20px;
+    left: 20px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.burger {
+    height: 3px;
+    width: 30px;
+    background: var(--color-main);
+    position: absolute;
+    display: block;
+    top: 20px;
+    left: 0;
+    color: var(--color-main);
+    transition: transform .2s .1s ease;
+    border-radius: 5px;
+}
+
+.burger::after {
+    top: 10px;
+}
+
+.burger::before {
+    bottom: 10px;
+}
+
+.burger::after,
+.burger::before {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: currentColor;
+    transition: transform .3s ease;
+}
+
+/* End bar icon */
+header:has(input[id="openMenu"]:checked) .burger{
+    transform: rotate(180deg);
+}
+
+header:has(input[id="openMenu"]:checked) .burger::before {
+    transform: rotate(31deg) translateX(11px) translateY(-1px);
+    width: 65% !important;
+}
+header:has(input[id="openMenu"]:checked) .burger::after {
+    transform: rotate(-33deg) translateX(11px) translateY(2px);
+    width: 65% !important;
+}
+header:has(input[id="openMenu"]:checked) {
+    z-index: 9999;
+}
+
+nav:has(input[id="openMenu"]:checked) {
+    clip-path: ellipse(calc(150%) calc(300%) at 0% 0%);
+}
+
+nav:has(input[id="openMenu"]:checked) .burger {}
+
+nav:has(input[id="openMenu"]:checked) menu {
+    opacity: 1;
+}
+
+/* input checked */
+.content {
+    display: flex;
+    align-items: end;
+    height: 100vh;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 80px;
+    gap: 20px;
+    position: relative;
+}
+
+.content h1 {
+    font-size: 72px;
+    position: relative;
+    z-index: 2;
+}
+
+.content p {
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.content b {
+    font-size: 30px;
+    letter-spacing: 10px;
+    font-weight: 300;
+    position: relative;
+    z-index: 2;
+}

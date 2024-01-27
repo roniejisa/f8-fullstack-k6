@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 920px;
+    gap: 50px;
+}
+
+.row .item{
+    flex-basis: calc(100% / 5 - 50px) ;
+    flex-shrink: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row .item img{
+    width: auto;
+    object-fit: cover;
+    max-height: 50px;
+}

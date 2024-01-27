@@ -1,0 +1,85 @@
+/* 
+Flex: Flexible Box Module
+- Kỹ thuật chia lay out linh hoạt
+- Trục: main, cos
+- Vị trí: start ,center, end
+
+2 thành phần: flex container, flex item
+
+1. Các thuộc tính trong nhóm flex container
+1.1. display:flex | inline-flex
+-- Kích hoạt flex
+
+1.2 flex-direction: Chọn hướng cho trục chính
+-- row -- Mặc định
+-- row-reverse
+-- column
+-- column-reverse 
+
+1.3. justify-content: Căn chỉnh các item theo hướng song song với trục chính
+- flex-start
+- flex-end
+- center
+- space-around
+- space-between
+- space-evenly
+*/
+
+
+/*2. Các thuộ tính trong nhóm flex item */
+
+/* 
+2.1 flex-grow: Dãn các item dẻ laapss đầy các chỗ trống của flex container
+2.2 flex-basic: 50px
+Lưu ý: flex-basic bị chẳn bởi min-width, max-width, min-height, max-height
+
+
+flex-shrink: Tự động co lại của các item,
+flex: grow shink basic
+2.5 Căn chỉnh 1 item theo trục cross
+ */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.row{
+    width: 700px;
+    height: 700px;
+    margin: 50px auto;
+    border: 1px solid red;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    /* flex-wrap: wrap; */
+    align-content: stretch;
+    gap: 10px 20px;
+    row-gap: 30px;
+}
+
+.item{
+    width: 120px;
+    background: green;
+    color: #fff;
+    border:1px solid red;
+    padding: 50px 0;
+    /* flex-grow: 1; */
+    /* flex-basis: 50px; */
+    /* max-width: 50px; */
+    /* min-width: 100px;/ */
+    /* flex-basis: 200px; */
+    /* flex-shrink: 2; */
+    /* flex-grow: 1; */
+}
+
+.item:nth-child(2){
+    align-self: center;
+}
+
+.item:nth-child(4){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

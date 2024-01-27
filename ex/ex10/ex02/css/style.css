@@ -1,0 +1,77 @@
+:root{
+    --cl-main:#3298db;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.container{
+    max-width: 1280px;
+    margin: 30px auto;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tab ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.tab ul li{
+    flex: 1;
+    padding: 5px;
+}
+
+.tab ul li label{
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    transition: background-color .4s ease, color .4s ease;
+}
+
+.tab .content{
+    position: relative;
+}
+.tab .des{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .4s .1s linear, transform 1s .3s linear;
+    transform-style: preserve-3d;
+    transform: rotateX(-60deg) perspective(1200px);
+    background: white;
+    padding: 20px;
+    transform-origin: top center;
+    box-shadow: 0 0 10px 1px #ebebeb;
+}
+
+.tab:has(input[type="radio"]:checked) input[type="radio"]:checked + .des{
+    opacity: 1;
+    transform:perspective(500px);
+}
+
+.tab:has(input[id="tab-1"][type="radio"]:checked) label[for="tab-1"],
+.tab:has(input[id="tab-2"][type="radio"]:checked) label[for="tab-2"],
+.tab:has(input[id="tab-3"][type="radio"]:checked) label[for="tab-3"],
+.tab:has(input[id="tab-4"][type="radio"]:checked) label[for="tab-4"],
+.tab:has(input[id="tab-5"][type="radio"]:checked) label[for="tab-5"]{
+    background-color: var(--cl-main);
+    color: white;
+}
+.tab{
+    box-shadow: 0 0 10px #ebebeb;
+}
+.tab li + li:not(:last-child){
+    border-right: 1px solid #ebebeb;
+}
+
+.tab ul{
+    border-bottom: 1px solid #ebebeb;
+}
