@@ -561,3 +561,7 @@ footer .layout-item {
     grid-template-columns: 1fr;
     grid-gap: 50px;
 }
+
+.container{
+    max-width: 88%;
+}
