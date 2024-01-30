@@ -223,6 +223,7 @@ header .action .add-cart .count-item {
     justify-content: center;
     width: fit-content;
     gap: 12px;
+    font-weight: bold;
     color: var(--bg3);
 }
 
@@ -430,7 +431,7 @@ header .action .add-cart .count-item {
     padding: 80px 0;
 }
 
-.download-app .item:has(img) {
+.download-app .item:first-child:has(img) {
     text-align: center;
 }
 
@@ -541,6 +542,7 @@ footer .copyright .link-footer a:hover {
 .text-center .content {
     align-items: center;
 }
+
 
 .grid-2 {
     grid-gap: 40px;

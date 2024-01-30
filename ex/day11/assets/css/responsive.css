@@ -203,6 +203,14 @@
     footer .introduce {
         padding-right: 30px;
     }
+
+    .content {
+        top: 25%;
+    }
+
+    .order-now .content{
+        top: 0;
+    }
 }
 
 @media(min-width: 1024px) {
