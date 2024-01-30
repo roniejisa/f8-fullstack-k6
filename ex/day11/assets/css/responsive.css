@@ -181,19 +181,12 @@
     }
 
     footer .copyright {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 50px;
-        padding: 20px 0;
+        flex-direction: row;
     }
 
 
     footer ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        list-style: none;
+        align-items: flex-start;
     }
 
     footer .heading {
