@@ -18,6 +18,10 @@
 }
 
 @media(min-width: 640px) {
+    .order-now .title{
+        font-size: 50px;
+    }
+    
     .container {
         max-width: 580px;
     }
