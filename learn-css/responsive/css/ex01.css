@@ -1,0 +1,35 @@
+.box {
+    border: 1px solid red;
+    padding: 20px;
+}
+
+@media screen and (min-width: 576px) {
+    .box {
+        border: 1px solid lightcoral;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .box {
+        border: 1px solid purple;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .box {
+        border: 1px solid blue;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .box {
+        border: 1px solid orange;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .box {
+        border: 1px solid green;
+    }
+
+}

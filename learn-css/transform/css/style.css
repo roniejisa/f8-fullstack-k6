@@ -1,0 +1,36 @@
+/* Thuộc tính transform: Thay đổi hình dạng ban đầu của element 
+1. Xoay
+2. Nghiêng
+3. Phóng to/ Thu nhỏ
+4. Di chuyển        
+*/
+.box {
+    width: 400px;
+    height: 400px;
+    border: 1px solid red;
+
+
+}
+
+.element {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: green;
+    transition: all .4s;
+    /* margin: 20px;     */
+}
+
+.box:hover .element {
+    /* transform: rotateX(-120deg) rotateY(120deg); */
+    /* rotate: 120deg; Trục Z */
+    /* transform: scale(1.5, 0.5); */
+    /* scale: 1.5 1.2; */
+    /* transform: skew(0, -30deg); */
+    /* translate: 0 100px; */
+    /* transform: translate(-50%,-50%) */
+    /* transform: translate(-50px, 50px) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
