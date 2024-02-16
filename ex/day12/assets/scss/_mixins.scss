@@ -1,0 +1,55 @@
+@mixin flexAlign($align-item:'center'){
+    display: flex;
+    align-items: #{$align-item};
+}
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin size($width:100px, $height:$width){
+    width: $width;
+    height: $height;
+}
+
+@mixin rounded($tl: 50%, $tr:$tl, $bl:$tl, $br:$tl) {
+    border-top-left-radius: $tl;
+    border-top-right-radius: $tr;
+    border-bottom-left-radius: $bl;
+    border-bottom-right-radius: $br;
+}
+
+@mixin gridContainer($selectContainer: '.container', $selectorItem: '.item', $columns : 3, $spacing : 15px){
+    #{$selectContainer}{
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: $spacing;
+        margin-left: calc(-1 * $spacing);
+        >#{$selectorItem}{
+            width: calc(100% / $columns - $spacing);
+            margin-left: $spacing;
+        }
+    }
+}
+
+@mixin screen($break-point){
+    @if $break-point == mobile{
+        @media (max-width: 575px){
+            @content;
+        }
+    }
+
+    @if $break-point == tablet{
+        @media (min-width: 575px) and (max-width:991px){
+            @content;
+        }
+    }
+
+    @if $break-point == desktop{
+        @media (min-width: 992px){
+            @content;
+        }
+    }
+}

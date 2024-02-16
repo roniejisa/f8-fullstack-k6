@@ -1,0 +1,4 @@
+@function pxToSize($width, $type: rem ){
+    $remValue: calc($width / 16) + #{$type};
+    @return $remValue;
+}

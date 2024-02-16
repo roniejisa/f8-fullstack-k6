@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.menu {
+    position: fixed;
+    color: white;
+    background: black;
+    width: 300px;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform .4s;
+    z-index: 1;
+}
+
+body:has([id="open-menu"]:checked) .menu {
+    transform: translateX(0);
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    transition-property: background-color, opacity;
+    transition: .4s;
+}
+
+header {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header .actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container {
+    padding: 0 30px;
+}
+
+header .actions a {
+    padding: 10px 30px;
+    color: white;
+    background: #75b7eb;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+header img {
+    width: 150px;
+}
+
+.bar i {
+    font-size: 30px;
+}
+
+.overlay-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.overlay {
+    position: absolute;
+    /* right: -100%; */
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .25);
+    transform-origin: opacity, right;
+    transition: .4s;
+}
+
+body:has([id="open-menu"]:checked) .overlay {
+    /* right: -300px; */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+label[for="open-menu"] {
+    cursor: pointer;
+}
+
+li a:hover,
+li a:focus {
+    color: #2c99ec;
+    background-color: #75b7eb10;
+}
+
+@media screen and (min-width:992px) {
+    .menu {
+        position: relative;
+        background: transparent;
+        flex: 1;
+        height: initial;
+        transform: translateX(0);
+        margin-right: 10px;
+    }
+
+    .menu ul {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .menu li a {
+        color: black;
+        border-radius: 25px;
+    }
+
+    header .actions {
+        flex: initial;
+    }
+
+    .bar {
+        display: none
+    }
+    
+    body:has([id="open-menu"]:checked) .overlay,
+    .overlay {
+        visibility: hidden;
+    }
+    li a:focus{
+        background: initial;
+        color: initial;    
+    }
+
+    li a:hover{
+        color: #2c99ec;
+        background-color: transparent;
+    }
+}
