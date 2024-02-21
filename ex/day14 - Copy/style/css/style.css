@@ -1,0 +1,218 @@
+@import url(./grid.css);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+@font-face {
+    font-family: SofiaSans;
+    src: url(../../assets/fonts/SofiaSans/SofiaSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: SofiaSans;
+    src: url(../../assets/fonts/SofiaSans/SofiaSans-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: SofiaSans;
+    src: url(../../assets/fonts/SofiaSans/SofiaSans-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: SofiaSans;
+    src: url(../../assets/fonts/SofiaSans/SofiaSans-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: SofiaSans;
+    src: url(../../assets/fonts/SofiaSans/SofiaSans-Light.ttf);
+    font-weight: 300;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: SofiaSans, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper__inner {
+    max-width: 90em;
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.wrapper__inner aside {
+    flex: 0 0 16.5rem;
+    display: inline-flex;
+    padding: 3.375rem 2.75213rem 3.88906rem 3.375rem;
+    flex-direction: column;
+}
+
+.wrapper__inner aside .explode__title {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-top: 3.75rem;
+    margin-bottom: 3rem;
+}
+
+.wrapper__inner aside .explode ul li {
+    list-style: none;
+}
+
+.wrapper__inner aside .explode ul li a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #000;
+}
+
+.wrapper__inner aside .explode ul li a img {
+    margin-right: 0.75rem;
+}
+
+.wrapper__inner aside .explode ul li:not(:last-child) a {
+    margin-bottom: 1.875rem;
+}
+
+.wrapper__inner aside .helper {
+    margin-top: 100%;
+    position: sticky;
+    bottom: 3.125rem;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper__inner aside .helper img {
+    margin-right: 0.9375rem;
+}
+
+.wrapper__inner main {
+    padding-top: 3.375rem;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-right: 3.375rem;
+    row-gap: 5rem;
+}
+
+.wrapper__inner main .header-inner {
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper__inner main .header .actions {
+    margin-left: 3.125rem;
+    display: flex;
+    align-items: center;
+    column-gap: 1.625rem;
+}
+
+.gallery .img {
+    line-height: 0;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .img:after {
+    content: '';
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(120deg, #ffffff0a, #ffffff0a, #ffffff3d, #ffffff0a, #ffffff0a);
+    transform: translateX(-100%);
+    transition: transform .4s ease-in-out;
+}
+
+.gallery .img:hover:after {
+    transform: translateX(100%);
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.9375rem;
+}
+
+.search-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    font-size: 1.125rem;
+    flex: 1;
+    border: none;
+    outline: none;
+    margin-right: 0.9375rem;
+    margin-left: 0.9375rem;
+}
+
+.search-form input::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+}
+
+.navbar .nav-link {
+    font-size: 1.125rem;
+    color: #000;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.navbar .nav-link::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    left: 0px;
+    right: 100%;
+    bottom: 0;
+    transition: right 0.4s linear;
+    background: #000;
+}
+
+.navbar .nav-link.active::before,
+.navbar .nav-link:hover::before {
+    right: 0px;
+}
+
+/*# sourceMappingURL=style.css.map */
