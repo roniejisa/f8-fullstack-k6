@@ -1,0 +1,42 @@
+/* Biến CSS
+- Biến toàn cục (Global Variable)
++ Dùng mọi nơi sau phần khai báo
++ Khai báo ở selector :root
+- Biến cục bộ (Local Variable)
++ Dùng ở trong selector cụ thể hoặc các selector con
++ Khai báo ở selector mong muốn sử dụng
+
+ */
+@import url(./variable.css);
+
+h1{
+    color: var(--primary-color);
+}
+
+h2{
+    color: var(--secondary-color);
+}
+
+p {
+    color: var(--text-color);
+}
+
+h3 {
+    color: var(--secondary-color);
+}
+
+.box{
+    --box-color:blue;
+    --border-color: blueviolet;
+    border: 3px solid var(--border-color);
+    transition:border-color .4s
+}
+
+.box:hover{
+    --border-color: red;
+    --box-color: green;
+}
+
+.box .text{
+    color: var(--box-color);
+}

@@ -1,0 +1,28 @@
+.box {
+    height: 200px;
+    width: 300px;
+}
+
+[skeleton] {
+    background-color: #eaeaea;
+    position: relative;
+    overflow: hidden;
+}
+
+[skeleton]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+    animation: skeleton 2s linear infinite;
+}
+
+@keyframes skeleton {
+    from {
+        translate: -100%;
+    }
+
+    to {
+        translate: 100%;
+    }
+}

@@ -11,15 +11,10 @@ Qui ước:
     outline: 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -1rem;
+    margin: 0 -10px;
 }
 
 .col-1 {
@@ -84,56 +79,8 @@ Qui ước:
     max-width: 100%;
 }
 
-.col-offset-1 {
-    margin-left: calc(100% / 12 * 1);
-}
-
-.col-offset-2 {
-    margin-left: calc(100% / 12 * 2);
-}
-
-.col-offset-3 {
-    margin-left: calc(100% / 12 * 3);
-}
-
-.col-offset-4 {
-    margin-left: calc(100% / 12 * 4);
-}
-
-.col-offset-5 {
-    margin-left: calc(100% / 12 * 5);
-}
-
-.col-offset-6 {
-    margin-left: calc(100% / 12 * 6);
-}
-
-.col-offset-7 {
-    margin-left: calc(100% / 12 * 7);
-}
-
-.col-offset-8 {
-    margin-left: calc(100% / 12 * 8);
-}
-
-.col-offset-9 {
-    margin-left: calc(100% / 12 * 9);
-}
-
-.col-offset-10 {
-    margin-left: calc(100% / 12 * 10);
-}
-
-.col-offset-11 {
-    margin-left: calc(100% / 12 * 11);
-}
-
-.col-offset-12 {
-    margin-left: calc(100%);
-}
-
 [class^="col-"] {
-    padding: 0 1rem;
+    padding: 0 10px;
 }
 
 @media screen and (min-width:575.98px) {
@@ -197,55 +144,6 @@ Qui ước:
     .col-sm-12 {
         flex-basis: 100%;
         max-width: 100%;
-    }
-
-
-    .col-sm-offset-1 {
-        margin-left: calc(100% / 12 * 1);
-    }
-
-    .col-sm-offset-2 {
-        margin-left: calc(100% / 12 * 2);
-    }
-
-    .col-sm-offset-3 {
-        margin-left: calc(100% / 12 * 3);
-    }
-
-    .col-sm-offset-4 {
-        margin-left: calc(100% / 12 * 4);
-    }
-
-    .col-sm-offset-5 {
-        margin-left: calc(100% / 12 * 5);
-    }
-
-    .col-sm-offset-6 {
-        margin-left: calc(100% / 12 * 6);
-    }
-
-    .col-sm-offset-7 {
-        margin-left: calc(100% / 12 * 7);
-    }
-
-    .col-sm-offset-8 {
-        margin-left: calc(100% / 12 * 8);
-    }
-
-    .col-sm-offset-9 {
-        margin-left: calc(100% / 12 * 9);
-    }
-
-    .col-sm-offset-10 {
-        margin-left: calc(100% / 12 * 10);
-    }
-
-    .col-sm-offset-11 {
-        margin-left: calc(100% / 12 * 11);
-    }
-
-    .col-sm-offset-12 {
-        margin-left: calc(100%);
     }
 }
 
@@ -311,54 +209,6 @@ Qui ước:
         flex-basis: 100%;
         max-width: 100%;
     }
-
-    .col-md-offset-1 {
-        margin-left: calc(100% / 12 * 1);
-    }
-
-    .col-md-offset-2 {
-        margin-left: calc(100% / 12 * 2);
-    }
-
-    .col-md-offset-3 {
-        margin-left: calc(100% / 12 * 3);
-    }
-
-    .col-md-offset-4 {
-        margin-left: calc(100% / 12 * 4);
-    }
-
-    .col-md-offset-5 {
-        margin-left: calc(100% / 12 * 5);
-    }
-
-    .col-md-offset-6 {
-        margin-left: calc(100% / 12 * 6);
-    }
-
-    .col-md-offset-7 {
-        margin-left: calc(100% / 12 * 7);
-    }
-
-    .col-md-offset-8 {
-        margin-left: calc(100% / 12 * 8);
-    }
-
-    .col-md-offset-9 {
-        margin-left: calc(100% / 12 * 9);
-    }
-
-    .col-md-offset-10 {
-        margin-left: calc(100% / 12 * 10);
-    }
-
-    .col-md-offset-11 {
-        margin-left: calc(100% / 12 * 11);
-    }
-
-    .col-md-offset-12 {
-        margin-left: calc(100%);
-    }
 }
 
 @media screen and (min-width:991.98px) {
@@ -422,54 +272,6 @@ Qui ước:
     .col-lg-12 {
         flex-basis: 100%;
         max-width: 100%;
-    }
-
-    .col-lg-offset-1 {
-        margin-left: calc(100% / 12 * 1);
-    }
-
-    .col-lg-offset-2 {
-        margin-left: calc(100% / 12 * 2);
-    }
-
-    .col-lg-offset-3 {
-        margin-left: calc(100% / 12 * 3);
-    }
-
-    .col-lg-offset-4 {
-        margin-left: calc(100% / 12 * 4);
-    }
-
-    .col-lg-offset-5 {
-        margin-left: calc(100% / 12 * 5);
-    }
-
-    .col-lg-offset-6 {
-        margin-left: calc(100% / 12 * 6);
-    }
-
-    .col-lg-offset-7 {
-        margin-left: calc(100% / 12 * 7);
-    }
-
-    .col-lg-offset-8 {
-        margin-left: calc(100% / 12 * 8);
-    }
-
-    .col-lg-offset-9 {
-        margin-left: calc(100% / 12 * 9);
-    }
-
-    .col-lg-offset-10 {
-        margin-left: calc(100% / 12 * 10);
-    }
-
-    .col-lg-offset-11 {
-        margin-left: calc(100% / 12 * 11);
-    }
-
-    .col-lg-offset-12 {
-        margin-left: calc(100%);
     }
 }
 
@@ -535,54 +337,6 @@ Qui ước:
         flex-basis: 100%;
         max-width: 100%;
     }
-
-    .col-xl-offset-1 {
-        margin-left: calc(100% / 12 * 1);
-    }
-
-    .col-xl-offset-2 {
-        margin-left: calc(100% / 12 * 2);
-    }
-
-    .col-xl-offset-3 {
-        margin-left: calc(100% / 12 * 3);
-    }
-
-    .col-xl-offset-4 {
-        margin-left: calc(100% / 12 * 4);
-    }
-
-    .col-xl-offset-5 {
-        margin-left: calc(100% / 12 * 5);
-    }
-
-    .col-xl-offset-6 {
-        margin-left: calc(100% / 12 * 6);
-    }
-
-    .col-xl-offset-7 {
-        margin-left: calc(100% / 12 * 7);
-    }
-
-    .col-xl-offset-8 {
-        margin-left: calc(100% / 12 * 8);
-    }
-
-    .col-xl-offset-9 {
-        margin-left: calc(100% / 12 * 9);
-    }
-
-    .col-xl-offset-10 {
-        margin-left: calc(100% / 12 * 10);
-    }
-
-    .col-xl-offset-11 {
-        margin-left: calc(100% / 12 * 11);
-    }
-
-    .col-xl-offset-12 {
-        margin-left: calc(100%);
-    }
 }
 
 @media screen and (min-width:1399.98px) {
@@ -646,53 +400,5 @@ Qui ước:
     .col-xxl-12 {
         flex-basis: 100%;
         max-width: 100%;
-    }
-
-    .col-xxl-offset-1 {
-        margin-left: calc(100% / 12 * 1);
-    }
-
-    .col-xxl-offset-2 {
-        margin-left: calc(100% / 12 * 2);
-    }
-
-    .col-xxl-offset-3 {
-        margin-left: calc(100% / 12 * 3);
-    }
-
-    .col-xxl-offset-4 {
-        margin-left: calc(100% / 12 * 4);
-    }
-
-    .col-xxl-offset-5 {
-        margin-left: calc(100% / 12 * 5);
-    }
-
-    .col-xxl-offset-6 {
-        margin-left: calc(100% / 12 * 6);
-    }
-
-    .col-xxl-offset-7 {
-        margin-left: calc(100% / 12 * 7);
-    }
-
-    .col-xxl-offset-8 {
-        margin-left: calc(100% / 12 * 8);
-    }
-
-    .col-xxl-offset-9 {
-        margin-left: calc(100% / 12 * 9);
-    }
-
-    .col-xxl-offset-10 {
-        margin-left: calc(100% / 12 * 10);
-    }
-
-    .col-xxl-offset-11 {
-        margin-left: calc(100% / 12 * 11);
-    }
-
-    .col-xxl-offset-12 {
-        margin-left: calc(100%);
     }
 }
