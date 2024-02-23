@@ -17,15 +17,16 @@
     }
 
     &:has(input[id="toggleAside"][type="checkbox"]:checked) {
-        .overlay-showMenu {
+        .overlay {
             position: fixed;
             top: 0;
             right: 0;
             background: #0000009e;
-            width: 100%;
+            width: calc(100% - 75px);
             height: 100vh;
             cursor: pointer;
             z-index: 9999;
+            display: initial;
         }
     }
 }
@@ -162,7 +163,7 @@
     nav .actions{
         margin-top: auto;
     }
-    
+
     .hot-bird .items .item {
         flex-basis: calc(100% / 3);
     }
@@ -225,7 +226,11 @@
 }
 
 @media screen and (min-width: 1400px) {
-
+    &:has(input[id="toggleAside"][type="checkbox"]:checked) {
+        .overlay{
+            display: none;
+        }
+    }
 
     aside .revenue .table-revenue .times {
         gap: 24px;
