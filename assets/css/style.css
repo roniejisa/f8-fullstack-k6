@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+li a {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    color: black;
+    transition: color .4s ease;
+}
+
+li a:hover {
+    color: red;
+}

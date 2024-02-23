@@ -9,16 +9,6 @@
   aside .infomation .ui .close {
     display: none;
   }
-  body:has(input[type=checkbox]:checked) .overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6196078431);
-    width: 75px;
-    height: 100vh;
-    cursor: pointer;
-    z-index: 9999;
-  }
   aside {
     width: calc(100vw - 75px);
   }
@@ -126,6 +116,10 @@
     align-items: center;
     flex-direction: column;
     min-height: calc(100vh - 90px);
+    position: initial;
+    visibility: initial;
+    opacity: initial;
+    transform: initial;
   }
   .hot-bird .items .item {
     flex-basis: 33.3333333333%;
@@ -143,6 +137,12 @@
   }
   .live .items [class^=col] + [class^=col] {
     margin-top: initial;
+  }
+  .showMenu {
+    display: none;
+  }
+  body:has(input[id=showMenu][type=checkbox]:checked) .overlay-showMenu {
+    display: none;
   }
 }
 @media screen and (min-width: 1200px) {

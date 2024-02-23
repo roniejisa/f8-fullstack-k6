@@ -12,21 +12,6 @@
         display: none;
     }
 
-    body {
-        &:has(input[type="checkbox"]:checked) {
-            .overlay {
-                position: fixed;
-                top: 0;
-                right: 0;
-                background: #0000009e;
-                width: 75px;
-                height: 100vh;
-                cursor: pointer;
-                z-index: 9999;
-            }
-        }
-    }
-
     aside {
         width: calc(100vw - 75px);
     }
@@ -155,7 +140,10 @@
         align-items: center;
         flex-direction: column;
         min-height: calc(100vh - 45px * 2);
-
+        position: initial;
+        visibility: initial;
+        opacity: initial;
+        transform: initial;
     }
 
     .hot-bird .items .item {
@@ -178,6 +166,18 @@
 
             [class^="col"]+[class^="col"] {
                 margin-top: initial;
+            }
+        }
+    }
+
+    .showMenu {
+        display: none;
+    }
+
+    body {
+        &:has(input[id="showMenu"][type="checkbox"]:checked) {
+            .overlay-showMenu {
+                display: none;
             }
         }
     }
