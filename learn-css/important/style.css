@@ -1,0 +1,27 @@
+/* 
+Độ ưu tiên:
+
+1. !important
+2. inline
+3. id
+4. class
+5. tag
+
+--> Phạm vi tác động càng rộng, độ ưu tiên càng thấp
+ */
+
+body #title{
+    color: blue;
+}
+
+#title{
+    color: red;
+}
+
+.title{
+    color: green;
+}
+
+h1{
+    color: coral;
+}

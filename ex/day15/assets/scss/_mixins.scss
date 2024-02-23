@@ -1,0 +1,11 @@
+@mixin hoverAnchor {
+    transition-property: fill, color;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        color: #d4ff00;
+        path{
+            fill:#d4ff00 !important;
+        }
+    }
+}

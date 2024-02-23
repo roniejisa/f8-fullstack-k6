@@ -1,0 +1,175 @@
+@media screen and (min-width: 576px) {
+  .hot-bird .items .item {
+    flex-basis: 50%;
+  }
+  aside .infomation .analytics .item .count {
+    padding: 12px 19px;
+    width: 68px;
+  }
+  aside .revenue .table-revenue .times {
+    gap: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .btn-connect-wallet {
+    color: white;
+    border-radius: 12px;
+    background: #161A43;
+    box-shadow: 0px 13px 17px 0px rgba(140, 213, 105, 0.2);
+    margin-right: 21px;
+    position: relative;
+    cursor: pointer;
+    display: initial;
+    background-image: linear-gradient(to right, #00A5FF, #33b6fc, #5fc5fc, #d4ff00);
+    padding: 2px;
+    border: none;
+  }
+  header .btn-connect-wallet:hover {
+    animation: backgroundSizeRun 1s infinite;
+  }
+  header .btn-connect-wallet span {
+    position: relative;
+    z-index: 1;
+    background: #161A43;
+    padding: 16px 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: var(--Greys-Blue-Grey-300, #F9FAFB);
+    font-family: Poppins;
+    white-space: nowrap;
+  }
+  header form {
+    margin-right: 45px;
+    display: flex;
+    padding: 16px 20px;
+  }
+  header .coin {
+    padding: 16px;
+  }
+  header .notification {
+    margin-right: 16px;
+  }
+  header .create {
+    color: white;
+    padding: 16px 20px;
+    border: 2px solid #202554;
+    background: linear-gradient(162deg, #161A43 22.61%, #161A43 118.29%);
+    border-radius: 16px;
+    margin-right: 16px;
+    cursor: pointer;
+    color: #FFF;
+    font-family: var(--font-family-1);
+  }
+  header .username {
+    margin-left: 20px;
+  }
+  header .username .info {
+    margin-left: 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+    white-space: nowrap;
+    padding: 3px;
+    flex: 1;
+  }
+  header .username .info .name {
+    color: #E3E4E8;
+    font-family: Quicksand;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  header .username .info .user {
+    color: #92C5FD;
+    font-size: 14px;
+  }
+  header .username .down {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    display: initial;
+  }
+  header .username .down img {
+    height: 24px;
+  }
+  main .main .live-header h2 {
+    font-size: 31px;
+  }
+}
+@media screen and (min-width: 992px) {
+  main {
+    max-width: calc(100% - 72px - 32px);
+  }
+  body {
+    padding: 45px 32px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 90px);
+  }
+  .hot-bird .items .item {
+    flex-basis: 33.3333333333%;
+  }
+  .live .items .item .content {
+    position: absolute;
+    margin-top: initial;
+    margin-bottom: initial;
+  }
+  .live .items {
+    padding: 0 38px;
+  }
+  .live .items .row {
+    margin: 0 -38px;
+  }
+  .live .items [class^=col] + [class^=col] {
+    margin-top: initial;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .hot-bird .items {
+    margin: 0 -40px;
+  }
+  .hot-bird .container {
+    padding: 0 20px;
+  }
+  .hot-bird .items .item {
+    padding: 0 20px;
+  }
+  .live .items {
+    padding: 0 19px;
+  }
+}
+@media screen and (min-width: 1401px) {
+  main {
+    max-width: 60%;
+  }
+  .live .items {
+    padding: 0 19px;
+  }
+  header form {
+    max-width: 449px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  header .create {
+    display: initial;
+  }
+  .hot-bird .items .item {
+    flex-basis: 16.6666666667%;
+  }
+}
+@media screen and (min-width: 1700px) {
+  main {
+    max-width: 70%;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

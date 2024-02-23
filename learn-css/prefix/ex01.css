@@ -1,0 +1,17 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background: red;
+    box-shadow: 5px 5px 5px tomato;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    transform: translateX(200px);
+    -webkit-transform: translateX(200px);
+    -moz-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    -o-transform: translateX(200px);
+}

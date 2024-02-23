@@ -539,3 +539,9 @@
         --column-size: 12;
     }
 }
+
+@media screen and (min-width: 1920px){
+    main{
+        max-width: 70%
+    }
+}

@@ -1,0 +1,66 @@
+@use 'reset';
+@import 'function.scss';
+// Giá trị css
+// Chuỗi
+// true,false
+// Số
+
+// Trong SCSS, chấp nhận các toán tử: +, -, *, /, %, ==, >=, <=, >, <, !=, and, or, not
+
+$primaryColor: red;
+:root{
+    --secondary-color: yellow;
+}
+.header {
+    $headerSpacing: 30px;
+    background: var(--secondary-color);
+
+    .topbar {
+        background: yellow;
+        padding: $headerSpacing 10px;
+        .left {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+    }
+    nav{
+        &.menu {
+            >ul {
+                li {
+                    a {
+                        color: #333;
+                        // @include toRem(10);
+                        &:hover{
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Kỹ thuật sử dụng biến
+
+$color:red;
+$props: background-color;
+$selectorPrefix: ".col";
+$size: 16;// Số
+.box{
+    color:$color;
+    #{$props}: green;
+    #{$selectorPrefix}-1 {
+        width: 200px;
+    }
+    #{$selectorPrefix + "-2"} {
+        width: 200px;
+        font-size: toRem(16);
+    }
+}
