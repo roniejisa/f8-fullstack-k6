@@ -658,6 +658,7 @@ aside .infomation .analytics .item .count {
   font-size: 18px;
   font-weight: 600;
   line-height: 28px;
+  text-align: center;
   padding: 12px 10px;
   border-radius: 16px;
   border: 2px solid var(--Primary-Gd-2, #2162FF);

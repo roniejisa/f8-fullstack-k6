@@ -198,9 +198,6 @@
   .hot-bird .items .item {
     flex-basis: 16.6666666667%;
   }
-  aside .revenue .table-revenue .times {
-    gap: 32px;
-  }
 }
 @media screen and (min-width: 1700px) {
   main {
