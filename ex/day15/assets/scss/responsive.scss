@@ -159,6 +159,10 @@
         transform: initial;
     }
 
+    nav .actions{
+        margin-top: auto;
+    }
+    
     .hot-bird .items .item {
         flex-basis: calc(100% / 3);
     }
