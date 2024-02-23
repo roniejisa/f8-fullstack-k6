@@ -6,8 +6,21 @@
     padding: 12px 19px;
     width: 68px;
   }
-  aside .revenue .table-revenue .times {
-    gap: 24px;
+  aside .infomation .ui .close {
+    display: none;
+  }
+  body:has(input[type=checkbox]:checked) .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6196078431);
+    width: 75px;
+    height: 100vh;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  aside {
+    width: calc(100vw - 75px);
   }
 }
 @media screen and (min-width: 768px) {
@@ -123,7 +136,7 @@
     margin-bottom: initial;
   }
   .live .items {
-    padding: 0 38px;
+    padding: 0 19px;
   }
   .live .items .row {
     margin: 0 -38px;
@@ -145,8 +158,14 @@
   .live .items {
     padding: 0 19px;
   }
+  header .username {
+    flex: 1;
+  }
 }
-@media screen and (min-width: 1401px) {
+@media screen and (min-width: 1400px) {
+  aside .revenue .table-revenue .times {
+    gap: 24px;
+  }
   main {
     max-width: 60%;
   }
@@ -157,13 +176,30 @@
     max-width: 449px;
     width: 100%;
   }
+  [for=toggleAside] {
+    display: none;
+  }
+  aside {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    position: initial;
+    right: initial;
+    max-height: initial;
+  }
 }
 @media screen and (min-width: 1600px) {
+  aside .infomation .analytics {
+    gap: 16px;
+  }
   header .create {
     display: initial;
   }
   .hot-bird .items .item {
     flex-basis: 16.6666666667%;
+  }
+  aside .revenue .table-revenue .times {
+    gap: 32px;
   }
 }
 @media screen and (min-width: 1700px) {

@@ -55,6 +55,10 @@ body {
   flex-wrap: wrap;
   color: var(--color-main);
 }
+body:has(input[type=checkbox]:checked) {
+  height: 100vh;
+  overflow: hidden;
+}
 
 nav {
   display: none;
@@ -138,6 +142,7 @@ header form {
   background: linear-gradient(162deg, #161A43 22.61%, #161A43 118.29%);
   padding: 16px 10px;
   gap: 10px;
+  flex: 1;
 }
 header form input {
   background: transparent;
@@ -191,7 +196,6 @@ header .line {
 }
 header .username {
   display: flex;
-  flex: 1;
   margin-left: 10px;
 }
 header .username img {
@@ -399,6 +403,7 @@ main .main .live-header a {
   border-radius: 20px;
   background: #161A43;
   height: 8px;
+  width: 6px;
 }
 .top-sell .list-users::-webkit-scrollbar-thumb {
   border-radius: 20px;
@@ -539,11 +544,38 @@ main .main .live-header a {
 }
 
 aside {
+  position: fixed;
+  right: 10px;
+  z-index: 9999;
+  overflow: auto;
+  max-height: calc(100vh - 4px);
+  width: calc(100vw - 4px);
+  top: 2px;
+  left: 2px;
   flex: 1;
   border-radius: 16px;
   border: 3px solid var(--Colors-Light-Blue-800, #005B89);
   background: linear-gradient(162deg, #161A43 22.61%, #161A43 118.29%);
   padding-bottom: 32px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+aside::-webkit-scrollbar {
+  border-radius: 20px;
+  background: #161A43;
+  height: 8px;
+  width: 6px;
+}
+aside::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: linear-gradient(90deg, #2293B0 0%, #6CD5ED 100%);
+  background: linear-gradient(90deg, color(display-p3 0.2824 0.5686 0.6784) 0%, color(display-p3 0.5294 0.8275 0.9176) 100%);
+}
+aside:has(input[type=checkbox]:checked) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 aside .infomation {
   padding-left: 24px;
@@ -552,6 +584,7 @@ aside .infomation {
   align-items: center;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 aside .infomation h3 {
   margin-top: 32px;
@@ -587,7 +620,7 @@ aside .infomation .fullname {
 aside .infomation .analytics {
   margin-top: 32px;
   display: flex;
-  gap: 16px;
+  gap: 10px;
   justify-content: space-between;
 }
 aside .infomation .analytics .item {
@@ -616,6 +649,27 @@ aside .infomation .analytics .item .name {
 }
 aside .infomation .ui span {
   position: absolute;
+}
+aside .infomation .ui .close {
+  position: fixed;
+  top: -15px;
+  width: 30px;
+  height: 40px;
+  border-radius: 100%;
+  background: coral;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  left: 50%;
+  transform: translateX(-50%);
+}
+aside .infomation .ui .close:hover {
+  border: 1px solid coral;
+  background: white;
+  color: coral;
 }
 aside .infomation .ui .one {
   top: 75.88px;
@@ -782,9 +836,9 @@ aside .revenue .table-revenue .values .item .line {
 }
 aside .revenue .table-revenue .times {
   display: flex;
-  gap: 16px;
+  gap: 6px;
   position: absolute;
-  right: 10px;
+  left: 40px;
   bottom: 12px;
   height: calc(100% - 52px + 20px);
 }
@@ -936,6 +990,24 @@ aside .recent .list-users .user .right .time {
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0.22px;
+}
+
+[for=toggleAside].bar-profile-icon {
+  position: fixed;
+  right: 0;
+  bottom: 20%;
+  z-index: 9999;
+  cursor: pointer;
+}
+[for=toggleAside].bar-profile-icon .bar {
+  padding: 10px 16px;
+  background: white;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+[for=toggleAside].bar-profile-icon .bar svg {
+  width: 24px;
+  fill: #5EEAD4;
 }
 
 @keyframes toTop {

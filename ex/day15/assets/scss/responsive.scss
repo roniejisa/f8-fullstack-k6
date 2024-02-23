@@ -8,8 +8,27 @@
         width: 68px;
     }
 
-    aside .revenue .table-revenue .times {
-        gap: 24px;
+    aside .infomation .ui .close {
+        display: none;
+    }
+
+    body {
+        &:has(input[type="checkbox"]:checked) {
+            .overlay {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: #0000009e;
+                width: 75px;
+                height: 100vh;
+                cursor: pointer;
+                z-index: 9999;
+            }
+        }
+    }
+
+    aside {
+        width: calc(100vw - 75px);
     }
 }
 
@@ -116,7 +135,7 @@
         }
     }
 
-    main .main .live-header h2{
+    main .main .live-header h2 {
         font-size: 31px;
     }
 }
@@ -151,7 +170,7 @@
 
     .live {
         .items {
-            padding: 0 38px;
+            padding: 0 19px;
 
             .row {
                 margin: 0 -38px;
@@ -182,9 +201,19 @@
             padding: 0 19px;
         }
     }
+
+    header .username {
+        flex: 1;
+    }
 }
 
-@media screen and (min-width: 1401px) {
+@media screen and (min-width: 1400px) {
+
+
+    aside .revenue .table-revenue .times {
+        gap: 24px;
+    }
+
     main {
         max-width: 60%;
     }
@@ -195,6 +224,7 @@
         }
     }
 
+
     header {
 
         form {
@@ -203,18 +233,40 @@
         }
 
     }
+
+    [for="toggleAside"] {
+        display: none;
+    }
+
+    aside {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        position: initial;
+        right: initial;
+        max-height: initial;
+    }
 }
 
+
 @media screen and (min-width: 1600px) {
+    aside .infomation .analytics {
+        gap: 16px;
+    }
+
     header {
         .create {
             display: initial;
         }
     }
+
     .hot-bird .items .item {
         flex-basis: calc(100% / 6);
     }
 
+    aside .revenue .table-revenue .times {
+        gap: 32px;
+    }
 }
 
 @media screen and (min-width: 1700px) {

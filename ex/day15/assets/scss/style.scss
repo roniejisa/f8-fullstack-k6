@@ -24,6 +24,11 @@ body {
     gap: 32px;
     flex-wrap: wrap;
     color: var(--color-main);
+
+    &:has(input[type="checkbox"]:checked) {
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 
 nav {
@@ -125,6 +130,7 @@ header {
         background: linear-gradient(162deg, #161A43 22.61%, #161A43 118.29%);
         padding: 16px 10px;
         gap: 10px;
+        flex: 1;
 
         input {
             background: transparent;
@@ -191,7 +197,6 @@ header {
 
     .username {
         display: flex;
-        flex: 1;
         margin-left: 10px;
 
         img {
@@ -431,17 +436,7 @@ main {
             }
         }
 
-        &::-webkit-scrollbar {
-            border-radius: 20px;
-            background: #161A43;
-            height: 8px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            border-radius: 20px;
-            background: linear-gradient(90deg, #2293B0 0%, #6CD5ED 100%);
-            background: linear-gradient(90deg, color(display-p3 0.2824 0.5686 0.6784) 0%, color(display-p3 0.5294 0.8275 0.9176) 100%);
-        }
+        @include scrollBar
     }
 }
 
@@ -593,12 +588,32 @@ main {
 
 
 // Style Aside
+
 aside {
+    position: fixed;
+    right: 10px;
+    z-index: 9999;
+    overflow: auto;
+    max-height: calc(100vh - 4px);
+    width: calc(100vw - 4px);
+    top: 2px;
+    left: 2px;
     flex: 1;
     border-radius: 16px;
     border: 3px solid var(--Colors-Light-Blue-800, #005B89);
     background: linear-gradient(162deg, #161A43 22.61%, #161A43 118.29%);
     padding-bottom: 32px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    @include scrollBar;
+
+    &:has(input[type="checkbox"]:checked) {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
 
     .infomation {
         padding-left: 24px;
@@ -607,6 +622,7 @@ aside {
         align-items: center;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
 
         h3 {
             margin-top: 32px;
@@ -647,7 +663,7 @@ aside {
         .analytics {
             margin-top: 32px;
             display: flex;
-            gap: 16px;
+            gap: 10px;
             justify-content: space-between;
 
             .item {
@@ -683,6 +699,28 @@ aside {
         .ui {
             span {
                 position: absolute;
+            }
+
+            .close{
+                position: fixed;
+                top: -15px;
+                width: 30px;
+                height: 40px;
+                border-radius: 100%;
+                background: coral;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 24px;
+                cursor: pointer;
+                left: 50%;
+                transform: translateX(-50%);
+                &:hover{
+                    border: 1px solid coral;
+                    background: white;
+                    color: coral;
+                }
             }
 
             .one {
@@ -864,9 +902,9 @@ aside {
 
             .times {
                 display: flex;
-                gap: 16px;
+                gap: 6px;
                 position: absolute;
-                right: 10px;
+                left: 40px;
                 bottom: 12px;
                 height: calc(100% - 26px * 2 + 20px);
 
@@ -1028,6 +1066,28 @@ aside {
         }
     }
 }
+
+[for="toggleAside"].bar-profile-icon {
+    position: fixed;
+    right: 0;
+    bottom: 20%;
+    z-index: 9999;
+    cursor: pointer;
+
+    .bar {
+        padding: 10px 16px;
+        background: white;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+
+        svg {
+            width: 24px;
+            fill: #5EEAD4;
+        }
+    }
+}
+
+
 
 @keyframes toTop {
     to {
