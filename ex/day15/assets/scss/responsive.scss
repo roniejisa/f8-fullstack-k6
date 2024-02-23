@@ -16,17 +16,19 @@
         width: calc(100vw - 75px);
     }
 
-    &:has(input[id="toggleAside"][type="checkbox"]:checked) {
-        .overlay {
-            position: fixed;
-            top: 0;
-            right: 0;
-            background: #0000009e;
-            width: calc(100% - 75px);
-            height: 100vh;
-            cursor: pointer;
-            z-index: 9999;
-            display: initial;
+    body {
+        &:has(input[id="toggleAside"][type="checkbox"]:checked) {
+            .overlay {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: #0000009e;
+                width: calc(100% - 75px);
+                height: 100vh;
+                cursor: pointer;
+                z-index: 9999;
+                display: initial;
+            }
         }
     }
 }
@@ -160,7 +162,7 @@
         transform: initial;
     }
 
-    nav .actions{
+    nav .actions {
         margin-top: auto;
     }
 
@@ -226,9 +228,11 @@
 }
 
 @media screen and (min-width: 1400px) {
-    &:has(input[id="toggleAside"][type="checkbox"]:checked) {
-        .overlay{
-            display: none;
+    body {
+        &:has(input[id="toggleAside"][type="checkbox"]:checked) {
+            .overlay {
+                display: none;
+            }
         }
     }
 
