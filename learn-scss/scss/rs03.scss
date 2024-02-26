@@ -1,0 +1,59 @@
+$column: 12; // Tổng số lượng cột
+$containerWidth: 1200px;
+$breakpoints: (
+    sm: "576px",
+    md: "768px",
+    lg: "991px",
+    xl: "1200px",
+    xxl: "1400px"
+);
+
+$gutters: (0 0 0) (1 0.25rem 0.25rem),
+    (2 0.5rem 0.5rem),
+    (3 1rem 1rem),
+    (4 1.5rem 1.5rem),
+    (5 3rem 3rem
+);
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin column($breakpointPrefix: "") {
+    $selectorPrefix: "col-";
+    $offsetPrefix: "col-offset-";
+
+    @if($breakpointPrefix !="") {
+        $selectorPrefix: $selectorPrefix + $breakpointPrefix + "-";
+        $offsetPrefix: $offsetPrefix + $breakpointPrefix + "-";
+    }
+
+    @for $i from 1 through $column {
+        .#{$selectorPrefix + $i} {
+            flex-basis: calc(100% / $column * $i);
+            max-width: calc(100% / $column * $i);
+        }
+    }
+
+    @for $i from 1 through $column {
+        .#{$offsetPrefix + $i} {
+            margin-left: calc(100% / $column * $i);
+        }
+    }
+
+    @each $number, $margin, $spacer in $gutters {
+        $number: $number;
+        .row.g-#{$number} {
+            margin: 0 -#{$margin};
+        }
+    }
+}
+
+@include column();
+
+@each $prefix, $breakpoint in $breakpoints {
+    @media screen and (min-width: #{$breakpoint}) {
+        @include column($prefix)
+    }
+}

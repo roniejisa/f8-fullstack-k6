@@ -1,0 +1,25 @@
+.box {
+  width: 1000px;
+  margin: 30px auto;
+}
+
+.products, .posts {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+.posts {
+  background: gray;
+}
+
+.products {
+  box-shadow: 3px 3px 5px #ccc;
+}
+
+.courses {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+/*# sourceMappingURL=rs01.css.map */

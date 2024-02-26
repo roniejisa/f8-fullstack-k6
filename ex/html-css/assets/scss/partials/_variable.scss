@@ -1,0 +1,21 @@
+$colorText: #393939;
+$colorAnchor: #4cb11b;
+$colorMain: #2C2C2C;
+
+
+$column: 12; // Tổng số lượng cột
+$containerWidth: 1200px;
+$breakpoints: (
+    sm: "576px",
+    md: "768px",
+    lg: "991px",
+    xl: "1200px",
+    xxl: "1400px"
+);
+
+$gutters:
+    (1 0.25rem 0.25rem),
+    (2 0.5rem 0.5rem),
+    (3 1rem 1rem),
+    (4 1.5rem 1.5rem),
+    (5 3rem 3rem);

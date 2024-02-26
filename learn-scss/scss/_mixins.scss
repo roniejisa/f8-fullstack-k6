@@ -1,0 +1,12 @@
+@mixin section-base($spacer, $padding: 30px) {
+    //$spacer là tham số
+    max-width: $spacer;
+    margin: $padding auto;
+}
+
+@mixin container($width){
+    .container{
+        padding: 0;
+        @include section-base($width - 30px, 10);
+    }
+}

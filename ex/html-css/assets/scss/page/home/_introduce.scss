@@ -1,0 +1,59 @@
+.introduce {
+    position: relative;
+    overflow: hidden;
+
+    .left {
+        padding-left: 200px;
+    }
+
+    .row {
+        align-items: center;
+    }
+
+    .right {
+        background: #DCFFCA;
+        border-top-left-radius: 17px;
+        border-bottom-left-radius: 17px;
+        position: relative;
+
+        span {
+            font-size: 167px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            line-height: 1;
+            transform: rotate(90deg) translate(-35%, 28%);
+            color: #216000;
+            font-weight: 800;
+            opacity: 15%;
+        }
+
+        img {
+            position: relative;
+            left: -150px;
+            top: -8px;
+        }
+    }
+
+    .left {
+        h3 {
+            font-size: 36.67px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        span {  
+            font-size: 43.33px;
+            font-weight: 800;
+            line-height: 52.44px;
+            padding-right: 156px;
+            margin-bottom: 28px;
+            display: block;
+        }
+
+        p {
+            line-height: 20.42px;
+            padding-right: 130px;
+        }
+    }
+}

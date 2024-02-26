@@ -1,0 +1,16 @@
+@use './partials/variable' as p;
+
+body {
+    font-family: Inter;
+    color: p.$colorMain;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}

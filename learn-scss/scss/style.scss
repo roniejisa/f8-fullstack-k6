@@ -1,5 +1,5 @@
 @use 'reset';
-@import 'function.scss';
+@import 'function';
 // Giá trị css
 // Chuỗi
 // true,false
@@ -8,9 +8,11 @@
 // Trong SCSS, chấp nhận các toán tử: +, -, *, /, %, ==, >=, <=, >, <, !=, and, or, not
 
 $primaryColor: red;
-:root{
+
+:root {
     --secondary-color: yellow;
 }
+
 .header {
     $headerSpacing: 30px;
     background: var(--secondary-color);
@@ -18,6 +20,7 @@ $primaryColor: red;
     .topbar {
         background: yellow;
         padding: $headerSpacing 10px;
+
         .left {
             list-style: none;
         }
@@ -31,14 +34,16 @@ $primaryColor: red;
         }
 
     }
-    nav{
+
+    nav {
         &.menu {
             >ul {
                 li {
                     a {
                         color: #333;
-                        // @include toRem(10);
-                        &:hover{
+                        font-size: toRem(10);
+
+                        &:hover {
                             color: red;
                         }
                     }
@@ -47,18 +52,22 @@ $primaryColor: red;
         }
     }
 }
+
 // Kỹ thuật sử dụng biến
 
-$color:red;
+$color: red;
 $props: background-color;
 $selectorPrefix: ".col";
-$size: 16;// Số
-.box{
-    color:$color;
+$size: 16; // Số
+
+.box {
+    color: $color;
     #{$props}: green;
+
     #{$selectorPrefix}-1 {
         width: 200px;
     }
+
     #{$selectorPrefix + "-2"} {
         width: 200px;
         font-size: toRem(16);

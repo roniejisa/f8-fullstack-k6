@@ -129,6 +129,7 @@ meter {
 }
 .header nav.menu > ul li a {
   color: #333;
+  font-size: 0.625rem;
 }
 .header nav.menu > ul li a:hover {
   color: red;

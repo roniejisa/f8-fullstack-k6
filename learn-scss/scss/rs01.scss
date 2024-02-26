@@ -1,0 +1,27 @@
+// @import 'mixins';
+@import 'mixins.scss';
+
+.box{
+    width: 1000px;
+    margin: 30px auto;
+}
+
+%section-base{
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.posts{
+    background: gray;
+    @extend %section-base;
+}
+
+.products{
+    box-shadow: 3px 3px 5px #ccc;
+    @extend %section-base;
+}
+
+.courses{
+    padding: 30px;
+    @include section-base(1200px)
+}

@@ -1,0 +1,111 @@
+// Câu lệnh rẽ nhánh
+$number : 1;
+
+@if $number <=1 {
+    $size: 90;
+
+    .box {
+        width: 100px;
+        height: 100px;
+
+        @if $size >=100 {
+            background: green;
+        }
+
+        @else {
+            background: yellow;
+        }
+    }
+
+}
+
+@else if $number >=3 and $number <=5 {
+    .products-2 {
+        background: yellow
+    }
+}
+
+@else {
+    .products {
+        background: red;
+    }
+}
+
+// Vòng lặp
+//1. for ... from ... through
+//Suy ra: <=
+@for $index from 1 to 13 {
+    .col-#{$index} {
+        width: 100 * $index + 0%;
+    }
+}
+
+//1. for ... from ... to
+//Suy ra: <
+@for $index from 1 to 13 {
+    .col-#{$index} {
+        @if $index % 2==0 {
+            width: 100%
+        }
+
+        @else {
+            width: 100 * $index + 0%;
+        }
+    }
+}
+
+
+//2. while
+$index: 0;
+
+@while $index < 10 {
+    $index: $index + 1;
+
+    .col-#{$index} {
+        font-size: 10 * $index + px;
+    }
+}
+
+//3. each
+// $sizes: 30px, 40px, 50px; //Array
+// $length: length($sizes);
+// $index: 0;
+
+// @each $size in $sizes {
+//     // $index: $index + 1;
+//     $index: index($sizes, $size);
+    
+//     // $index bắt đầu từ
+//     .item-#{$size} {
+//         width: $size;
+
+//         @if $index == $length {
+//             padding: 0;
+//         }
+        
+//     }
+// }
+
+// $sizes: (small 40px normal) (regular 60 bold) (large 80px 600);
+
+// Destructuring
+// @each $type, $size, $weight in $sizes {
+//     .item-#{$type}{
+//         font-size: $size;
+//         font-weight: $weight;
+//     }
+// }
+
+// value --> Map
+$sizes: (
+    small: 40,
+    regular: 60px,
+    large: 80px
+);
+
+@each $type, $size in $sizes{
+    .item-#{$type}{
+        width: $size;
+    }
+}
+

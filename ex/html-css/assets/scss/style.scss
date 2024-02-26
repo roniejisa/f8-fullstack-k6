@@ -1,0 +1,9 @@
+@use './partials/index' as p;
+@use './main';
+
+//Header and Footer
+@use './layouts/header';
+@use './layouts/footer';
+
+//Page
+@use './page/home/home';

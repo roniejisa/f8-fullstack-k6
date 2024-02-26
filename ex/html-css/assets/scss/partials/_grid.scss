@@ -1,0 +1,15 @@
+@use 'mixin' as m;
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@include m.row();
+@include m.column();
+
+@each $prefix, $breakpoint in m.$breakpoints {
+    @media screen and (min-width: #{$breakpoint}) {
+        @include m.column($prefix)
+    }
+}

@@ -1,0 +1,22 @@
+/* Error: expected selector.
+ *   ,--> scss\rs03.scss
+ * 47|         .row.g-#{$number} {
+ *   |                  ^^^^^^^ 
+ *   '
+ *   ,
+ * 1 | .row.g-0 0 0 
+ *   |          = error in interpolated output
+ *   '
+ *   scss\rs03.scss 47:18  column()
+ *   scss\rs03.scss 53:1   root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: expected selector.\a   \250c \2500 \2500 > scss\\rs03.scss\a 47\2502          .row.g-#{$number} {\a   \2502                   ^^^^^^^ \a   \2575 \a   \2577 \a 1 \2502  .row.g-0 0 0 \a   \2502           \2501  error in interpolated output\a   \2575 \a   scss\\rs03.scss 47:18  column()\a   scss\\rs03.scss 53:1   root stylesheet";
+}

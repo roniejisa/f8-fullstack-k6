@@ -1,0 +1,95 @@
+@use "../../partials/variable" as p;
+@use '../../partials/mixin' as m;
+.news {
+    margin-top: 129px;
+
+    h2 {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 23px;
+        text-align: center;
+    }
+
+    .meta {
+        text-align: center;
+        padding: 0 170px;
+        margin-bottom: 29px;
+    }
+
+    button {
+        font-weight: 700;
+    }
+    
+    .news-items {
+        .new-item {
+            >a {
+                font-size: 0;
+                display: block;
+                img {
+                    width: 100%;
+                    border-radius: 6.67px;
+                }
+            }
+
+            .info {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 16px;
+                margin-bottom: 16px;
+                align-items: center;
+
+                .author {
+                    color: #46b20f;
+                }
+
+                .date {
+                    display: flex;
+                    gap: 10px;
+
+                    * {
+                        color: #a3a3a3;
+                    }
+                }
+            }
+
+            .content {
+                h3 {
+                    a {
+                        display: block;
+                        text-decoration: none;
+                        color: var(--cl-scss, p.$colorMain);
+                        transition: color 0.3s;
+                        margin-bottom: 16px;
+
+                        &:hover {
+                            color: var(--cl-scss, p.$colorAnchor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    a.next {
+        margin-top: 80px;
+        border: 1px solid var(--cl-scss, p.$colorMain);
+        border-radius: 5px;
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 20px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        transition-property: color, background-color, border-color;
+
+        & :hover {
+            color: white;
+            background-color: var(--cl-scss, p.$colorAnchor);
+            border-color: var(--cl-scss, p.$colorAnchor);
+        }
+
+        i {
+            font-size: 12px;
+        }
+    }
+}

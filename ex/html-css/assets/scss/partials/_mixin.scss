@@ -1,0 +1,43 @@
+@use 'variable' as v;
+@forward 'variable'; 
+
+@mixin screen($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content
+    }
+}
+
+@mixin column($breakpointPrefix: "") {
+    $selectorPrefix: "col-";
+    $offsetPrefix: "col-offset-";
+
+    @if($breakpointPrefix !="") {
+        $selectorPrefix: $selectorPrefix + $breakpointPrefix + "-";
+        $offsetPrefix: $offsetPrefix + $breakpointPrefix + "-";
+    }
+
+    @for $i from 1 through v.$column {
+        .#{$selectorPrefix + $i} {
+            flex-basis: calc(100% / v.$column * $i);
+            max-width: calc(100% / v.$column * $i);
+        }
+    }
+
+    @for $i from 1 through v.$column {
+        .#{$offsetPrefix + $i} {
+            margin-left: calc(100% / v.$column * $i);
+        }
+    }
+}
+
+@mixin row($breakpointPrefix: "") {
+    @each $number, $margin, $spacer in v.$gutters {
+        .row.g-#{$number} {
+            margin: 0 -#{$margin};
+
+            [class^="col-"] {
+                padding: 0 #{$margin};
+            }
+        }
+    }
+}

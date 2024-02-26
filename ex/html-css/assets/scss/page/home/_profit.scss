@@ -1,0 +1,20 @@
+.profits {
+    margin-top: 133px;
+
+    .profit-items {
+        padding: 0 56px;
+
+        .row {
+            margin: -39px 0;
+
+            [class^="col"] {
+                padding: calc(39px / 2) calc(52.5px / 2);
+            }
+
+            .profit-item {
+                display: flex;
+                gap: 16px;
+            }
+        }
+    }
+}

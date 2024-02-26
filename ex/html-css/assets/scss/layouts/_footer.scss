@@ -1,0 +1,78 @@
+@use '../partials/variable' as p;
+
+footer {
+    margin-top: 101px;
+    background: var(--Green-100, #F2FFEC);
+    padding-top: 67px;
+    padding-bottom: 23px;
+    .container{
+        padding: 0 112px;
+    }
+    .top {
+        padding-bottom: 72.5px;
+        border-bottom: 1px solid #A3A3A3;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .slogon {
+        flex-basis: 200px;
+    }
+
+    .link-footer {
+        p {
+            color: #46B20F;
+            font-weight: 600;
+        }
+
+        ul {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+
+            li {
+                list-style: none;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+
+                a {
+                    text-decoration: none;
+                    color: var(--cl-scss, p.$colorMain);
+                    transition: color .3s;
+
+                    &:hover {
+                        color: var(--cl-scss, p.$colorAnchor);
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+        margin-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .socials {
+            ul {
+                display: flex;
+                gap: 10px;
+                list-style: none;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px;
+                    min-width: 40px;
+                    height: 40px;
+                    background: #DCFFCA;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}

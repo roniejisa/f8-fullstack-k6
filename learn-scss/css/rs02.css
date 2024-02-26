@@ -1,0 +1,155 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+}
+
+.col-1 {
+  width: 100%;
+}
+
+.col-2 {
+  width: 200%;
+}
+
+.col-3 {
+  width: 300%;
+}
+
+.col-4 {
+  width: 400%;
+}
+
+.col-5 {
+  width: 500%;
+}
+
+.col-6 {
+  width: 600%;
+}
+
+.col-7 {
+  width: 700%;
+}
+
+.col-8 {
+  width: 800%;
+}
+
+.col-9 {
+  width: 900%;
+}
+
+.col-10 {
+  width: 1000%;
+}
+
+.col-11 {
+  width: 1100%;
+}
+
+.col-12 {
+  width: 1200%;
+}
+
+.col-1 {
+  width: 100%;
+}
+
+.col-2 {
+  width: 100%;
+}
+
+.col-3 {
+  width: 300%;
+}
+
+.col-4 {
+  width: 100%;
+}
+
+.col-5 {
+  width: 500%;
+}
+
+.col-6 {
+  width: 100%;
+}
+
+.col-7 {
+  width: 700%;
+}
+
+.col-8 {
+  width: 100%;
+}
+
+.col-9 {
+  width: 900%;
+}
+
+.col-10 {
+  width: 100%;
+}
+
+.col-11 {
+  width: 1100%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.col-1 {
+  font-size: 10px;
+}
+
+.col-2 {
+  font-size: 20px;
+}
+
+.col-3 {
+  font-size: 30px;
+}
+
+.col-4 {
+  font-size: 40px;
+}
+
+.col-5 {
+  font-size: 50px;
+}
+
+.col-6 {
+  font-size: 60px;
+}
+
+.col-7 {
+  font-size: 70px;
+}
+
+.col-8 {
+  font-size: 80px;
+}
+
+.col-9 {
+  font-size: 90px;
+}
+
+.col-10 {
+  font-size: 100px;
+}
+
+.item-small {
+  width: 40;
+}
+
+.item-regular {
+  width: 60px;
+}
+
+.item-large {
+  width: 80px;
+}
+
+/*# sourceMappingURL=rs02.css.map */

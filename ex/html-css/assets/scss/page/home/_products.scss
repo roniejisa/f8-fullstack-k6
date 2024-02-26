@@ -1,0 +1,101 @@
+@use '../../partials/variable' as p;
+@use '../../partials/mixin' as m;
+
+.products {
+    padding-top: 100px;
+
+    h2 {
+        text-align: center;
+    }
+
+    .products-items {
+        padding: 0 calc(115px - 42px);
+        .row [class^="col-"]:nth-child(3n - 1) .image {
+            background: #C5FFA8;
+        }
+        
+        .row [class^="col-"] {
+            padding: calc(95px / 2) 42px;
+        }
+
+        .product-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            margin-top: auto;
+            height: 100%;
+
+            .image {
+                position: relative;
+                padding-top: 100%;
+                border-radius: 50%;
+                background: #FFBA94;
+                margin-bottom: 50%;
+
+                img {
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            h3 {
+                font-weight: 700;
+                margin-bottom: 20px;
+                position: relative;
+                font-size: 23px;
+                flex: 1;
+
+                a {
+                    text-decoration: none;
+                    color: var(--cl-scss, p.$colorMain);
+                    transition: color .3s;
+
+                    &:hover {
+                        color: var(--cl-scss, p.$colorAnchor);
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 50px;
+                    height: 2px;
+                    background: #A3A3A3;
+                    bottom: -12px;
+                }
+            }
+
+            .content {
+                margin-top: 16px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                button {
+                    color: white;
+                    background: #46B20F;
+                    padding: 13.33px 11.67px 13.33px 11.67px;
+                    border: none;
+                    border-radius: 7px;
+                    max-width: 80%;
+                    margin-top: 31px;
+                }
+
+                .price {
+                    font-weight: bold;
+                    font-size: 23.33px;
+                    margin-top: 6px;
+                    span {
+                        font-weight: normal;
+                        font-size: 16px;
+
+                    }
+                }
+            }
+        }
+    }
+}

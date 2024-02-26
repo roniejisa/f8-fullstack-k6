@@ -1,0 +1,26 @@
+@use './partials/mixin' as m;
+
+
+
+
+@include m.screen(992px){
+    .container{
+        max-width: 90%;
+    }
+}
+
+@include m.screen(1200px){
+    
+}
+
+@include m.screen(1400px){
+    .container{
+        max-width: 1200px;
+    }
+}
+
+@include m.screen(1650px){
+    .container{
+        max-width: 1600px;
+    }
+}
