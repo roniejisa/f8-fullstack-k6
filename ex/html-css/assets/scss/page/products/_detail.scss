@@ -1,0 +1,280 @@
+@use "../../partials/mixin" as *;
+
+.product-detail {
+    margin-top: 20px;
+
+    .row {
+        margin: 0 -10px;
+
+        [class^="col-"] {
+            padding: 0 20px;
+        }
+    }
+
+    @include screen(992px) {
+        .row {
+            margin: 0 -25px;
+
+            [class^="col-"] {
+                padding: 0 50px;
+            }
+        }
+    }
+
+    @include screen(992px) {
+        margin-top: 100px;
+    }
+
+    .image-main {
+        padding: 38px 0;
+        text-align: center;
+    }
+
+    .image-sub {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 39px;
+
+        .img {
+            flex-basis: calc(100% / 3 - 39px);
+        }
+    }
+
+    h1 {
+        color: var(--Content, #2c2c2c);
+        font-size: 22px;
+        margin-top: 20px;
+
+        @include screen(992px) {
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        font-weight: 800;
+        line-height: 131.523%;
+        padding-bottom: 26px;
+        position: relative;
+
+        &:after {
+            content: "";
+            width: 100px;
+            height: 2px;
+            background: #a3a3a3;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+        }
+    }
+
+    .price {
+        margin-top: 27px;
+        display: block;
+        margin-bottom: 10px;
+
+        .value {
+            font-size: 23.333px;
+            font-weight: 600;
+        }
+    }
+
+    .product-quality {
+        margin-bottom: 26px;
+        color: #7a7a7a;
+        display: block;
+    }
+
+    .action {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 24px;
+        margin-bottom: 36px;
+
+        .number {
+            border: 1px solid #a7a7a7;
+            border-radius: 4px;
+
+            input {
+                border: none;
+                max-width: calc(100% - 45px * 2);
+                @include screen(575px){
+                    max-width: 30px;
+                }
+                text-align: center;
+                font-size: 22px;
+            }
+
+            button {
+                cursor: pointer;
+                border: none;
+                background: none;
+                font-size: 24px;
+                padding: 14.5px;
+            }
+        }
+
+        .add-cart {
+            border-radius: 6.667px;
+            background: var(--green-800-main, #46b20f);
+            display: flex;
+            width: 128.333px;
+            padding: 13.333px 11.667px;
+            justify-content: center;
+            align-items: center;
+            gap: 8.333px;
+            cursor: pointer;
+            color: var(--White, #fff);
+            text-align: center;
+            font-size: 16.667px;
+            font-weight: 700;
+            border: none;
+            width: 100%;
+            @include screen(575px){
+                width: initial;
+            }
+        }
+    }
+
+    .special {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+        margin-bottom: 20px;
+        span {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    }
+}
+
+.product-tab {
+    ul {
+        display: flex;
+        border-bottom: 1px solid #a3a3a3;
+        justify-content: center;
+        overflow: auto;
+
+        padding-left: 150px;
+        @include screen(768px) {
+            overflow: initial;
+            padding-left: 0;
+        }
+
+        li {
+            white-space: nowrap;
+
+            @include screen(992px) {
+                position: relative;
+                top: 2px;
+            }
+
+            cursor: pointer;
+            list-style: none;
+            padding: 10px 15px;
+            color: #000;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 26.667px;
+            border-bottom: 3px solid transparent;
+
+            &.active {
+                border-color: #46b20f;
+            }
+        }
+    }
+
+    .content-items {
+        @include screen(992px) {
+            padding: 50px 150px;
+        }
+
+        @include screen(1400px) {
+            padding: 50px 175px;
+        }
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 50px;
+        margin: 50px 0;
+        align-items: center;
+
+        @include screen(992px) {
+            align-items: initial;
+            margin: 0;
+            flex-direction: row;
+            gap: 0;
+            margin-bottom: 0;
+        }
+
+        .item {
+            position: relative;
+            max-width: 165px;
+            text-align: center;
+
+            span {
+                color: #ff6916;
+                font-size: 31.667px;
+                font-weight: 800;
+                line-height: 131.523%;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            b {
+                margin-bottom: 3px;
+                display: block;
+            }
+
+            @include screen(992px) {
+                +.item {
+                    margin-left: 135px;
+
+                    &::before {
+                        content: "";
+                        height: 33px;
+                        top: 50%;
+                        left: -75px;
+                        transform: translateY(-50%);
+                        width: 1px;
+                        background: #000;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+
+    .detail-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 50px;
+
+        @include screen(992px) {}
+
+        .item {
+            text-align: center;
+
+            @include screen(992px) {
+                flex-basis: calc(100% / 3 - 50px);
+            }
+
+            .image {
+                display: block;
+                text-align: center;
+                margin-bottom: 29px;
+                height: 75px;
+            }
+
+            b {
+                display: block;
+                margin-bottom: 17px;
+            }
+        }
+    }
+}

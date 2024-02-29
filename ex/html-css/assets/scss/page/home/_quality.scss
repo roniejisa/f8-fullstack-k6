@@ -1,7 +1,12 @@
 @use '../../partials/mixin' as *;
 
 .quality {
-    padding-top: 100px;
+    padding-top: 30px;
+
+    @include screen(992px) {
+        padding-top: 100px;
+    }
+
 
     .title {
         @include screen(992px) {
@@ -25,6 +30,11 @@
     .quality-items {
         padding: 90px 0;
         position: relative;
+        margin-top: 30px;
+
+        @include screen(992px) {
+            margin-top: 0;
+        }
 
         &::before,
         &::after {
@@ -56,7 +66,7 @@
             position: relative;
             z-index: 1;
 
-            @include screen(992px) {
+            @include screen(1200px) {
                 padding: 0 115px;
             }
 
@@ -66,12 +76,19 @@
 
             .small,
             .big {
+                width: 100%;
                 box-shadow: -5px 0 72.5px rgba(54, 54, 54, 0.12);
                 padding: 33.33px;
                 border-radius: 5px;
                 background: white;
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+
+                @include screen(992px) {
+                    align-items: initial;
+                }
+
                 justify-content: center;
                 gap: 23px;
             }
@@ -90,8 +107,9 @@
                 @include screen(992px) {
                     flex-basis: calc(100% - 33% * 2 - 22px);
                 }
+
                 min-height: 355px;
-                padding-top: 55px;
+                padding-top: 40px;
 
                 .icon {
                     background: #F2FFEC;

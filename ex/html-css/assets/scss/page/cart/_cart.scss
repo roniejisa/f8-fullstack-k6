@@ -1,0 +1,169 @@
+@use '../../partials/mixin' as *;
+
+.table-cart {
+    overflow-x: auto;
+    padding: 0 10px;
+
+    @include screen(992px) {
+        padding: 0;
+    }
+
+    h2 {
+        margin-top: 100px;
+    }
+
+    table {
+        width: 100%;
+
+        thead {
+            background: #FFF0E7;
+
+            th:nth-child(1) {
+                min-width: 500px;
+            }
+
+            th:nth-child(2) {
+                min-width: 150px;
+            }
+
+            th:nth-child(3) {
+                min-width: 200px;
+            }
+
+            th:nth-child(4) {
+                min-width: 200px;
+            }
+
+            th {
+                padding: 30px;
+            }
+        }
+
+        tbody {
+            td {
+                border-bottom: 1px solid #CBCBCB;
+                white-space: nowrap;
+            }
+
+            .item-quanity {
+                color: #656565;
+            }
+
+            .item-cart {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+
+                .content {
+                    h3 {
+                        a {
+                            text-decoration: none;
+                            color: #000;
+                            font-size: 16.667px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+
+            .price {
+                color: var(--Content, #2C2C2C);
+                font-size: 16.667px;
+                font-weight: 600;
+                line-height: 21.667px;
+            }
+
+            .number {
+                border: 1px solid #A7A7A7;
+                width: fit-content;
+                border-radius: 10px;
+
+                button {
+                    cursor: pointer;
+                    border: none;
+                    background: none;
+                    padding: 14px;
+                    font-size: 24px;
+                }
+
+                input {
+                    border: none;
+                    max-width: 50px;
+                    text-align: center;
+                    font-size: 22px;
+                }
+            }
+
+            .price-action {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 10px;
+
+                .close {
+                    font-size: 24px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.cart-bottom {
+    margin-top: 47px;
+
+    a.btn-main {
+        margin-left: auto;
+        @include button-hover(#46b20f, white);
+    }
+
+    .cart-total {
+        max-width: fit-content;
+        margin-top: 68px;
+
+        h3 {
+            color: var(--Content, #2C2C2C);
+            font-size: 23.333px;
+            font-weight: 700;
+        }
+
+        .total-item {
+            padding: 20px 10px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .key {
+                min-width: 150px;
+                font-weight: 600;
+            }
+
+            .value {
+                &--main {
+                    color: var(--Orange-700, #E05000);
+                    font-size: 23.333px;
+                    font-weight: 700;
+                }
+            }
+
+            +.total-item {
+                border-top: 1px solid #B7B7B7;
+            }
+        }
+
+        .btn-black {
+            width: 100%;
+            color: white;
+            background: var(--Content, #2C2C2C);
+            transition-property: border, color, background;
+            transition-duration: .4s;
+
+            &:hover {
+                border: 1px solid #2C2C2C;
+                color: #2C2C2C;
+                background: white;
+            }
+        }
+    }
+}

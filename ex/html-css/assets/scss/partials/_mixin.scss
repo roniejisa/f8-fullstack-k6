@@ -43,6 +43,7 @@
 
             [class^="col-"] {
                 padding: 0 #{$margin};
+                margin-bottom: calc($margin * 2);
             }
         }
     }
@@ -51,4 +52,16 @@
 @mixin transition($property) {
     transition-property: #{$property};
     transition-duration: .4s;
+}
+
+
+@mixin button-hover($color, $backgroundColor) {
+    transition-property: border, color, background;
+    transition-duration: .4s;
+
+    &:hover {
+        border: 1px solid $color;
+        color: $color;
+        background: $backgroundColor;
+    }
 }

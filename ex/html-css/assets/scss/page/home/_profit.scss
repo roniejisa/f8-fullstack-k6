@@ -1,16 +1,20 @@
 @use '../../partials/mixin' as *;
+
 .profits {
-    @include screen(992px){
+    margin-top: 50px;
+
+    @include screen(575px) {
         margin-top: 133px;
     }
-    
-    @include m-screen(992px){
-        .row.g-4 [class^=col-]{
+
+    @include m-screen(992px) {
+        .row.g-4 [class^=col-] {
             padding: 0;
         }
     }
+
     .profit-items {
-        @include screen(992px){
+        @include screen(992px) {
             padding: 0 56px;
         }
 
@@ -18,12 +22,32 @@
             margin: -39px 0;
 
             [class^="col"] {
-                padding: calc(39px / 2) calc(52.5px / 2);
+                padding: calc(39px / 2);
+            }
+
+            @include screen(992px) {
+                [class^="col"] {
+                    padding: calc(39px / 2) calc(52.5px / 2);
+                }
             }
 
             .profit-item {
                 display: flex;
                 gap: 16px;
+
+                img {
+                    max-width: 24px;
+                    width: 100%;
+
+                    @include screen(576px) {
+                        width: initial;
+                        max-width: 100%;
+                    }
+                }
+
+                .content {
+                    flex: 1;
+                }
             }
         }
     }

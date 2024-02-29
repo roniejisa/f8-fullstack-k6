@@ -1,9 +1,16 @@
 @use './partials/index' as p;
-@use './main';
+@forward './main';
 
 //Header and Footer
-@use './layouts/header';
-@use './layouts/footer';
+@forward './layouts/header';
+@forward './layouts/footer';
 
 //Page
-@use './page/home/home';
+@forward './page/home/home';
+@forward './page/about/about';
+@forward './page/products/product';
+@forward './page/news/news';
+@forward './page/blog/blog';
+@forward './page/contact/contact';
+@forward './page/products/detail';
+@forward './page/cart/cart';

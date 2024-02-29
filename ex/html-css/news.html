@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title></title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="stylesheet" href="./assets/css/responsive.css" />
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<button class="menu-icon">
+					<label for="showMenu">
+						<i class="fa-solid fa-bars"></i>
+					</label>
+				</button>
+				<a href="#" class="logo">
+					<img src="./assets/images/logo.png" alt="Logo" />
+				</a>
+				<nav class="menu">
+					<input type="checkbox" id="showMenu" hidden />
+					<ul>
+						<li><a href="/ex/html-css/">Trang chủ</a></li>
+						<li><a href="./about.html">Về Greenchop</a></li>
+						<li><a href="./product.html">Sản phẩm</a></li>
+						<li><a class="active" href="./news.html">Tin tức</a></li>
+						<li><a href="./contact.html">Liên hệ</a></li>
+					</ul>
+				</nav>
+				<div class="header-right">
+					<a href="./cart.html" class="cart">
+						<img src="./assets/images/cart.png" alt="Cart" />
+						<span class="count">5</span>
+					</a>
+					<button class="search">
+						<img src="./assets/images/search.png" alt="Search" />
+					</button>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="breakcrumb">
+				<div class="container">
+					<span>Tin tức</span>
+				</div>
+			</div>
+			<!-- Header -->
+			<section class="top-new">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="row g-4">
+								<div class="col-lg-6 col-12">
+									<a class="image" href="#">
+										<img src="./assets/images/top_new.png" alt="" />
+									</a>
+								</div>
+								<div class="col-lg-6 col-12">
+									<div class="content">
+										<span href="#">Tin nổi bật</span>
+										<h3>
+											<a href="#">
+												Exerci tation ullamcer suscipit m zril delenit
+												augue
+											</a>
+										</h3>
+										<p>
+											exerci tation ullamcorper suscipit lobortis nisl ut
+											aliquip ex ea commodo consequat. Lorem ipsum dolor
+											sit amet, consectetuer adipiscing elit, sed diam
+											nonummy nibh euismod tincidunt ut laoreet dolore
+											magna aliquam erat volutpat.
+										</p>
+										<a href="#" class="btn"
+											>Xem thêm
+											<svg
+												width="24"
+												height="24"
+												viewBox="0 0 103 97"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M54.7998 96.5142L43.5075 85.2376L80.2168 48.5283L43.5075 11.819L54.7998 0.590637L102.761 48.5521L54.7998 96.5142ZM11.5061 96.5142L0.22197 85.2376L36.9318 48.5283L0.22197 11.8748L11.5061 0.590637L59.476 48.5521L11.5061 96.5142Z"
+													fill="#2C2C2C" />
+											</svg>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="row g-4">
+								<div class="col-lg-6 col-12">
+									<a class="image" href="#">
+										<img src="./assets/images/top_new_2.png" alt="" />
+									</a>
+								</div>
+								<div class="col-lg-6 col-12">
+									<div class="content">
+										<span href="#">Tin nổi bật</span>
+										<h3>
+											<a href="#">
+												Exerci tation ullamcer suscipit m zril delenit
+												augue
+											</a>
+										</h3>
+										<p>
+											exerci tation ullamcorper suscipit lobortis nisl ut
+											aliquip ex ea commodo consequat. Lorem ipsum dolor
+											sit amet, consectetuer adipiscing elit, sed diam
+											nonummy nibh euismod tincidunt ut laoreet dolore
+											magna aliquam erat volutpat.
+										</p>
+										<a href="#" class="btn"
+											>Xem thêm
+											<svg
+												width="24"
+												height="24"
+												viewBox="0 0 103 97"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M54.7998 96.5142L43.5075 85.2376L80.2168 48.5283L43.5075 11.819L54.7998 0.590637L102.761 48.5521L54.7998 96.5142ZM11.5061 96.5142L0.22197 85.2376L36.9318 48.5283L0.22197 11.8748L11.5061 0.590637L59.476 48.5521L11.5061 96.5142Z"
+													fill="#2C2C2C" />
+											</svg>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end: Header -->
+			<!-- Popular -->
+			<section class="news">
+				<div class="container">
+					<h2>Bài viết phổ biến</h2>
+					<div class="news-items">
+						<div class="row g-3">
+							<div class="col-12 col-lg-6">
+								<div class="new-item">
+									<a href="">
+										<img src="./assets/images/new_1.png" alt="New 1" />
+									</a>
+									<div class="info">
+										<span class="author">Lorem ipsum</span>
+										<div class="date">
+											<i class="fa-regular fa-calendar-days"></i>
+											<span>28 - 10- 2021</span>
+										</div>
+									</div>
+									<div class="content">
+										<h3>
+											<a href="#"
+												>Lorem ipsum dolor sit amet, cons in ectetuer
+												adipiscing elit</a
+											>
+										</h3>
+										<p>
+											Dolor sit amet, cons ectetuer adipiscing elit, sed
+											diam in on nonummy nibh euismod tincidunt ut laoreet
+											dolore magna aliquam erat volutpat. Ut wisi enim...
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="new-item">
+									<a href="">
+										<img src="./assets/images/new_2.png" alt="New 2" />
+									</a>
+									<div class="info">
+										<span class="author">Lorem ipsum</span>
+										<div class="date">
+											<i class="fa-regular fa-calendar-days"></i>
+											<span>28 - 10- 2021</span>
+										</div>
+									</div>
+									<div class="content">
+										<h3>
+											<a href="#"
+												>Lorem ipsum dolor sit amet, cons in ectetuer
+												adipiscing elit</a
+											>
+										</h3>
+										<p>
+											Dolor sit amet, cons ectetuer adipiscing elit, sed
+											diam in on nonummy nibh euismod tincidunt ut laoreet
+											dolore magna aliquam erat volutpat. Ut wisi enim...
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="new-item">
+									<a href="">
+										<img src="./assets/images/new_3.png" alt="New 3" />
+									</a>
+									<div class="info">
+										<span class="author">Lorem ipsum</span>
+										<div class="date">
+											<i class="fa-regular fa-calendar-days"></i>
+											<span>28 - 10- 2021</span>
+										</div>
+									</div>
+									<div class="content">
+										<h3>
+											<a href="#"
+												>Lorem ipsum dolor sit amet, cons in ectetuer
+												adipiscing elit</a
+											>
+										</h3>
+										<p>
+											Dolor sit amet, cons ectetuer adipiscing elit, sed
+											diam in on nonummy nibh euismod tincidunt ut laoreet
+											dolore magna aliquam erat volutpat. Ut wisi enim...
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="new-item">
+									<a href="">
+										<img src="./assets/images/new_3.png" alt="New 3" />
+									</a>
+									<div class="info">
+										<span class="author">Lorem ipsum</span>
+										<div class="date">
+											<i class="fa-regular fa-calendar-days"></i>
+											<span>28 - 10- 2021</span>
+										</div>
+									</div>
+									<div class="content">
+										<h3>
+											<a href="#"
+												>Lorem ipsum dolor sit amet, cons in ectetuer
+												adipiscing elit</a
+											>
+										</h3>
+										<p>
+											Dolor sit amet, cons ectetuer adipiscing elit, sed
+											diam in on nonummy nibh euismod tincidunt ut laoreet
+											dolore magna aliquam erat volutpat. Ut wisi enim...
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="new-item">
+									<a href="">
+										<img src="./assets/images/new_1.png" alt="New 1" />
+									</a>
+									<div class="info">
+										<span class="author">Lorem ipsum</span>
+										<div class="date">
+											<i class="fa-regular fa-calendar-days"></i>
+											<span>28 - 10- 2021</span>
+										</div>
+									</div>
+									<div class="content">
+										<h3>
+											<a href="#"
+												>Lorem ipsum dolor sit amet, cons in ectetuer
+												adipiscing elit</a
+											>
+										</h3>
+										<p>
+											Dolor sit amet, cons ectetuer adipiscing elit, sed
+											diam in on nonummy nibh euismod tincidunt ut laoreet
+											dolore magna aliquam erat volutpat. Ut wisi enim...
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="new-item">
+									<a href="">
+										<img src="./assets/images/new_2.png" alt="New 2" />
+									</a>
+									<div class="info">
+										<span class="author">Lorem ipsum</span>
+										<div class="date">
+											<i class="fa-regular fa-calendar-days"></i>
+											<span>28 - 10- 2021</span>
+										</div>
+									</div>
+									<div class="content">
+										<h3>
+											<a href="#"
+												>Lorem ipsum dolor sit amet, cons in ectetuer
+												adipiscing elit</a
+											>
+										</h3>
+										<p>
+											Dolor sit amet, cons ectetuer adipiscing elit, sed
+											diam in on nonummy nibh euismod tincidunt ut laoreet
+											dolore magna aliquam erat volutpat. Ut wisi enim...
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End: Popular -->
+		</main>
+		<footer>
+			<div class="container">
+				<div class="top">
+					<div class="slogon">
+						<img src="./assets/images/logo.png" alt="Logo" />
+						<p>GreenChop là bạn đồng hành của người tiêu dùng</p>
+					</div>
+					<div class="link-footer">
+						<p>Trang chủ</p>
+						<ul>
+							<li><a href="#">Về greenchop</a></li>
+							<li><a href="#">Sản phẩm</a></li>
+							<li><a href="#">Tin tức</a></li>
+						</ul>
+					</div>
+					<div class="link-footer">
+						<p>Hỗ trợ</p>
+						<ul>
+							<li><a href="#">Đặt hàng trức tuyến (8h-22h)</a></li>
+							<li>
+								<img src="./assets/images/alarm.png" alt="Alarm" /><a
+									href="#"
+									>Sản phẩm</a
+								>
+							</li>
+							<li>
+								<img
+									src="./assets/images/phone_outline.png"
+									alt="Call" /><a href="#">Tin tức</a>
+							</li>
+						</ul>
+					</div>
+					<div class="link-footer">
+						<p>Liên hệ</p>
+						<ul>
+							<li>
+								<img src="./assets/images/mail.png" alt="Alarm" /><a
+									href="#"
+									>greenchopvn@gmail.com</a
+								>
+							</li>
+							<li>
+								<img src="./assets/images/globe.png" alt="Alarm" /><a
+									href="#"
+									>Sản phẩm</a
+								>
+							</li>
+							<li>
+								<img src="./assets/images/map.png" alt="Call" /><a href="#"
+									>Tin tức</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="bottom">
+					<a href="#">
+						<img
+							src="./assets/images/bocongthuong.png"
+							alt="Bộ công thương" />
+					</a>
+					<div class="socials">
+						<ul>
+							<li>
+								<a href="#">
+									<img src="./assets/images/youtube.png" alt="Youtube" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="./assets/images/facebook.png" alt="Facebook" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img
+										src="./assets/images/instagram.png"
+										alt="Instagram" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="./assets/images/twitter.png" alt="Twitter" />
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

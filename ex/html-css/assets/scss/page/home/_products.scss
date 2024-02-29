@@ -22,6 +22,12 @@
             gap: 20px;
         }
 
+        @include m.screen(768px) {
+            .row {
+                gap: 0;
+            }
+        }
+
         @include m.screen(992px) {
             .row {
                 gap: 0;

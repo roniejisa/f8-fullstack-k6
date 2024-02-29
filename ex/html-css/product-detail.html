@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title></title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="stylesheet" href="./assets/css/responsive.css" />
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<button class="menu-icon">
+					<label for="showMenu">
+						<i class="fa-solid fa-bars"></i>
+					</label>
+				</button>
+				<a href="#" class="logo">
+					<img src="./assets/images/logo.png" alt="Logo" />
+				</a>
+				<nav class="menu">
+					<input type="checkbox" id="showMenu" hidden />
+					<ul>
+						<li><a href="/ex/html-css/">Trang chủ</a></li>
+						<li><a href="./about.html">Về Greenchop</a></li>
+						<li><a class="active" href="./product.html">Sản phẩm</a></li>
+						<li><a href="./tin-tuc.html">Tin tức</a></li>
+						<li><a href="./lien-he.html">Liên hệ</a></li>
+					</ul>
+				</nav>
+				<div class="header-right">
+					<a href="./cart.html" class="cart">
+						<img src="./assets/images/cart.png" alt="Cart" />
+						<span class="count">5</span>
+					</a>
+					<button class="search">
+						<img src="./assets/images/search.png" alt="Search" />
+					</button>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="breakcrumb-2">
+				<div class="container">
+					<ul>
+						<li>
+							<a href="#">Sản phẩm</a>
+						</li>
+						<li>
+							<a href="#" class="active">Thông tin sản phẩm</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="product-detail">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-lg-6">
+							<div class="image-main">
+								<img src="./assets/images/product.png" alt="Product" />
+							</div>
+							<div class="image-sub">
+								<div class="img">
+									<img src="./assets/images/product.png" alt="Product" />
+								</div>
+								<div class="img">
+									<img src="./assets/images/product.png" alt="Product" />
+								</div>
+								<div class="img">
+									<img src="./assets/images/product.png" alt="Product" />
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-6">
+							<h1>Combo - Quán ăn</h1>
+							<div class="price">
+								<span class="prefix">Giá:</span>
+								<span class="value">600.000</span>
+								<span class="current">vnd</span>
+							</div>
+							<span class="product-quality">1 thùng 1000 đôi</span>
+							<p class="short-content">
+								exerci tation ullamcorper suscipit lobortis nisl ut aliquip
+								ex ea commodo consequat. Lorem ipsum dolor sit amet,
+								consectetuer adipiscing elit, sed diam nonummy nibh
+							</p>
+							<div class="action">
+								<div class="number">
+									<button class="btn-minus">-</button>
+									<input type="text" value="1" />
+									<button class="btn-plus">+</button>
+								</div>
+								<button class="add-cart">Mua hàng</button>
+							</div>
+							<ul class="special">
+								<li><span>Nhà sản xuất:</span> GreenChop</li>
+								<li><span>Dòng sản phẩm:</span> Đũa gỗ thay đầu</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product-tab">
+				<div class="container">
+					<ul>
+						<li class="active">Mô tả sản phẩm</li>
+						<li>Thông tin chia tiết</li>
+					</ul>
+					<div class="content">
+						<div class="content-items">
+							<div class="item">
+								<span>01.</span>
+								<b>Thân trên</b>
+								<p>Làm từ nhựa Melamine (được chứng nhận ATTP)</p>
+							</div>
+							<div class="item">
+								<span>02.</span>
+								<b>Khớp liên kết</b>
+								<p>Inox 304</p>
+							</div>
+							<div class="item">
+								<span>03.</span>
+								<b>Thân dưới</b>
+								<p>Gỗ tre</p>
+							</div>
+						</div>
+						<div class="content-detail">
+							<div class="detail-items">
+								<div class="item">
+									<span class="image">
+										<img src="./assets/images/detail_1.png" alt="" />
+									</span>
+									<b>Chất liệu xanh</b>
+									<p>
+										100% bằng gỗ tự nhiên, đảm bảo cho nhu cầu sống xanh và
+										sức khỏe người dùng
+									</p>
+								</div>
+								<div class="item">
+									<span class="image">
+										<img src="./assets/images/detail_2.png" alt="" />
+									</span>
+									<b>Vệ sinh và an toàn</b>
+									<p>
+										Đầu đũa mới 100% mỗi bữa ăn, không chung đụng đầu đũa
+										với bất kì người dùng nào khác.
+									</p>
+								</div>
+								<div class="item">
+									<span class="image">
+										<img src="./assets/images/detail_3.png" alt="" />
+									</span>
+									<b>Tiện lợi</b>
+									<p>
+										Thao tác tháo lắp cực kỳ nhanh gọn và đơn giản, không
+										quá thời gian gỡ một bao đũa.
+									</p>
+								</div>
+								<div class="item">
+									<span class="image">
+										<img src="./assets/images/detail_4.png" alt="" />
+									</span>
+									<b>Tiết kiệm</b>
+									<p>
+										Giá thành đầu đũa siêu hợp lý. Chỉ với giá của các loại
+										đũa 1 lần ăn ngoài thị trường, xanh và an toàn tuyệt
+										đối.
+									</p>
+								</div>
+								<div class="item">
+									<span class="image">
+										<img src="./assets/images/detail_5.png" alt="" />
+									</span>
+									<b>Sang trọng</b>
+									<p>
+										Thiết kế đũa tinh tế, cứng cáp và gần gũi với môi
+										trường, sang trọng và gần gũi với môi trường.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Products -->
+			<section class="products">
+				<div class="container">
+					<h2>Sản phẩm</h2>
+					<div class="products-items">
+						<div class="row">
+							<div class="col-12 col-md-6 col-lg-4">
+								<div class="product-item">
+									<div class="image">
+										<img src="./assets/images/product_1.png" alt="" />
+									</div>
+									<h3><a href="#">Combo Quán ăn</a></h3>
+									<div class="content">
+										<span>1 Thùng 1000 đôi</span>
+										<div class="price">
+											<span>Giá</span>
+											600.000
+											<span>vnd</span>
+										</div>
+										<button>Thêm vào giỏ hàng</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-6 col-lg-4">
+								<div class="product-item">
+									<div class="image">
+										<img src="./assets/images/product_2.png" alt="" />
+									</div>
+									<h3><a href="#">Combo Quán ăn - nhà hàng</a></h3>
+									<div class="content">
+										<span>1 Thùng 1000 đôi</span>
+										<div class="price">
+											<span>Giá</span>
+											600.000
+											<span>vnd</span>
+										</div>
+										<button>Thêm vào giỏ hàng</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-6 col-lg-4">
+								<div class="product-item">
+									<div class="image">
+										<img src="./assets/images/product_3.png" alt="" />
+									</div>
+									<h3>
+										<a href="#">Combo Quán ăn Nhà hàng - Khách sạn</a>
+									</h3>
+									<div class="content">
+										<span>1 Thùng 1000 đôi</span>
+										<div class="price">
+											<span>Giá</span>
+											600.000
+											<span>vnd</span>
+										</div>
+										<button>Thêm vào giỏ hàng</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End: Products -->
+		</main>
+		<footer>
+			<div class="container">
+				<div class="top">
+					<div class="slogon">
+						<img src="./assets/images/logo.png" alt="Logo" />
+						<p>GreenChop là bạn đồng hành của người tiêu dùng</p>
+					</div>
+					<div class="link-footer">
+						<p>Trang chủ</p>
+						<ul>
+							<li><a href="#">Về greenchop</a></li>
+							<li><a href="#">Sản phẩm</a></li>
+							<li><a href="#">Tin tức</a></li>
+						</ul>
+					</div>
+					<div class="link-footer">
+						<p>Hỗ trợ</p>
+						<ul>
+							<li><a href="#">Đặt hàng trức tuyến (8h-22h)</a></li>
+							<li>
+								<img src="./assets/images/alarm.png" alt="Alarm" /><a
+									href="#"
+									>Sản phẩm</a
+								>
+							</li>
+							<li>
+								<img
+									src="./assets/images/phone_outline.png"
+									alt="Call" /><a href="#">Tin tức</a>
+							</li>
+						</ul>
+					</div>
+					<div class="link-footer">
+						<p>Liên hệ</p>
+						<ul>
+							<li>
+								<img src="./assets/images/mail.png" alt="Alarm" /><a
+									href="#"
+									>greenchopvn@gmail.com</a
+								>
+							</li>
+							<li>
+								<img src="./assets/images/globe.png" alt="Alarm" /><a
+									href="#"
+									>Sản phẩm</a
+								>
+							</li>
+							<li>
+								<img src="./assets/images/map.png" alt="Call" /><a href="#"
+									>Tin tức</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="bottom">
+					<a href="#">
+						<img
+							src="./assets/images/bocongthuong.png"
+							alt="Bộ công thương" />
+					</a>
+					<div class="socials">
+						<ul>
+							<li>
+								<a href="#">
+									<img src="./assets/images/youtube.png" alt="Youtube" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="./assets/images/facebook.png" alt="Facebook" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img
+										src="./assets/images/instagram.png"
+										alt="Instagram" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="./assets/images/twitter.png" alt="Twitter" />
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

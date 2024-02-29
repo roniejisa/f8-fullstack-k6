@@ -1,0 +1,51 @@
+.contact {
+    h3 {
+        color: var(--Content, #2C2C2C);
+        font-size: 31.667px;
+        font-weight: 800;
+        line-height: 131.523%;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .order {
+        margin-top: 15px;
+        display: block;
+    }
+
+    ul {
+        margin-top: 30px;
+
+        li {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+
+            +li {
+                margin-top: 10px;
+            }
+
+            >img {
+                padding: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+                transition: .3s;
+                transition-property: color;
+
+                &:hover {
+                    color: #46B20F;
+                }
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+        }
+    }
+}

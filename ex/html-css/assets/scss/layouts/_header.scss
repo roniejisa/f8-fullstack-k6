@@ -55,7 +55,12 @@ header {
     .header-right {
         display: flex;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 20px;
+
+        @include m.screen(992px) {
+            gap: 50px;
+        }
+
         margin-left: 50px;
     }
 
