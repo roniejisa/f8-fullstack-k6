@@ -1,9 +1,15 @@
 @use 'variable' as v;
-@forward 'variable'; 
+@forward 'variable';
 
 @mixin screen($breakpoint) {
     @media screen and (min-width: $breakpoint) {
-        @content
+        @content;
+    }
+}
+
+@mixin m-screen($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
     }
 }
 
@@ -40,4 +46,9 @@
             }
         }
     }
+}
+
+@mixin transition($property) {
+    transition-property: #{$property};
+    transition-duration: .4s;
 }

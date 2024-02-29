@@ -9,11 +9,25 @@
     }
 
     .products-items {
-        padding: 0 calc(115px - 42px);
-        .row [class^="col-"]:nth-child(3n - 1) .image {
-            background: #C5FFA8;
+
+        @include m.screen(992px) {
+            padding: 0 calc(115px - 42px);
+
+            .row [class^="col-"]:nth-child(3n - 1) .image {
+                background: #C5FFA8;
+            }
         }
-        
+
+        .row {
+            gap: 20px;
+        }
+
+        @include m.screen(992px) {
+            .row {
+                gap: 0;
+            }
+        }
+
         .row [class^="col-"] {
             padding: calc(95px / 2) 42px;
         }
@@ -27,17 +41,20 @@
 
             .image {
                 position: relative;
-                padding-top: 100%;
                 border-radius: 50%;
-                background: #FFBA94;
-                margin-bottom: 50%;
 
-                img {
-                    position: absolute;
-                    width: 100%;
-                    top: 50%;
-                    left: 50%;
-                    transform: translateX(-50%);
+                @include m.screen(992px) {
+                    padding-top: 100%;
+                    background: #FFBA94;
+                    margin-bottom: 50%;
+
+                    img {
+                        position: absolute;
+                        width: 100%;
+                        top: 50%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
                 }
             }
 
@@ -51,7 +68,7 @@
                 a {
                     text-decoration: none;
                     color: var(--cl-scss, p.$colorMain);
-                    transition: color .3s;
+                    transition: color .4s;
 
                     &:hover {
                         color: var(--cl-scss, p.$colorAnchor);
@@ -75,6 +92,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+
                 button {
                     color: white;
                     background: #46B20F;
@@ -89,6 +107,7 @@
                     font-weight: bold;
                     font-size: 23.33px;
                     margin-top: 6px;
+
                     span {
                         font-weight: normal;
                         font-size: 16px;

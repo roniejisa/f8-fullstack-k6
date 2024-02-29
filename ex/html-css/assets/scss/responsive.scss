@@ -1,26 +1,37 @@
 @use './partials/mixin' as m;
 
+.mt-3 {
+    margin-top: 1rem;
+}
 
+@include m.screen(576px) {}
 
+@include m.screen(768px) {}
 
-@include m.screen(992px){
-    .container{
+@include m.screen(992px) {
+    .mt-lg-0 {
+        margin-top: 0;
+    }
+
+    .container {
         max-width: 90%;
+    }
+
+    .menu-icon {
+        display: none;
     }
 }
 
-@include m.screen(1200px){
-    
-}
+@include m.screen(1200px) {}
 
-@include m.screen(1400px){
-    .container{
+@include m.screen(1400px) {
+    .container {
         max-width: 1200px;
     }
 }
 
-@include m.screen(1650px){
-    .container{
+@include m.screen(1700px) {
+    .container {
         max-width: 1600px;
     }
 }

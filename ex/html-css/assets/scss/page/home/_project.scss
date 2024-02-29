@@ -19,6 +19,12 @@
     }
 
     .protect-items {
+        @include m.m-screen(992px) {
+            .row.g-4 {
+                margin: initial;
+            }
+        }
+
         .protect-item {
             display: flex;
             flex-direction: column;
@@ -36,11 +42,20 @@
             }
 
             .content {
-                padding: 24px 27.5px;
+                padding: 24px 10px;
+
+                @include m.screen(992px) {
+                    padding: 24px 27.5px;
+                }
+
                 background: white;
                 border-bottom-left-radius: 8px;
                 border-bottom-right-radius: 8px;
                 flex: 1;
+
+                .short-content {
+                    margin-top: 6px;
+                }
 
                 h3 {
                     a {

@@ -1,5 +1,6 @@
 @use "../../partials/variable" as p;
 @use '../../partials/mixin' as m;
+
 .news {
     margin-top: 129px;
 
@@ -12,19 +13,34 @@
 
     .meta {
         text-align: center;
-        padding: 0 170px;
+
+        @include m.screen(992px) {
+            padding: 0 170px;
+        }
+
         margin-bottom: 29px;
     }
 
     button {
         font-weight: 700;
     }
-    
+
     .news-items {
+        @include m.m-screen(575px) {
+            .row.g-4 {
+                margin: 0 0;
+            }
+
+            .row.g-4 [class^=col-] {
+                padding: 0;
+            }
+        }
+
         .new-item {
             >a {
                 font-size: 0;
                 display: block;
+
                 img {
                     width: 100%;
                     border-radius: 6.67px;
@@ -58,7 +74,12 @@
                         display: block;
                         text-decoration: none;
                         color: var(--cl-scss, p.$colorMain);
-                        transition: color 0.3s;
+
+                        span {
+                            color: var(--cl-scss, p.$colorMain);
+                        }
+
+                        transition: color 0.4s;
                         margin-bottom: 16px;
 
                         &:hover {
@@ -82,7 +103,15 @@
         transform: translateX(-50%);
         transition-property: color, background-color, border-color;
 
-        & :hover {
+        span {
+            color: var(--cl-scss, p.$colorMain);
+        }
+
+        &:hover span {
+            color: white;
+        }
+
+        &:hover {
             color: white;
             background-color: var(--cl-scss, p.$colorAnchor);
             border-color: var(--cl-scss, p.$colorAnchor);

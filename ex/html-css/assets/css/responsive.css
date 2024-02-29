@@ -1,6 +1,16 @@
+.mt-3 {
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 992px) {
+  .mt-lg-0 {
+    margin-top: 0;
+  }
   .container {
     max-width: 90%;
+  }
+  .menu-icon {
+    display: none;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -8,7 +18,7 @@
     max-width: 1200px;
   }
 }
-@media screen and (min-width: 1650px) {
+@media screen and (min-width: 1700px) {
   .container {
     max-width: 1600px;
   }

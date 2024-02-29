@@ -1,14 +1,55 @@
 @use '../partials/variable' as p;
+@use '../partials/mixin' as m;
+
+body:has(input[type="checkbox"]:checked) {
+    height: 100vh;
+    overflow: hidden;
+}
+
+@include m.screen(992px) {
+    body:has(input[type="checkbox"]:checked) {
+        height: auto;
+        overflow: initial;
+    }
+}
 
 header {
     box-shadow: 0px 5px 5px rgba(0, 0, 0, .1);
     position: relative;
     z-index: 9999;
 
+    .menu-icon {
+        padding: 10px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 24px;
+
+        label {
+            cursor: pointer;
+        }
+    }
+
     .container {
         padding-top: 18px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        min-height: 95px;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+
+        @include m.screen(992px) {
+            position: initial;
+            left: initial;
+            top: initial;
+            transform: initial;
+        }
     }
 
     .header-right {
@@ -19,13 +60,52 @@ header {
     }
 
     nav {
+        position: fixed;
         flex: 1;
 
+        background: white;
+        width: 100%;
+        left: 0;
+        padding: 40px;
+        min-height: calc(100vh - 95px);
+        top: -100%;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        @include m.transition('top, opacity');
+
+        @include m.screen(992px) {
+            min-height: initial;
+            top: initial;
+            opacity: initial;
+            visibility: initial;
+            pointer-events: all;
+        }
+
+        &:has(input[type="checkbox"]:checked) {
+            top: 95px;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+
+        @include m.screen(992px) {
+            position: initial;
+            top: initial;
+            background: initial;
+            padding: initial;
+            max-height: initial;
+            left: initial
+        }
+
         ul {
-            justify-content: flex-end;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
+            @include m.screen(992px) {
+                justify-content: flex-end;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+
             list-style: none;
 
             li {
@@ -33,11 +113,14 @@ header {
                     text-decoration: none;
                     color: var(--cl-scss, p.$colorText);
                     font-weight: 600;
-                    padding: 35px 0;
                     display: block;
-                    transition-property: border-color, color;
-                    transition: .4s;
+                    @include m.transition('color, border-bottom');
                     border-bottom: 2px solid transparent;
+                    padding: 10px 0;
+
+                    @include m.screen(992px) {
+                        padding: 35px 0;
+                    }
 
                     &:hover,
                     &.active {

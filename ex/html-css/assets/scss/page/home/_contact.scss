@@ -1,10 +1,14 @@
+@use '../../partials/mixin' as m;
+
 .contact {
     margin-top: 133px;
 
     img {
         max-width: 100%;
         height: auto;
-        padding-right: calc(118px - 20px);
+        @include m.screen(992px){
+            padding-right: calc(118px - 20px);
+        }
     }
 
     .right {

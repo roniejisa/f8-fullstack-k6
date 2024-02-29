@@ -1,13 +1,30 @@
+@use '../../partials/mixin' as *;
+
 .introduce {
     position: relative;
     overflow: hidden;
 
     .left {
-        padding-left: 200px;
+        padding: 20px 30px;
+        text-align: center;
+
+        @include screen(1200px) {
+            padding-left: 200px;
+            text-align: initial;
+        }
     }
 
     .row {
         align-items: center;
+        flex-direction: reverse;
+
+        @include screen(1200px) {
+            flex-direction: row;
+        }
+
+        [class^="col-"] {
+            width: 100%;
+        }
     }
 
     .right {
@@ -17,43 +34,70 @@
         position: relative;
 
         span {
-            font-size: 167px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            line-height: 1;
-            transform: rotate(90deg) translate(-35%, 28%);
+            opacity: 15%;
+            text-align: center;
+            display: block;
+            font-size: 35px;
+            padding-bottom: 30px;
             color: #216000;
             font-weight: 800;
-            opacity: 15%;
+
+            @include screen(992px) {
+                padding-bottom: 30px;
+                font-size: 167px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                line-height: 1;
+                transform: rotate(90deg) translate(-35%, 28%);
+                display: initial;
+                opacity: 15%;
+            }
         }
 
         img {
             position: relative;
-            left: -150px;
-            top: -8px;
+
+            @include screen(1200px) {
+                left: -150px;
+                top: -8px;
+            }
         }
     }
 
     .left {
+        font-size: 20px;
         h3 {
-            font-size: 36.67px;
+            @include screen(768px) {
+                font-size: 36.67px;
+            }
+
             font-weight: 800;
             margin-bottom: 15px;
         }
 
-        span {  
-            font-size: 43.33px;
+        span {
+            @include screen(768px) {
+                font-size: 43.33px;
+            }
+
             font-weight: 800;
             line-height: 52.44px;
-            padding-right: 156px;
-            margin-bottom: 28px;
+
+            @include screen(1200px) {
+                padding-right: 156px;
+                margin-bottom: 28px;
+            }
+
             display: block;
         }
 
         p {
             line-height: 20.42px;
-            padding-right: 130px;
+
+            @include screen(1200px) {
+                padding-right: 130px;
+            }
         }
     }
 }

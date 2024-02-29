@@ -1,8 +1,18 @@
+@use '../../partials/mixin' as *;
 .profits {
-    margin-top: 133px;
-
+    @include screen(992px){
+        margin-top: 133px;
+    }
+    
+    @include m-screen(992px){
+        .row.g-4 [class^=col-]{
+            padding: 0;
+        }
+    }
     .profit-items {
-        padding: 0 56px;
+        @include screen(992px){
+            padding: 0 56px;
+        }
 
         .row {
             margin: -39px 0;
