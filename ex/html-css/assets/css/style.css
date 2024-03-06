@@ -1814,6 +1814,11 @@ footer .bottom .socials ul a {
   flex-wrap: wrap;
   padding: 0 30px;
 }
+@media screen and (min-width: 1200px) {
+  .product-info {
+    padding: 0;
+  }
+}
 .product-info .content {
   border-radius: 0px 8.333px 8.333px 0px;
   background: var(--White, #FFF);
@@ -1830,11 +1835,16 @@ footer .bottom .socials ul a {
   .product-info .content {
     margin-left: 312.5px;
     margin-right: 45px;
+    flex: 1;
   }
 }
 .product-info img {
   margin-top: 35px;
-  width: 100%;
+}
+@screen (992px) {
+  .product-info img {
+    width: 100%;
+  }
 }
 
 .yourself {
