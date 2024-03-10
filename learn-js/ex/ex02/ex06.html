@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+            *{
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+			span {
+				max-width: 60px;
+				height: 60px;
+                vertical-align: middle;
+				display: inline-block;
+                line-height: 60px;
+                width: 100%;
+                position: relative;
+
+			}
+            span:after{
+                content: '';
+                display: block;
+                padding-top: 100%;
+            }
+            .white{
+                background: white;
+                color: transparent;
+                border: 1px solid black;
+            }
+            .black{
+                background: black;
+                color: transparent;
+                border: 1px solid black;
+            }
+            .empty{
+                line-height: 1;
+                color: transparent;
+            }
+            .text,
+            .number{
+                text-align: center;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .text{
+                color: coral;
+            }
+            .number{
+                color: darkolivegreen;
+            }
+		</style>
+	</head>
+	<body>
+		<script src="./js/ex06.js"></script>
+	</body>
+</html>
