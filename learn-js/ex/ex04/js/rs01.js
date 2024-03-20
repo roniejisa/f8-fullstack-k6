@@ -19,10 +19,11 @@ function reset() {
     document.write(result)
     if (firstPosition == -1) {
         clearInterval(a);
+        result = '';
         index = 0;
         content = OldContent;
         OldContent = '';
-        a = setInterval(reset, 100);
+        a = setInterval(reset, 1000);
     }
 }
-var a = setInterval(reset, 100)
+var a = setInterval(reset, 1000)
