@@ -1,0 +1,210 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.modal {
+  transition-property: opacity, transform, visibility;
+  transition-duration: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 20;
+  position: fixed;
+  width: 500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -200%);
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3764705882);
+}
+.modal-body .modal-header {
+  position: relative;
+  padding: 15px;
+}
+.modal-body .modal-header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-body .modal-header .logo img {
+  max-height: 32px;
+  height: auto;
+}
+.modal-body .modal-header .modal-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 24px;
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+.modal-body .tab {
+  width: 100%;
+  display: flex;
+}
+.modal-body .tab .btn-tab {
+  flex-basis: 50%;
+  border: none;
+  padding: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #808080;
+  background-color: #f0f0f0;
+}
+.modal-body .tab .btn-tab.active {
+  color: white;
+  background: #217809;
+}
+.modal-body .tab-content {
+  padding: 15px;
+}
+.modal-body .tab-content .tab {
+  display: none;
+}
+.modal-body .tab-content .tab .description-login {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+.modal-body .tab-content .tab.active {
+  display: block;
+}
+.modal-body .tab-content .tab .login-social {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.modal-body .tab-content .tab .login-social .login-btn {
+  flex: 0 0 calc(50% - 8px);
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  background: #e2e8f0;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.modal-body .tab-content .tab .line {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+}
+.modal-body .tab-content .tab .line span {
+  background: white;
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+  font-size: 14px;
+}
+.modal-body .tab-content .tab .line::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #cecece;
+  position: absolute;
+  top: 50%;
+}
+.modal-body .tab-content .tab .form label {
+  position: relative;
+}
+.modal-body .tab-content .tab .form label .password-hint {
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #808080;
+}
+.modal-body .tab-content .tab .form input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 12px 50px 12px 12px;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.modal-body .tab-content .tab .btn-submit {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #217809;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.modal-body .tab-content .tab .btn-orther {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-body .tab-content .tab .btn-orther .btn-password-reset {
+  border: none;
+  background: none;
+  color: #808080;
+  font-size: 16px;
+}
+.modal-body .tab-content .tab .condition-register {
+  margin-top: 20px;
+}
+.modal-body .tab-content .tab .condition-register .content {
+  color: #808080;
+}
+.modal-body .tab-content .tab .condition-register .content a {
+  text-decoration: none;
+}
+.modal-body .tab-content .tab .description-register {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.3137254902);
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-property: opacity, visibility;
+  transition-duration: 0.3s;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.form-alert,
+.input-error {
+  font-style: 10px;
+  color: red;
+  margin-bottom: 15px;
+}
+
+/*# sourceMappingURL=style.css.map */

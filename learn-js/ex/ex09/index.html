@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+
+    <body>
+        <button class="btn show-modal">Đăng nhập/ Đăng ký</button>
+        <div class="modal">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div class="logo">
+                        <img src="https://cdnweb.dantri.com.vn/dist/c7b827391b2f30b6fbaf.png" alt="" />
+                    </div>
+                    <button class="modal-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="tab">
+                        <button class="btn-tab active" data-target="tab-1">Đăng nhập</button>
+                        <button class="btn-tab" data-target="tab-2">Đăng ký</button>
+                    </div>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab active">
+                            <span class="description-login">
+                                với các tài khoản mạng xã hội</span>
+                            <div class="login-social">
+                                <button class="login-btn login-google">
+                                    <img src="https://cdnweb.dantri.com.vn/dist/602a5aca41bdeb805571.svg" alt="Google">
+                                    <span class="text">Google</span>
+                                </button>
+                                <button class="login-btn login-facebook">
+                                    <img src="https://cdnweb.dantri.com.vn/dist/05804407650f4479d9ef.svg" alt="Facebook">
+                                    <span class="text">Facebook</span>
+                                </button>
+                            </div>
+                            <span class="line">
+                                <span>hoặc</span>
+                            </span>
+                            <form class="form form-login" action="#">
+                                <label>
+                                    <span>Email</span>
+                                    <input type="text" name="email" />
+                                </label>
+                                <label>
+                                    <span>Password</span>
+                                    <input type="password" name="password" />
+                                    <button class="password-hint" type="button">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </label>
+                                <div class="btn-orther">
+                                    <button class="btn-password-reset">Quên mật khẩu</button>
+                                </div>
+                                <button class="btn btn-submit">Đăng nhập</button>
+                            </form>
+                        </div>
+                        <div id="tab-2" class="tab">
+                            <span class="description-register">Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!</span>
+                            <form action="#" class="form form-login">
+                                <label>
+                                    <span>Họ và tên</span>
+                                    <input type="text" name="name" placeholder="Họ và tên" />
+                                </label>
+                                <label>
+                                    <span>Email</span>
+                                    <input type="text" name="email" placeholder="Email" />
+                                </label>
+                                <label>
+                                    <span>Password</span>
+                                    <input type="password" name="password" placeholder="Mật khẩu" />
+                                    <button class="password-hint" type="button">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </label>
+                                <div class="condition-register">
+                                    <div class="content">Bằng cách đăng ký tài khoản, bạn cũng đồng thời chấp nhận mọi
+                                        <a href="#">điều kiện về qui định và chính sách của Dân trí</a>
+                                    </div>
+                                </div>
+                                <button class="btn btn-submit">Đăng ký</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay"></div>
+        <script src="./js/rs01.js"></script>
+    </body>
+
+</html>
