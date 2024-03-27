@@ -6,9 +6,9 @@ var nums2 = [9];
 var array = nums1.concat(nums2);
 if (array.length % 2 === 0) {
     var middle = array.length / 2;
-    var trungVi = (array[middle - 1] + array[middle]) / 2;
+    var median = (array[middle - 1] + array[middle]) / 2;
 } else {
-    var trungVi = array[Math.ceil(array.length / 2)];
+    var median = array[Math.ceil(array.length / 2)];
 }
 
-console.log(trungVi);
+console.log(median);
