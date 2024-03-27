@@ -16,7 +16,7 @@ function result(n) {
     } else {
         while (true) {
             var flag = false;
-            if (isSoDoiXung(i)) {
+            if (isSymmetrical(i)) {
                 for (var a = 2; a < i; a++) {
                     if (i % a === 0) {
                         flag = true;
@@ -32,7 +32,7 @@ function result(n) {
     }
 }
 
-function isSoDoiXung(n) {
+function isSymmetrical(n) {
     flag = false;
     var stringNumber = (+n).toString();
     var lengthNumber = stringNumber.length;
