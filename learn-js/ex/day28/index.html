@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music For All</title>
+        <link rel="icon" type="image/x-icon" href="./assets/images/logo.svg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="./assets/css/player.css?v=2">
+    </head>
+
+    <body>
+        <header>
+            <div class="debugger" style="color: white;"></div>
+            <div class="header-container">
+                <div class="logo">
+                    <a href="#">
+                        <img src="./assets/images/logo.svg" alt="Logo">
+                    </a>
+                </div>
+                <div class="tab-control">
+                    <div class="tabs">
+
+                        <button data-tab="screen-home"><span>Home</span></button>
+                        <button data-tab="screen-main" class="selected">
+                            <span>Player</span>
+                        </button>
+                        <button data-tab="screen-playlist"><span>Playlist</span></button>
+                        <div class="overlay">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-form">
+                    <form class="form-search">
+                        <input type="text" placeholder="Tìm kiếm...">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+                <button class="menu-open">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </header>
+        <main>
+            <div class="player-screen">
+                <div class="screen-left" data-tab-content id="screen-home">
+                    <span class="loading show"></span>
+                    <div class="home-container show">
+                        <div class="heading">
+                            <h2><i class="fa-solid fa-house"></i> Trang chủ</h2>
+                            <button class="to-search" hidden><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                        <div class="songs">
+                        </div>
+                    </div>
+                    <div class="search-container">
+                        <div class="heading">
+                            <h2><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm: <blockquote></blockquote>
+                            </h2>
+                            <button class="to-home"><i class="fa-solid fa-house"></i></button>
+                        </div>
+                        <div class="search">
+                        </div>
+                    </div>
+                </div>
+                <div class="main show" data-tab-content id="screen-main">
+                    <div class="disc-overlay">
+                        <div class="disc">
+                        </div>
+                    </div>
+                    <div class="karaoke-screen">
+                        <div class="karaoke-action">
+                            <button class="get-link">
+                                <i class="fa-solid fa-link"></i>
+                            </button>
+                        </div>
+                        <div class="karaoke-content"></div>
+                    </div>
+                    <div class="song-info">
+                        <div class="play-line">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <h1>Ai hát em nghe</h1>
+                    </div>
+                </div>
+                <div class="screen-right" data-tab-content id="screen-playlist">
+                    <span class="loading show"></span>
+                    <div class="playlist">
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="player-dashboard">
+                <div class="player">
+                    <span class="time-start">00:00</span>
+                    <div class="process">
+                        <div class="process-inner">
+                            <div class="process-main">
+                                <span class="process-icon"></span>
+                                <span class="process-timer">00:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="time-end">00:00</span>
+                </div>
+                <div class="toolbar">
+                    <div class="left">
+                        <div class="info-current">
+                            <div class="image">
+                                <img src="./assets/images/logo.svg" alt="Tiêu đề">
+                            </div>
+                            <div class="info">
+                                <h3 class="title"></h3>
+                                <span class="author"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle actions">
+                        <button class="shuffle" data-title="Ngẫu nhiên">
+                            <i class="fa-solid fa-shuffle"></i>
+                        </button>
+                        <button class="prev" data-title="Bài trước đó">
+                            <i class="fa-solid fa-backward"></i>
+                        </button>
+                        <button class="play big" data-title="Phát nhạc">
+                            <i class="fa-play fa-solid"></i>
+                        </button>
+                        <button class="next" data-title="Bài tiếp theo">
+                            <i class="fa-solid fa-forward"></i>
+                        </button>
+                        <button class="loop" data-title="Lặp lại">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
+                    </div>
+                    <div class="right">
+                        <div class="karaoke" data-title="Tách lời" hidden>
+                            <button class="karaoke-show">
+                                <i class="fa-solid fa-microphone-lines-slash"></i>
+                            </button>
+                        </div>
+                        <div class="lyric" data-title="Lời bài hát">
+                            <button class="karaoke-show">
+                                <i class="fa-solid fa-pen-fancy"></i>
+                            </button>
+                        </div>
+                        <div class="volume">
+                            <span class="icon">
+                                <i class="fa-solid fa-volume-low"></i>
+                            </span>
+                            <div class="volume-background">
+                                <div class="volume-process">
+                                    <div class="process-main">
+                                        <span class="process-icon"></span>
+                                        <span class="process-percent">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="./assets/js/utils.js?v=2"></script>
+        <script src="./assets/js/request.js?v=2"></script>
+        <script src="./assets/js/app.js?v=2"></script>
+        <script src="./assets/js/getLyric.js?v=2"></script>
+        <script src="./assets/js/player.js?v=2"></script>
+        <script src="./assets/js/navigator.js?v=2"></script>
+    </body>
+
+</html>

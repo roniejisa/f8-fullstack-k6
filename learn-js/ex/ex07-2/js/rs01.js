@@ -47,5 +47,4 @@ function isSymmetrical(n) {
     }
     return firstStringNumber === lastStringNumber;
 }
-console.log(result(9999));
-// console.log();
+console.log(result(9999999));

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .editor {
+      width: 100%;
+      max-height: 200px;
+      overflow: auto;
+      min-height: 100px;
+      border: 1px solid black;
+      outline: none;
+      padding: 10px;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .file-action {
+      position: relative;
+    }
+
+    .file-action button {
+      background: blue;
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .file-action .list-action {
+      position: absolute;
+      background: white;
+      width: 100px;
+      list-style: none;
+      left: 0;
+      padding: 0;
+      margin: 0;
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all .4s ease-in-out;
+    }
+
+    .file-action .list-action.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    .file-action .list-action button {
+      background: none;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      color: black;
+      padding: 10px;
+    }
+
+    .file-action .list-action button:hover {
+      background: blue;
+      color: white;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .action-item {
+      background: transparent;
+      color: black;
+      border: 1px solid #ebebeb;
+      padding: 10px;
+      cursor: pointer;
+      min-width: 40px;
+    }
+
+    input[type="color"] {
+      border: none;
+      height: 40px;
+    }
+
+    .total-editor {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      gap: 30px;
+    }
+  </style>
+</head>
+<h1>Doc Editor</h1>
+<hr>
+<div class="toolbar">
+  <div class="file-action">
+    <button class="show">File</button>
+    <ul class="list-action">
+      <li><button class="new-file">New File</button></li>
+      <li><button class="saveTxt">Save TXT</button></li>
+      <li><button class="savePdf">Save PDF</button></li>
+    </ul>
+  </div>
+  <div class="actions">
+    <button class="action-item" type="bold">B</button>
+    <button class="action-item" type="underline">U</button>
+    <button class="action-item" type="italic">I</button>
+    <input type="color">
+  </div>
+</div>
+<div contenteditable="true" class="editor"></div>
+<div class="total-editor">
+  <div class="character">
+    Số ký tự : <span>0</span>
+  </div>
+  <div class="word">
+    Số từ: <span>0</span>
+  </div>
+</div>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

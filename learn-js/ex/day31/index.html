@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .timer {
+      width: 100%;
+      height: 100vh;
+      background: greenyellow;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    .counter{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid white;
+        background: black;
+        color: white;
+        font-size: 24px;
+    }
+    button{
+        padding: 5px 10px;
+        
+    }
+  </style>
+</head>
+
+<body>
+  <div class="timer">
+    <h2>Get Link</h2><span class="counter">0</span>
+    <div class="action"><button class="btn">Get Link</button></div>
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
