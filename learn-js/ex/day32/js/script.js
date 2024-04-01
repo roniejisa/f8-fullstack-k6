@@ -61,20 +61,23 @@ class F8 {
                 })
 
                 Array.from(templateNode.children).forEach(item => {
-                    var listAction = item.outerHTML.match(/v-on:(.+)="(?:([a-z]+)(.+)|(.+))"/)
+                    var listAction = item.outerHTML.match(/v-on:(.+)="(.+?)"/)
+                    // console.log();
                     if (Array.isArray(listAction)) {
                         const event = listAction[1];
-                        const keyFast = listAction[2];
-                        const fastData = listAction[3];
-                        const cb = listAction[4];
+                        const cb = listAction[2];
 
                         item.addEventListener(event, () => {
-                            if (keyFast) {
-                                const test = eval(`_this.data[keyFast]${fastData}`);
-                            }
-                            if (typeof eval(cb) === 'function') {
+                            if (cb.trim().startsWith("(") && typeof eval(cb) === 'function') {
                                 eval(cb)();
+                            } else {
+                                const listCallback = cb.split(';');
+                                listCallback.forEach(action => {
+                                    const patten = action.match(/([a-z]+)+(.+)/);
+                                    eval(`_this.data[patten[1]]${patten[2]}`);
+                                })
                             }
+
                             changeDataEvent.newData = _this.data;
                             changeDataEvent.component = _this;
                             window.dispatchEvent(changeDataEvent);
@@ -142,16 +145,16 @@ F8.component('counter-component', {
     },
     template: `
         <h1>{{title}}</h1>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ count }} lần</h2>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ count }} lần</h2>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ counter }} lần</h2>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ count }} lần</h2>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ counter }} lần</h2>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ count }} lần</h2>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ count }} lần</h2>
-        <h2>Đã đếm:<span>{{title}}</span> - {{ count }} lần</h2>
-        <button v-on:click="count--">-</button>
-        <button v-on:click="count++">+</button>
+        <h2>Đã đếm:{{ count }} lần</h2>
+        <h2>Đã đếm:{{ count }} lần</h2>
+        <h2>Đã đếm:{{ counter }} lần</h2>
+        <h2>Đã đếm:{{ count }} lần</h2>
+        <h2>Đã đếm:{{ counter }} lần</h2>
+        <h2>Đã đếm:{{ count }} lần</h2>
+        <h2>Đã đếm:{{ count }} lần</h2>
+        <h2>Đã đếm:{{ count }} lần</h2>
+        <button v-on:click="count--;counter++">-</button>
+        <button v-on:click="count++;counter--">+</button>
         <button v-on:click="() => {this.data.title = 'Hello F8'}">test</button>
     `
 });
