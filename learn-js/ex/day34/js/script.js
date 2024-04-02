@@ -63,7 +63,7 @@ function imageLen(element, elementImg) {
             Object.assign(zoom.style, {
                 border: "1px solid black",
                 width: imageWidth / 10 + 'px',
-                height: imageHeight / 10 + 'px',
+                height: imageWidth / 10 + 'px',
                 position: "absolute",
                 cursor: "pointer",
                 zIndex: 10,
@@ -96,6 +96,10 @@ function imageLen(element, elementImg) {
                 heighValue = minLenHeight;
             }
 
+            if (widthValue > heighValue) {
+                heighValue = zoomHeight;
+            }
+            
         } else {
             var widthValue = zoomWidth + (zoomWidth / 100 * scale);
             var heighValue = zoomHeight + (zoomHeight / 100 * scale);
