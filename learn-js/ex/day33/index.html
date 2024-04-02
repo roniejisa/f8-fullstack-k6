@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+    }
+
+    button {
+      color: white;
+      background: red;
+      font-size: 32px;
+      border-radius: 25px;
+      padding: 10px 30px;
+      border: none;
+      cursor: pointer;
+    }
+    button[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .result {
+      max-width: 80%;
+      width: 100%;
+      text-align: center;
+    }
+
+    .result p.done {
+      display: none;
+      border: 1px solid black;
+      padding: 10px;
+      border-radius: 25px;
+      width: 100%;
+      font-size: 24px;
+    }
+
+    .result p.start {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: green;
+    }
+
+    .result p.start.hidden {
+      display: none;
+    }
+
+    .result p.done.success {
+      display: block;
+      border: 1px solid green;
+      color: green;
+    }
+
+    .result p.done.error {
+      display: block;
+      border: 1px solid red;
+      color: red;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <h1>Bạn muốn làm gì? Hãy nói cho F8 biết</h1>
+  <button class="start-voice">Bấm vào đây để nói</button>
+  <div class="result">
+    <p class="start hidden">Hãy nói nội dung bạn muốn...</p>
+    <p class="done"></p>
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

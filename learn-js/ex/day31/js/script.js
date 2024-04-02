@@ -10,7 +10,8 @@ function getRemainingTime(deadline) {
     return deadline - currentTime;
 }
 
-function countdown() {
+function countdown(currentTime) {
+    console.log(currentTime);
     const remainingTime = getRemainingTime(endTime);
     const newSecond = Math.ceil(remainingTime / 1000);
     if (newSecond !== second) {
