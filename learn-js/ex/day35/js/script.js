@@ -5,7 +5,7 @@ const formAdd = addModal.querySelector('form');
 const count = document.querySelector('.done');
 const inputSearch = document.querySelector(`[type="search"]`);
 
-const todoApi = "https://json-server-8vr0o417l-roniejisas-projects.vercel.app/todo";
+const todoApi = "https://json-server-fawn-nine.vercel.app/todo";
 const query = {
 };
 
