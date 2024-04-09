@@ -13,7 +13,8 @@ const getTodo = async (isDone = false) => {
     query.is_done = isDone;
     const queryString = Object.keys(query) ? `?${new URLSearchParams(query).toString()}` : ``;
     const response = await fetch(todoApi + queryString, {
-        method: "GET"
+        method: "GET",
+        mode:"no-cors",
     })
     const data = await response.json();
     return data;
@@ -162,6 +163,7 @@ formAdd.addEventListener('submit', async (e) => {
         headers: {
             'Content-Type': "application/json"
         },
+        mode:"no-cors",
         body: JSON.stringify(formData)
     });
     cancelFormAdd();
@@ -210,6 +212,7 @@ const showTodoDone = () => {
 const doneToDo = async (id, isDone = true) => {
     await fetch(todoApi + `/${id}`, {
         method: "PATCH",
+        mode:"no-cors",
         headers: {
             "Content-Type": "application/json"
         },
@@ -223,13 +226,15 @@ const doneToDo = async (id, isDone = true) => {
 const deleteTodo = async (id, type) => {
     await fetch(todoApi + `/${id}`, {
         method: "DELETE",
+        mode:"no-cors",
     });
     showTodo(type, query.q);
 }
 
 const editTodo = async (id) => {
     const response = await fetch(todoApi + `/${id}`, {
-        method: 'GET'
+        method: 'GET',
+        mode:"no-cors"
     })
     const todo = await response.json();
     showFormAdd(todo);
