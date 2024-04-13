@@ -41,6 +41,8 @@ const observer = new IntersectionObserver(async (entries) => {
             if (comments.length > 0) {
                 crawling = false;
                 page++;
+            }else{
+                comment.insertAdjacentHTML('beforeend','<div class="end">Đã hết 😍</div>');
             }
         }
     }
