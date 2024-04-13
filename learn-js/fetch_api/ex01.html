@@ -5,6 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .paginate{
+        display: flex;
+        gap: 10px;
+    }
+
+    .paginate a{
+        padding: 5px;
+        text-decoration: none;
+        display: block;
+        border: 1px solid blue;
+    }
+    .paginate a:has(b){
+        border: 1px solid red;
+    }
+    .paginate a b{
+        color: red;
+        
+    
+    }
+  </style>
 </head>
 
 <body>
@@ -19,8 +40,10 @@
         <input type="text" name="email" placeholder="Nhập Email">
       </label>
     </div>
-    <button>Tên</button>
+    <button>Thêm</button>
   </form>
+  <hr>
+  <input type="search" placeholder="Từ khóa..." class="search">
   <div id="root"></div>
   <script src="./js/ex01.js"></script>
 </body>
