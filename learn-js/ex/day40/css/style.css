@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    padding: 10px;
+    background: #ebebeb;
+}
+
+.blog {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin: 40px 0;
+    border-radius: 5px;
+}
+
+.create-blog {
+    overflow: hidden;
+}
+
+.create-blog label {
+    font-weight: bold;
+}
+
+.create-blog textarea,
+.create-blog input {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ebebeb;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.create-blog button {
+    width: 100%;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    background: coral;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.blog-item {
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    border: 1px solid greenyellow;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.blog-item .date {
+    flex-basis: 120px;
+}
+
+.blog-item .date .date-string {
+    border: 1px solid coral;
+    width: fit-content;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.blog-item+.blog-item {
+    margin-top: 30px
+}
+
+
+.header-blog {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-blog button {
+    border: none;
+    background: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.blog-author {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.blog-name-author {
+    font-weight: bold;
+}
+
+.blog-avatar-author {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    color: white;
+    height: 40px;
+    box-shadow: 0 0 5px white;
+}
