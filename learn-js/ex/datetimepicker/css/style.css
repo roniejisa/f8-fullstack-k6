@@ -1,0 +1,107 @@
+.datepicker {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: fixed;
+  border-radius: 6px;
+  background: linear-gradient(100deg, #8fe3e5, #889aff);
+}
+.datepicker-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.datepicker-header .month-year {
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 1px 1px white;
+  cursor: pointer;
+}
+.datepicker-header .prev-next {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.datepicker-header .prev-next button {
+  border-radius: 5px;
+  background: rgba(235, 235, 235, 0.5);
+  height: 22px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: 300ms ease;
+  transition-property: background-color, fill;
+  fill: #ebebeb;
+}
+.datepicker-header .prev-next button:hover {
+  background: #ebebeb;
+  fill: black;
+}
+.datepicker-header .prev-next button svg {
+  width: 16px;
+  height: 16px;
+}
+.datepicker-header .prev-next button:nth-child(1) svg {
+  position: relative;
+  top: 1px;
+}
+.datepicker-header .prev-next button:nth-child(2) svg {
+  position: relative;
+  bottom: 1px;
+}
+.datepicker .date-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 6px;
+  padding: 10px;
+}
+.datepicker .date-container span,
+.datepicker .date-container button {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  color: white;
+  text-shadow: 1px 1px black;
+  border-radius: 50px;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+.datepicker .date-container button {
+  transition: 300ms ease;
+  transition-property: border-color, background;
+  cursor: pointer;
+  border: 2px solid white;
+}
+.datepicker .date-container button:hover, .datepicker .date-container button.active {
+  border-color: hotpink;
+  background: hotpink;
+}
+.datepicker .date-container span {
+  color: black;
+  text-shadow: 1px 1px white;
+  font-weight: bold;
+}
+.datepicker[data-type=month] .date-container {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.datepicker[data-type=month] .date-container button {
+  width: 50px;
+  height: 50px;
+}
+.datepicker[data-type=year] .date-container {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.datepicker[data-type=year] .date-container button {
+  width: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */
