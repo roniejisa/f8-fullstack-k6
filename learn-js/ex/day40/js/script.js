@@ -21,6 +21,7 @@ const app = {
         if (token) {
             page = await this.home();
             history.pushState({}, "", window.location.origin + window.location.pathname);
+            hasUser = true;
         } else {
             switch (urlSearchParam.get('page')) {
                 case null:
@@ -36,6 +37,19 @@ const app = {
         }
         root.innerHTML = page;
         this.addEvent();
+        const listDatepicker = document.querySelectorAll('input[data-type="datepicker"]');
+        for (const datepickerEl of listDatepicker) {
+            new NewDatePicker(datepickerEl, {}, 'event-choose-time');
+        }
+    },
+    chooseTimeEvent: function (e) {
+        if (new Date(e.value) < new Date()) {
+            alert(`Vui lòng chọn lại thời gian đăng bài!✖`);
+            e.element.value = "";
+        } else {
+            const stringTime = app.convertDate(e.value, 'string');
+            alert(`Bài viết của bạn sẽ được đăng ${stringTime}`)
+        }
     },
     formLogin: function () {
         return `<div>
@@ -156,18 +170,27 @@ const app = {
                     alert('Vui lòng điền đầy đủ thông tin!');
                     return false;
                 }
+                const [date, month, year] = formData.date.split('/');
+
+                if (new Date(`${year}/${month}/${date}`) < new Date()) {
+                    alert("Thời gian không hợp lệ!");
+                    return false;
+                }
 
                 const blogResponse = await _this.postBlog(formData);
                 if (blogResponse) {
-                    const blogEl = root.querySelector('.blog-items');
-                    const checkBlogItem = Array.from(blogEl.children).some(el => el.classList.contains('blog-item'));
-                    blogResponse.data.author = blogResponse.data.userId.name;
-                    const htmlBlog = _this.templateBlog(blogResponse.data);
-                    
-                    if (!checkBlogItem) {
-                        blogEl.innerHTML = htmlBlog;
+                    if (new Date(`${year}/${month}/${date}`) > new Date()) {
                     } else {
-                        blogEl.insertAdjacentHTML('afterbegin', htmlBlog);
+                        const blogEl = root.querySelector('.blog-items');
+                        const checkBlogItem = Array.from(blogEl.children).some(el => el.classList.contains('blog-item'));
+                        blogResponse.data.author = blogResponse.data.userId.name;
+                        const htmlBlog = _this.templateBlog(blogResponse.data);
+
+                        if (!checkBlogItem) {
+                            blogEl.innerHTML = htmlBlog;
+                        } else {
+                            blogEl.insertAdjacentHTML('afterbegin', htmlBlog);
+                        }
                     }
                 }
             }
@@ -212,6 +235,12 @@ const app = {
                         </label>
                     </div>
                     <div>
+                        <label>
+                            Chọn thời gian
+                            <input type="text" class="form-control" name="date" data-type="datepicker"/>
+                        </label>
+                    </div>
+                    <div>
                         <button>Đăng bài viết</button>
                     </div>
                 </form>
@@ -221,6 +250,7 @@ const app = {
             </div>
             `
         }
+
     },
     renderBlog: async function (blogs) {
         const _this = this;
@@ -409,7 +439,12 @@ const app = {
         const timestamp = date.getTime();
         const dateCurrent = new Date();
         const timestampCurrent = dateCurrent.getTime();
-        const millisecondDiff = timestampCurrent - timestamp;
+        let millisecondDiff = timestampCurrent - timestamp;
+        let stringPrefix = "trước";
+        if (millisecondDiff < 0) {
+            millisecondDiff = Math.abs(millisecondDiff);
+            stringPrefix = "nữa";
+        }
         const secondsDiff = Math.ceil(millisecondDiff / 1000);
         const minutesDiff = Math.floor(secondsDiff / 60);
         const hoursDiff = Math.floor(minutesDiff / 60);
@@ -419,17 +454,17 @@ const app = {
         switch (type) {
             case 'string':
                 if (yearsDiff > 0) {
-                    return yearsDiff + " năm trước"
+                    return yearsDiff + ` năm ${stringPrefix}`
                 } else if (monthsDiff > 0) {
-                    return monthsDiff + " tháng trước"
+                    return monthsDiff + ` tháng ${stringPrefix}`
                 } else if (daysDiff > 0) {
-                    return daysDiff + " ngày trước"
+                    return daysDiff + ` ngày ${stringPrefix}`
                 } else if (hoursDiff > 0) {
-                    return hoursDiff + " giờ trước"
+                    return hoursDiff + ` giờ ${stringPrefix}`
                 } else if (minutesDiff > 0) {
-                    return minutesDiff + " phút trước"
+                    return minutesDiff + ` phút ${stringPrefix}`
                 } else if (secondsDiff > 0) {
-                    return secondsDiff + " giây trước"
+                    return secondsDiff + ` giây ${stringPrefix}`
                 }
                 break;
             case 'hours':
@@ -440,6 +475,7 @@ const app = {
     },
     start: function () {
         this.render();
+        window.addEventListener('event-choose-time', app.chooseTimeEvent)
     }
 }
 app.start();

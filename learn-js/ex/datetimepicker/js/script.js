@@ -320,11 +320,8 @@
                 }
             })
         }
-
-
     }
-
-
+    
     const listDatepicker = document.querySelectorAll('input[data-type="datepicker"]');
     for (const datepickerEl of listDatepicker) {
         new NewDatePicker(datepickerEl, datepickerEl.getAttribute('data-value'), {});
