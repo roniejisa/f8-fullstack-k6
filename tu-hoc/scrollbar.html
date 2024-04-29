@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			#container::-webkit-scrollbar {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div
+			id="container"
+			style="
+				width: 200px;
+				height: 100px;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				position: relative;
+			">
+			<div id="content" style="white-space: nowrap">
+				Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...Long content here...
+			</div>
+			<div
+				id="custom-scrollbar"
+				style="
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 10px;
+					background-color: #ccc;
+					border-radius: 5px;
+					opacity: 0;
+					transition: opacity 0.3s;
+				"></div>
+		</div>
+		<script>
+			// Lấy phần tử container và content
+			var container = document.getElementById("container");
+			var content = document.getElementById("content");
+			var scrollbar = document.getElementById("custom-scrollbar");
+
+			// Kích thước của phần tử container và content
+			var containerWidth = container.offsetWidth;
+			var contentWidth = content.scrollWidth;
+
+			// Tính toán tỉ lệ thanh cuộn
+			var scrollbarRatio = containerWidth / contentWidth;
+            console.log(scrollbarRatio);
+			// Đặt kích thước của thanh cuộn
+			scrollbar.style.width = containerWidth * scrollbarRatio + "px";
+
+			// Lắng nghe sự kiện scroll trên phần tử container
+			container.addEventListener("scroll", function () {
+				// Tính toán vị trí của thanh cuộn dựa trên vị trí scroll
+				var scrollPosition =
+					container.scrollLeft / (contentWidth - containerWidth);
+				var scrollbarOffset =
+					(containerWidth - scrollbar.offsetWidth) * scrollPosition;
+
+				// Đặt vị trí của thanh cuộn
+				scrollbar.style.left = scrollbarOffset + "px";
+			});
+
+			// Lắng nghe sự kiện mouseenter trên phần tử container
+			container.addEventListener("mouseenter", function () {
+				// Hiển thị thanh cuộn khi con chuột vào
+				scrollbar.style.opacity = 1;
+			});
+
+			// Lắng nghe sự kiện mouseleave trên phần tử container
+			container.addEventListener("mouseleave", function () {
+				// Ẩn thanh cuộn khi con chuột rời đi
+				scrollbar.style.opacity = 0;
+			});
+		</script>
+	</body>
+</html>
