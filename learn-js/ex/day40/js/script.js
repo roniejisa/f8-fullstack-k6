@@ -108,10 +108,13 @@ const app = {
         anchorEls = root.querySelectorAll('a');
         anchorEls.forEach(anchor => {
             anchor.onclick = function (e) {
-                e.preventDefault();
                 let href = anchor.getAttribute('href');
-                history.pushState({}, "", window.location.origin + window.location.pathname + href);
-                _this.render();
+                if(!href.includes(":")){
+                    e.preventDefault();
+                    history.pushState({}, "", window.location.origin + window.location.pathname + href);
+                    _this.render();
+                }
+
             };
         })
 
@@ -486,7 +489,7 @@ const app = {
         content = content.replace(/^(?:https|http):\/\/[a-z.]*[youtube.com\/][(a-z?/)|v=]*([a-zA-Z0-9]*)[a-z&A-Z0-9=_?]*$/g, `<iframe width="560" height="315" src="https://www.youtube.com/embed/$1/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>`);
         content = content.replace(/^((?:http|https):\/\/(?:(?:[a-z]|[a-z][a-z0-9-_\.]*[a-z0-9])\.)+(?:[a-z]{2,})(?:\:[0-9]{2,})*(?:\/?|\/[^\s]+))$/g, `<a href="$1">$1</a>`);
         content = content.replace(/^([a-zA-Z][a-zA-Z0-9-_\.]+[a-zA-Z0-9]@(?:[a-zA-Z]|[a-z][a-zA-Z0-9-_\.]*[a-zA-Z0-9]).[a-zA-z]{2,})$/g, `<a href="mailto:$1">$1</a>`);
-        content = content.replace(/^[+84|0][0-9]{9}$/g, `<a href="tel:$1">$1</a>`);
+        content = content.replace(/^([(+84|0)][0-9]{9})$/g, `<a href="tel:$1">$1</a>`);
         return content;
     },
     start: function () {
