@@ -138,6 +138,7 @@ const app = {
             if (e.target.classList.contains('form-login')) {
                 const formData = Object.fromEntries([...new FormData(e.target)]);
                 let flag = false;
+
                 Object.values(formData).forEach(value => {
                     if (!value.trim()) {
                         flag = true;
@@ -161,6 +162,11 @@ const app = {
             if (e.target.classList.contains("create-blog")) {
                 const formData = Object.fromEntries([...new FormData(e.target)]);
                 let flag = false;
+                let date;
+                if (formData.date !== null) {
+                    date = formData.date;
+                    delete formData.date;
+                }
                 Object.values(formData).forEach(value => {
                     if (!value.trim()) {
                         flag = true;
@@ -170,16 +176,19 @@ const app = {
                     alert('Vui lòng điền đầy đủ thông tin!');
                     return false;
                 }
-                const [date, month, year] = formData.date.split('/');
+                if (date) {
+                    const [date, month, year] = date.split('/');
 
-                if (new Date(`${year}/${month}/${date}`) < new Date()) {
-                    alert("Thời gian không hợp lệ!");
-                    return false;
+                    if (new Date(`${year}/${month}/${date}`) < new Date()) {
+                        alert("Thời gian không hợp lệ!");
+                        return false;
+                    }
+                    delete formData.date;
                 }
 
                 const blogResponse = await _this.postBlog(formData);
                 if (blogResponse) {
-                    if (new Date(`${year}/${month}/${date}`) > new Date()) {
+                    if (date && new Date(`${year}/${month}/${date}`) > new Date()) {
                     } else {
                         const blogEl = root.querySelector('.blog-items');
                         const checkBlogItem = Array.from(blogEl.children).some(el => el.classList.contains('blog-item'));
@@ -428,7 +437,7 @@ const app = {
                     </div>
                 </div>
                 <h3 class="blog-title">${data.title}</h3>
-                <p class="blog-content">${data.content}</p>
+                <p class="blog-content">${app.convertContent(data.content)}</p>
             </div>
         </div>`
     },
@@ -472,6 +481,13 @@ const app = {
             case 'minutes':
                 return minutes + ' phút';
         }
+    },
+    convertContent: function (content) {
+        content = content.replace(/^(?:https|http):\/\/[a-z.]*[youtube.com\/][(a-z?/)|v=]*([a-zA-Z0-9]*)[a-z&A-Z0-9=_?]*$/g, `<iframe width="560" height="315" src="https://www.youtube.com/embed/$1/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>`);
+        content = content.replace(/^((?:http|https):\/\/(?:(?:[a-z]|[a-z][a-z0-9-_\.]*[a-z0-9])\.)+(?:[a-z]{2,})(?:\:[0-9]{2,})*(?:\/?|\/[^\s]+))$/g, `<a href="$1">$1</a>`);
+        content = content.replace(/^([a-zA-Z][a-zA-Z0-9-_\.]+[a-zA-Z0-9]@(?:[a-zA-Z]|[a-z][a-zA-Z0-9-_\.]*[a-zA-Z0-9]).[a-zA-z]{2,})$/g, `<a href="mailto:$1">$1</a>`);
+        content = content.replace(/^[+84|0][0-9]{9}$/g, `<a href="tel:$1">$1</a>`);
+        return content;
     },
     start: function () {
         this.render();
