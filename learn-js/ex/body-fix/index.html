@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+	</head>
+	<body>
+        <p><button>start</button></p>
+		<video
+			id="input"
+			width="320"
+			height="240"
+			autoplay
+			muted
+			playsinline
+			style="
+				border: solid 1px black;
+				box-sizing: content-box;
+				display: inline-block;
+				transform: scaleX(-1);
+			"></video
+		><span style="position: relative; display: inline-block"
+			><span
+				id="loadingicon"
+				class="fa fa-spinner fa-spin"
+				style="
+					position: absolute;
+					font-size: 100px;
+					margin: 70px 110px;
+					display: none;
+				"></span
+			><canvas
+				id="output"
+				width="320"
+				height="240"
+				style="border: solid 1px black; box-sizing: content-box"></canvas
+		></span>
+		<script type="module" src="/main.js"></script>
+	</body>
+</html>

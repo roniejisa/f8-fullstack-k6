@@ -1,0 +1,15 @@
+{
+  "name": "canvas-usermedia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow-models/body-pix": "^2.2.1",
+    "tensorflow-models": "^0.0.1"
+  }
+}
