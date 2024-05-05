@@ -1,10 +1,10 @@
 import React from 'react'
-import Counter from './components/Counter'
+import MoneyTransfer from './components/MoneyTransfer';
 
 const App = () => {
   return (
     <>
-        <Counter  />
+        <MoneyTransfer  />
     </>
   )
 }

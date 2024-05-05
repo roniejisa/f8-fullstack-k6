@@ -1,0 +1,21 @@
+{
+	"name": "packages",
+	"version": "1.0.0",
+	"description": "Demo dự án",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "parcel src/index.html --port=4321 --open",
+		"build": "build src/index.html --dist-dir=./build",
+		"tailwind": "tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"parcel": "^2.12.0",
+		"tailwindcss": "^3.4.3"
+	},
+	"dependencies": {
+		"moment": "^2.30.1"
+	}
+}
