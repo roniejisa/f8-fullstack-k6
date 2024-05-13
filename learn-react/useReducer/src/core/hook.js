@@ -11,4 +11,4 @@ export const useSelector = (callback) => {
 export const useDispatch = () => {
     const { dispatch } = useContext(ProviderContext);
     return dispatch;
-}
+}   

@@ -1,0 +1,56 @@
+.rs-loading-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background: rgb(88 183 255 / 40%);
+}
+
+.rsl-wave {
+    font-size: var(--rs-l-size, 2rem);
+    color: var(--rs-l-color, #003e8b);
+    display: inline-flex;
+    align-items: center;
+    width: 5em;
+    height: 5em;
+}
+
+.rsl-wave--icon {
+    display: block;
+    background: currentColor;
+    border-radius: 99px;
+    width: 0.25em;
+    height: 0.25em;
+    margin-right: 0.25em;
+    margin-bottom: -0.25em;
+    -webkit-animation: rsla_wave .56s linear infinite;
+    animation: rsla_wave .56s linear infinite;
+    -webkit-transform: translateY(.0001%);
+    transform: translateY(.0001%);
+}
+
+@-webkit-keyframes rsla_wave {
+    50% {
+        -webkit-transform: translateY(-0.25em);
+        transform: translateY(-0.25em);
+    }
+}
+
+@keyframes rsla_wave {
+    50% {
+        -webkit-transform: translateY(-0.25em);
+        transform: translateY(-0.25em);
+    }
+}
+
+.rsl-wave--icon:nth-child(2) {
+    -webkit-animation-delay: -.14s;
+    animation-delay: -.14s;
+}
+
+.rsl-wave--icon:nth-child(3) {
+    -webkit-animation-delay: -.28s;
+    animation-delay: -.28s;
+    margin-right: 0;
+}

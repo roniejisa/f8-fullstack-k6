@@ -4,9 +4,7 @@ import { v4 as uuidV4 } from "uuid";
 const Todo = () => {
 	const [name, setName] = useState("");
 
-	const todoList = useSelector((state) => {
-		return state.todoList;
-	});
+	const {todoList,status} = useSelector((state) =>state);
 
 	const dispatch = useDispatch();
 	const handleSubmit = (e) => {
@@ -28,6 +26,10 @@ const Todo = () => {
 			payload: id,
 		});
 	};
+    useEffect(() => {
+        console.log(status);
+    },[status]);
+
 	const handleChange = (e) => {
 		setName(e.target.value);
 	};
