@@ -1,75 +1,50 @@
-import React, { useEffect, useState } from "react";
-let apiUser = "https://jsonplaceholder.typicode.com/users";
+import React, { useEffect, useRef, useState } from "react";
+import Checkbox from "./components/Checkbox";
+import Input from "./components/Input";
+
 const App = () => {
+    const inputRef = useRef();
+	const myObj = useRef(0);
 	const [count, setCount] = useState(0);
-	const [users, setUsers] = useState([]);
-	const [isLoading, setLoading] = useState(true);
-	const [isShow, setShow] = useState(true);
-	const [isError, setError] = useState(false);
-
-	const handleIncrement = () => {
+	const handleClick = () => {
 		setCount(count + 1);
-		console.log(count);
+		myObj.current++;
 	};
 
-	const getUsers = async () => {
-		try {
-			const response = await fetch(apiUser);
-			const data = await response.json();
-			if (response.ok) {
-				setUsers(data);
-				setLoading(false);
-			} else {
-				throw new Error("Lỗi rồi");
-			}
-		} catch (e) {
-			setError(e);
-		}
-	};
-
-	useEffect(() => {
-		getUsers();
-	}, []);
-    console.log(isError);
+	// useEffect(() => {
+	// 	inputRef.current.focus();
+	// }, []);
+    useEffect(()=>{
+        inputRef.current.bcd = "Hello anh em F8";
+        console.log(inputRef.current.className);
+        inputRef.current.className = "text-3"
+    },[])
 	return (
 		<div>
-			<h1>Count : {count}</h1>
-			{console.log("update UI: " + count)}
-			<button onClick={handleIncrement}>Click me</button>
-			<button onClick={() => setShow(!isShow)}>Toggle</button>
-			{isShow && (
-				<>
-					<h1>Users</h1>
-					{isError ? (
-						<h3>Đã có lỗi xảy ra</h3>
-					) : (
-						<>
-							{isLoading ? (
-								<h3>Đang tải....</h3>
-							) : (
-								users.map(({ id, name }) => <h4 key={id}>{name}</h4>)
-							)}
-						</>
-					)}
-				</>
-			)}
+			<h1>Count: {count}</h1>
+			<h1>Count2: {myObj.current}</h1>
+			<button onClick={handleClick}>Click me</button>
+			<hr />
+			<input type="text" ref={inputRef} />
+
+			<Checkbox />
+            <Input ref={inputRef} count={count} />
 		</div>
 	);
 };
 
 export default App;
-
-/*
-Component: State thay đổi ==> Re-render
-
-Phát sinh 1 số công việc bên ngoài sau khi css thay đổi ==> Thực hiện sau khi re-render
-
-==> Side Effect
-
-Hook xử lý các side effect
-useEffect(callback, dependencies)
-dependencies: Điều kiện để callback trong setEffect hoạt động
-- [] ==> Hoạt động ngay sau khi component được render lần đầu tiên
-- null, undefined ==> Component re-render callback sẽ chạy
-- [bien1, bien2, bien3,...] ==> 1 trong các biến thay đổi, callback sẽ hoạt động
-*/
+//Refs
+/**
+ * Chức năng của react dùng để tham chiếu
+ * Giữ nguyên kết quả gần nhất khi bị re-render
+ * Tham chiếu đến các react element để trả về DOM Element
+ * Ref có thể thay đổi trực tiếp
+ *
+ * Ref ==> Đơn giản là 1 object thuần túy
+ * Trong class component ==> Sử dụng React.createRef để tạo ref
+ *
+ * Trong functional Component ==> Sử dụng Hook useRef()
+ *
+ * Khi ref thay đổi ==> Component không bị re-render chỗ này nếu muốn update được ui thì phải có state
+ */
