@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import client from "../api/apiClient";
+import { useEffect } from "react";
 
 const TodoForm = ({ onFetchData, onSearchData }) => {
 	const [name, setName] = useState("");
@@ -15,10 +16,21 @@ const TodoForm = ({ onFetchData, onSearchData }) => {
 			});
 			if (response.ok) {
 				onFetchData(true);
-                setName("");
+				setName("");
 			}
 		}
 	};
+	let timer = null;
+	useEffect(() => {
+		if (isSearch) {
+			timer = setTimeout(async () => {
+				onSearchData(name);
+			}, 500);
+		}
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [name]);
 	return (
 		<form
 			className="max-w-sm mx-auto flex gap-3 mb-4"
