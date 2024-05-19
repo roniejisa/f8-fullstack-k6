@@ -1,50 +1,41 @@
-import React, { useEffect, useRef, useState } from "react";
-import Checkbox from "./components/Checkbox";
-import Input from "./components/Input";
-
+import React, { createContext, useEffect, useState } from "react";
+import Theme from "./components/Theme/Theme";
+export const AppContext = createContext();
+import "./assets/style.css";
 const App = () => {
-    const inputRef = useRef();
-	const myObj = useRef(0);
-	const [count, setCount] = useState(0);
-	const handleClick = () => {
-		setCount(count + 1);
-		myObj.current++;
-	};
+	const [message, setMessage] = useState("Hello anh em F8");
+	const [isDark, setDark] = useState(false);
 
-	// useEffect(() => {
-	// 	inputRef.current.focus();
-	// }, []);
-    useEffect(()=>{
-        inputRef.current.bcd = "Hello anh em F8";
-        console.log(inputRef.current.className);
-        inputRef.current.className = "text-3"
-    },[])
+	useEffect(() => {
+		if (isDark) {
+			document.body.classList.add("dark-theme");
+		} else {
+			document.body.classList.remove("dark-theme");
+		}
+	}, [isDark]);
 	return (
-		<div>
-			<h1>Count: {count}</h1>
-			<h1>Count2: {myObj.current}</h1>
-			<button onClick={handleClick}>Click me</button>
-			<hr />
-			<input type="text" ref={inputRef} />
-
-			<Checkbox />
-            <Input ref={inputRef} count={count} />
-		</div>
+		<AppContext.Provider
+			value={{
+				message,
+				changeMessage: () => {
+					setMessage("Hi");
+				},
+				isDark,
+				changeTheme: () => setDark(!isDark),
+			}}>
+			<Theme />
+		</AppContext.Provider>
 	);
 };
 
+// Cách 1: Dùng props
+// Cách 2: Dùng Context API
+/*
+    Tạo object Context bằng cách sử dụng hàm React.createContext()
+    Provider: Gửi dữ liệu từ context tới các component con
+    Consumer: Lấy dữ liệu từ component
++ Xác định được context cần lấy dữ liệu
++ Gọi component Consumer để lấy dữ liệu hoặc thông qua hook useContext
+*/
+
 export default App;
-//Refs
-/**
- * Chức năng của react dùng để tham chiếu
- * Giữ nguyên kết quả gần nhất khi bị re-render
- * Tham chiếu đến các react element để trả về DOM Element
- * Ref có thể thay đổi trực tiếp
- *
- * Ref ==> Đơn giản là 1 object thuần túy
- * Trong class component ==> Sử dụng React.createRef để tạo ref
- *
- * Trong functional Component ==> Sử dụng Hook useRef()
- *
- * Khi ref thay đổi ==> Component không bị re-render chỗ này nếu muốn update được ui thì phải có state
- */
