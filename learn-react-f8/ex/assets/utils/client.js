@@ -21,12 +21,9 @@ export const client = {
 			method,
 			headers: client.headers,
 		};
-		console.log(body);
 		if (method !== "GET") {
 			options.body = body;
 		}
-		console.log(options.body);
-
 		try {
 			const response = await fetch(client.apiEndpoint + url, options);
 			const data = await response.json();
