@@ -28,10 +28,9 @@ const FormSupport = () => {
 		try {
 			setLoading(true);
 			await emailjs.send(
-				"service_uv7wy9d",
-				"template_4ell208",
+				"roniejisa",
+				"roniejisa",
 				{
-					from_name: user.email,
 					to_name: email,
 					message: content,
 				},
