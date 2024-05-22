@@ -4,8 +4,8 @@ import { AppContext } from "../App";
 import { toast } from "react-toastify";
 
 const FormSupport = () => {
-	const { user, setLoading } = useContext(AppContext);
-	const [email, setEmail] = useState(user.email);
+	const { user,setLoading } = useContext(AppContext);
+	const [email, setEmail] = useState("hieupm248@gmail.com");
 	const [content, setContent] = useState("");
 	const contentRef = useRef();
 	const emailRef = useRef();
@@ -31,7 +31,8 @@ const FormSupport = () => {
 				"roniejisa",
 				"roniejisa",
 				{
-					to_name: email,
+                    from_name: user.name,
+					to_email: email,
 					message: content,
 				},
 				{
@@ -55,7 +56,7 @@ const FormSupport = () => {
 				style={{
 					textAlign: "left",
 				}}>
-				<label htmlFor={emailId}>Email của bạn!</label>
+				<label htmlFor={emailId}>Email nhận</label>
 				<input
 					ref={emailRef}
 					type="text"
