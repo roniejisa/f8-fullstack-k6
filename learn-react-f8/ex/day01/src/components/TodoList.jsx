@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import TodoItem from "./TodoItem";
 import { useDispatch, useSelector } from "../core/hook";
 import { getTodos } from "../api/todoApi";
-import { toast } from "react-toastify";
 import { refreshApiKey } from "../api/apiKey";
 
 const TodoList = () => {

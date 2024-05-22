@@ -1,4 +1,3 @@
-import React from "react";
 import "./loading.css";
 import { useSelector } from "../core/hook";
 const Loading = () => {

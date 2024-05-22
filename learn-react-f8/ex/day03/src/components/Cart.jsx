@@ -5,7 +5,8 @@ import { getCookie } from "../utils/all";
 import { toast } from "react-toastify";
 
 const Cart = () => {
-	const { cart, setCart, setLogged, setProducts,setLoading } = useContext(AppContext);
+	const { cart, setCart, setLogged, setProducts, setLoading } =
+		useContext(AppContext);
 
 	useEffect(() => {
 		const cart = localStorage.getItem("cart");
@@ -16,30 +17,34 @@ const Cart = () => {
 
 	const handleOrder = async () => {
 		client.hasToken();
-        setLoading(true);
+		setLoading(true);
 		const [response, data] = await client.post(
 			"/orders",
-            JSON.stringify(cart)
+			JSON.stringify(
+				cart.reduce((array, { productId, quantity }) => {
+					array.push({
+						productId,
+						quantity,
+					});
+					return array;
+				}, [])
+			)
 		);
 		if (response.ok) {
-            toast.info("Đã thanh toán!")
+			toast.info("Đã thanh toán!");
 			setCart([]);
-            setLoading(false);
+			setLoading(false);
+			localStorage.removeItem("cart");
 		} else if (data.code === 401) {
-            const email = getCookie("email");
-			const [response, data] = await client.get("/api-key?email=" + email);
-            if (response.ok) {
-				document.cookie = `apiKey=${data.data.apiKey}`;
-                handleOrder();
-                setCart([]);
-			}else{
-                document.cookie = `apiKey=${data.data.apiKey};expires=${new Date('1970').toUTCString()}`;
-                document.cookie = `email=${data.data.apiKey};expires=${new Date('1970').toUTCString()}`;
-                localStorage.removeItem('cart');
-                setLogged(false);
-                setProducts([]);
-                setLoading(false);
-            }
+			const checkRefresh = await client.refreshToken();
+			if (checkRefresh) {
+				handleOrder();
+			} else {
+				setLogged(false);
+				setProducts([]);
+				setLoading(false);
+				localStorage.removeItem("cart");
+			}
 		}
 	};
 	return (

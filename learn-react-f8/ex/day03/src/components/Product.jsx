@@ -30,7 +30,7 @@ const Product = () => {
                             <ProductItem key={item._id} item={item} />
                         ))}
                     </div>
-                    <Cart />
+                    {products.length && <Cart />}
                 </div>
             </div>
         </>
