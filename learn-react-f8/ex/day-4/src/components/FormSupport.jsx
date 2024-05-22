@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const FormSupport = () => {
 	const { user,setLoading } = useContext(AppContext);
-	const [email, setEmail] = useState("hieupm248@gmail.com");
+	const [email, setEmail] = useState("");
 	const [content, setContent] = useState("");
 	const contentRef = useRef();
 	const emailRef = useRef();
