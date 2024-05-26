@@ -10,12 +10,23 @@
 	display: block;
 	width: 100%;
 	padding: 0.5rem 1rem;
-	border: 1px solid #2d7b7b;
+	background: transparent;
+	border: 1px solid var(--border-input,#2d7b7b);
 	border-radius: 0.25rem;
-	color: #2d7b7b;
+	color: var(--cl-input);
 	font-size: 1rem;
 	margin-bottom: 20px;
     &:focus {
         outline: 2px solid #2d7b7b;
     }
+}
+
+.playAgain{
+	padding: 4px 16px;
+	margin-bottom: 12px;
+	background-color: #2d7b7b;
+	color: #fff;
+	border-radius: 6px;
+	cursor: pointer;
+	border: none;
 }

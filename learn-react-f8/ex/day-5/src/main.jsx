@@ -6,21 +6,21 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./assets/scss/global.scss";
 ReactDOM.createRoot(document.querySelector("#root")).render(
-	<React.StrictMode>
-		<Theme>
-			<App />
-			<ToastContainer
-				position="top-right"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme="light"
-			/>
-		</Theme>
-	</React.StrictMode>
+  <React.StrictMode>
+    <Theme>
+      <App />
+      <ToastContainer
+        position="top-right"
+        autoClose={500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+    </Theme>
+  </React.StrictMode>
 );

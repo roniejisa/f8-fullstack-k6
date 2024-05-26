@@ -1,6 +1,6 @@
 import { createContext, useEffect } from "react";
 import { useState } from "react";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 export const GameContext = createContext();
 const Game = ({ children }) => {
 	const [data, setData] = useState(() => {

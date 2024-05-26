@@ -11,6 +11,7 @@ const Theme = ({ children }) => {
 		} else {
 			document.querySelector("html").dataset.theme = "dark";
 		}
+		localStorage.setItem("theme", theme);
 	}, [theme]);
 
 	return (
