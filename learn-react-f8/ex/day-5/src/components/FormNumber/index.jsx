@@ -107,7 +107,7 @@ const FormNumber = () => {
     setDataCurrent([]);
     setValue("");
     toast.info("Chào mừng bạn đến với trò chơi đoán số!");
-  }, []);
+  }, [setPlay, setRemain, total]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
