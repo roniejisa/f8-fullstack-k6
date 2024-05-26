@@ -2,44 +2,8 @@ import { useGame } from "../../hooks/game";
 import clsx from "clsx";
 import styles from "./TableResult.module.scss";
 import { useEffect, useRef } from "react";
-const getRate = (objResult) => {
-  if (!objResult.win) {
-    return 0;
-  }
-  return Math.round(
-    ((objResult.total - objResult.count + 1) / objResult.total) * 100
-  );
-};
+import { getObjResult, getRate, getStyleRate } from "./TableHelper";
 
-const getStyleRate = (objResult) => {
-  return clsx(
-    getRate(objResult) > 0
-      ? getRate(objResult) > 50
-        ? styles.win
-        : styles.subWin
-      : styles.lose
-  );
-};
-
-const getObjResult = (data) => {
-  return data.reduce((obj, current) => {
-    if (!obj.count) {
-      obj.count = 1;
-    } else {
-      obj.count++;
-    }
-
-    if (current.win) {
-      obj.win = true;
-    }
-
-    if (current.total) {
-      obj.total = current.total;
-    }
-
-    return obj;
-  }, {});
-};
 const TableResult = () => {
   const { data, setData } = useGame((data) => data);
   const resultRef = useRef();

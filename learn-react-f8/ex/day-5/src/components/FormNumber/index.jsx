@@ -73,9 +73,9 @@ const FormNumber = () => {
       const newDataCurrent = [...dataCurrent, { ...newData, number: value }];
       setData([[...newDataCurrent], ...data]);
     } else {
-      setRemain(remain - 1);
       setDataCurrent([...dataCurrent, { ...newData }]);
     }
+    setRemain(remain - 1);
     setValue("");
   };
 
