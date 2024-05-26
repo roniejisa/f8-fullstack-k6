@@ -42,7 +42,7 @@ const Slide = () => {
 		progress.style.width = width + "px";
 		resetGame(number);
 		handleTooltip();
-	}, []);
+	}, [number]);
 
 	useEffect(() => {
 		localStorage.setItem("number", number);
