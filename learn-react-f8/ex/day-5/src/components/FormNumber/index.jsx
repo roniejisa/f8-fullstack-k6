@@ -17,7 +17,7 @@ const FormNumber = () => {
     const min = Math.ceil(1);
     const max = Math.floor(number);
     return Math.floor(randomNumber * (max - min + 1)) + min;
-  }, [number]);
+  }, [number, play]);
 
   useEffect(() => {
     if (inputRef.current) {
