@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../../App";
+import { AppContext } from "../../App02";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {

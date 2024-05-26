@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
-import { AppContext } from "../../App";
+import { AppContext } from "../../App02";
 
 const TodoItem = ({ item, index }) => {
 	const { dispatch } = useContext(AppContext);

@@ -1,20 +1,6 @@
-import { createContext, useReducer } from "react";
-import Todo from "./components/Todos/Todo";
-import { initialState, reducer } from "./utils/reducer01";
-export const AppContext = createContext();
+import Todo2 from "./components/Todo2/Todo2";
 const App = () => {
-	const [state, dispatch] = useReducer(reducer, initialState);
-	return (
-		<>
-			<AppContext.Provider
-				value={{
-					state,
-					dispatch,
-				}}>
-				<Todo />
-			</AppContext.Provider>
-		</>
-	);
+	return <Todo2 />;
 };
 
 export default App;
