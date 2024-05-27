@@ -37,8 +37,6 @@ const FormNumber = () => {
       dataCurrent.length > 0 &&
       dataCurrent.filter((item) => item.number === value).length > 0
     ) {
-      setValue("");
-      inputRef.current.placeholder = "Thử một số";
       return toast.warning("Số này đã thử rồi, vui lòng thử số khác");
     }
     let win = false;
@@ -76,7 +74,6 @@ const FormNumber = () => {
       setDataCurrent([...dataCurrent, { ...newData }]);
     }
     setRemain(remain - 1);
-    setValue("");
   };
 
   const checkOrSetValue = useCallback(
@@ -136,7 +133,7 @@ const FormNumber = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [number, value]);
+  }, [number, value, play]);
   return (
     <>
       {play ? (
