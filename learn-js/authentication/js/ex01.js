@@ -1,5 +1,7 @@
 // const loginUrl = `https://api.escuelajs.co/api/v1/auth/login`;
 
+import { httpClient } from "../../fetch_api/js/refreshToken.js";
+
 // const handleLogin = async (email, password) => {
 //     const response = await fetch(loginUrl, {
 //         method: "POST",
@@ -15,7 +17,7 @@
 
 // handleLogin('john@mail.com','changeme');
 
-// Bộ nhớ trình duyệt 
+// Bộ nhớ trình duyệt
 
 // localStorage.setItem('token', 123);
 // const token = localStorage.getItem('token');
@@ -23,10 +25,9 @@
 // localStorage.removeItem('token');
 // sessionStorage.setItem('token', 123);
 
-
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 const app = {
-    serverAPI: 'https://api.escuelajs.co/api/v1',
+    serverAPI: "https://api.escuelajs.co/api/v1",
     loginForm: function () {
         return `<form action="" class="login-form">
 				<h2>Đăng nhập</h2>
@@ -37,51 +38,53 @@ const app = {
 					<input type="password" name="password" placeholder="Mật khẩu" />
 				</div>
 				<button>Đăng nhập</button>
-			</form>`
+			</form>`;
     },
     profile: function (data = {}) {
         return `<h2>Chào mừng bạn đã quay trở lại</h2>
-                <h3>Chào, ${data.name ?? "Loading..."}, <button class="logout-btn">Đăng xuất</button></h3>`;
+                <h3>Chào, ${
+                    data.name ?? "Loading..."
+                }, <button class="logout-btn">Đăng xuất</button></h3>`;
     },
     render: async function () {
         if (this.getToken()) {
             const dataUser = await this.sendRequestProfile();
-            root.innerHTML = dataUser ? this.profile(dataUser) : this.loginForm()
+            root.innerHTML = dataUser
+                ? this.profile(dataUser)
+                : this.loginForm();
         } else {
             root.innerHTML = this.loginForm();
         }
         this.addEvent();
     },
     addEvent: function () {
-        root.addEventListener('submit', async (e) => {
+        root.addEventListener("submit", async (e) => {
             e.preventDefault();
             if (e.target.classList.contains("login-form")) {
-                const formData = Object.fromEntries([...new FormData(e.target)]);
+                const formData = Object.fromEntries([
+                    ...new FormData(e.target),
+                ]);
                 await this.postGetToken(formData);
                 this.render();
             }
-        })
-        root.addEventListener('click', (e) => {
+        });
+        root.addEventListener("click", (e) => {
             if (e.target.classList.contains("logout-btn")) {
-                localStorage.removeItem('token');
+                localStorage.removeItem("token");
                 this.render();
             }
-        })
+        });
     },
     sendRequestProfile: async function () {
         const { access_token: accessToken } = this.getToken();
         if (!accessToken) {
             return this.render();
         }
-        const response = await fetch(this.serverAPI + '/auth/profile', {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
-            }
-        })
+        httpClient.token = accessToken;
+        const { response, data } = await httpClient.get(
+            this.serverAPI + "/auth/profile"
+        );
         if (response.ok) {
-            const data = await response.json();
             return data;
         } else {
             // Gọi API Refresh-token để cấp lại access-token mới
@@ -90,7 +93,7 @@ const app = {
             // interceptor fetch
             const tokenNew = await this.sendRequestRefreshToken();
             if (tokenNew) {
-                localStorage.setItem('token', JSON.stringify(tokenNew));
+                localStorage.setItem("token", JSON.stringify(tokenNew));
                 return this.sendRequestProfile();
             }
             return false;
@@ -101,18 +104,11 @@ const app = {
     },
     sendRequestRefreshToken: async function () {
         const { refresh_token: refreshToken } = this.getToken();
-        const response = await fetch(this.serverAPI + '/auth/refresh-token', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                refreshToken
-            })
-        });
-
+        const { response, data } = httpClient.post(
+            this.serverAPI + "/auth/refresh-token",
+            refreshToken
+        );
         if (response.ok) {
-            const data = await response.json();
             return data;
         } else {
             return false;
@@ -120,23 +116,21 @@ const app = {
     },
     getToken: function () {
         try {
-            let token = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : false;
+            let token = localStorage.getItem("token")
+                ? JSON.parse(localStorage.getItem("token"))
+                : false;
             return token;
         } catch (e) {
             return false;
         }
     },
     postGetToken: async function (formData) {
-        const response = await fetch(this.serverAPI + '/auth/login', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        });
+        const { response, data } = await httpClient.post(
+            this.serverAPI + "/auth/login",
+            formData
+        );
         if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem('token', JSON.stringify(data));
+            localStorage.setItem("token", JSON.stringify(data));
             return data;
         } else {
             alert(response.statusText);
@@ -144,7 +138,7 @@ const app = {
         }
     },
     start: function () {
-        this.render()
-    }
-}
+        this.render();
+    },
+};
 app.start();
