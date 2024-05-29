@@ -41,7 +41,14 @@ const Paginate = ({ page, total }) => {
     const renderPages = () => {
         return (
             <>
-                {+page - 1 > 0 && <Link className="p-2 px-3 rounded border text-decoration-none text-white bg-danger" to={`/products/${+page - 1}`}>{"<"}</Link>}
+                {+page - 1 > 0 && (
+                    <Link
+                        className="p-2 px-3 rounded border text-decoration-none text-white bg-danger"
+                        to={`/products/${+page - 1}`}
+                    >
+                        {"<"}
+                    </Link>
+                )}
                 {newPage.map((pageNumber) => {
                     if (pageNumber > 0 && pageNumber <= total) {
                         return (
@@ -59,7 +66,14 @@ const Paginate = ({ page, total }) => {
                         return <span key={pageNumber}>...</span>;
                     }
                 })}
-                {+page < total && <Link className="p-2 px-3 rounded border text-decoration-none text-white bg-danger" to={`/products/${+page + 1}`}>{">"}</Link>}
+                {+page < total && (
+                    <Link
+                        className="p-2 px-3 rounded border text-decoration-none text-white bg-danger"
+                        to={`/products/${+page + 1}`}
+                    >
+                        {">"}
+                    </Link>
+                )}
             </>
         );
     };

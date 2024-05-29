@@ -1,6 +1,7 @@
-import Todo2 from "./components/Todo2/Todo2";
 const App = () => {
-	return <Todo2 />;
-};
+  return (
+    <div>App</div>
+  )
+}
 
-export default App;
+export default App
