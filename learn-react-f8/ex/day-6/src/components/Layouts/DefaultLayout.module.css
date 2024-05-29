@@ -1,0 +1,41 @@
+.cart {
+    position: relative;
+    border: none;
+    background: none;
+}
+
+.cart svg {
+    fill: white;
+}
+
+.cart span {
+    position: absolute;
+    bottom: 5px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    min-width: 24px;
+    padding: 4px 6px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    height: 60px;
+    z-index: 1;
+    background: #9a9ac0;
+    padding: 0 30px;
+}
+
+.logo{
+    display: block;
+}
+.logo img{
+    height: 100%;
+}
