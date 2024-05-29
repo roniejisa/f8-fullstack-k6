@@ -10,6 +10,40 @@ const CartItem = ({ item }) => {
     const handleDelete = useCartDelete();
     const handleChange = useCartUpdate();
     const navigate = useNavigate();
+
+    const handleDeleteCartItem = () => {
+        toast(`Bạn có chắc chắn muốn xóa sản phẩm ${item.name} không`, {
+            type: "warning",
+            autoClose: 2000,
+            onClick: () => {
+                handleDelete(item._id);
+                toast.success(`Đã xóa sản phẩm ${item.name} thành công!`);
+            },
+        });
+    };
+
+    const handlePushCartItem = () => {
+        handleChange(item._id, item.qty + 1, item.quantity - 1);
+        inputRef.current.value++;
+        toast.success("Thay đổi số lượng thành công");
+    };
+
+    const handleMinusCartItem = () => {
+        if (inputRef.current.value - 1 === 0) {
+            toast(`Bạn có chắc chắn muốn xóa sản phẩm ${item.name} không`, {
+                type: "warning",
+                autoClose: 2000,
+                onClick: () => {
+                    handleDelete(item._id);
+                    toast.success(`Đã xóa sản phẩm ${item.name} thành công!`);
+                },
+            });
+        } else {
+            handleChange(item._id, inputRef.current.value - 1, item.quantity + 1);
+            inputRef.current.value--;
+            toast.success("Thay đổi số lượng thành công");
+        }
+    };
     return (
         <div className="d-flex flex-column rounded-4 border-2 p-3 border">
             <div className="d-flex gap-3">
@@ -23,22 +57,7 @@ const CartItem = ({ item }) => {
                     <div>
                         <button
                             className="border border-danger text-danger fw-bold"
-                            onClick={() => {
-                                if (inputRef.current.value - 1 === 0) {
-                                    toast(`Bạn có chắc chắn muốn xóa sản phẩm ${item.name} không`, {
-                                        type: "warning",
-                                        autoClose: 2000,
-                                        onClick: () => {
-                                            handleDelete(item._id);
-                                            toast.success(`Đã xóa sản phẩm ${item.name} thành công!`);
-                                        },
-                                    });
-                                } else {
-                                    handleChange(item._id, inputRef.current.value - 1, item.quantity + 1);
-                                    inputRef.current.value--;
-                                    toast.success("Thay đổi số lượng thành công");
-                                }
-                            }}
+                            onClick={() => handleMinusCartItem()}
                         >
                             -
                         </button>
@@ -53,11 +72,7 @@ const CartItem = ({ item }) => {
                         />
                         <button
                             className="border border-danger text-danger fw-bold"
-                            onClick={() => {
-                                handleChange(item._id, item.qty + 1, item.quantity - 1);
-                                inputRef.current.value++;
-                                toast.success("Thay đổi số lượng thành công");
-                            }}
+                            onClick={() => handlePushCartItem()}
                         >
                             +
                         </button>
@@ -79,19 +94,7 @@ const CartItem = ({ item }) => {
                     {new Intl.NumberFormat().format(item.price * item.qty)}
                 </div>
                 <div className="d-flex justify-content-end align-items-end">
-                    <button
-                        className="btn btn-danger"
-                        onClick={() => {
-                            toast(`Bạn có chắc chắn muốn xóa sản phẩm ${item.name} không`, {
-                                type: "warning",
-                                autoClose: 2000,
-                                onClick: () => {
-                                    handleDelete(item._id);
-                                    toast.success(`Đã xóa sản phẩm ${item.name} thành công!`);
-                                },
-                            });
-                        }}
-                    >
+                    <button className="btn btn-danger" onClick={() => handleDeleteCartItem()}>
                         <svg
                             stroke="currentColor"
                             fill="currentColor"
