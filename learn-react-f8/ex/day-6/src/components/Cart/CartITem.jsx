@@ -2,7 +2,7 @@ import { useRef } from "react";
 import PropTypes from "prop-types";
 import { useCartDelete, useCartUpdate } from "../../hooks/useCart";
 import { useNavigate } from "react-router-dom";
-import { toKebabCase } from 'react-roniejisa/utils/helper';
+import { toKebabCase } from "react-roniejisa/utils/helper";
 import { toast } from "react-toastify";
 
 const CartItem = ({ item }) => {
@@ -14,20 +14,30 @@ const CartItem = ({ item }) => {
         <div className="d-flex flex-column rounded-4 border-2 p-3 border">
             <div className="d-flex gap-3">
                 <div className="d-flex flex-column gap-4 justify-content-between">
-                    <span className="cursor-pointer" onClick={() => navigate(`/detail/${toKebabCase(item.name)}/${item._id}`)} >
-                        <img src={item.image} alt={item.name} className="rounded"/>
+                    <span
+                        className="cursor-pointer"
+                        onClick={() => navigate(`/detail/${toKebabCase(item.name)}/${item._id}`)}
+                    >
+                        <img src={item.image} alt={item.name} className="rounded" />
                     </span>
                     <div>
                         <button
                             className="border border-danger text-danger fw-bold"
                             onClick={() => {
                                 if (inputRef.current.value - 1 === 0) {
-                                    handleDelete(item._id);
+                                    toast(`Bạn có chắc chắn muốn xóa sản phẩm ${item.name} không`, {
+                                        type: "warning",
+                                        autoClose: 2000,
+                                        onClick: () => {
+                                            handleDelete(item._id);
+                                            toast.success(`Đã xóa sản phẩm ${item.name} thành công!`);
+                                        },
+                                    });
                                 } else {
                                     handleChange(item._id, inputRef.current.value - 1, item.quantity + 1);
+                                    inputRef.current.value--;
+                                    toast.success("Thay đổi số lượng thành công");
                                 }
-                                inputRef.current.value--;
-                                toast.success("Thay đổi số lượng thành công");
                             }}
                         >
                             -
@@ -62,16 +72,26 @@ const CartItem = ({ item }) => {
                         <span className="text-danger">$</span>
                         {new Intl.NumberFormat().format(item.price)}
                     </div>
-                    <h4>
-                        Còn lại: {item.quantity}
-                    </h4>
+                    <h4>Còn lại: {item.quantity}</h4>
                 </div>
                 <div className="d-flex justify-content-end align-items-end fs-2">
                     <span className="text-danger">$</span>
                     {new Intl.NumberFormat().format(item.price * item.qty)}
                 </div>
                 <div className="d-flex justify-content-end align-items-end">
-                    <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>
+                    <button
+                        className="btn btn-danger"
+                        onClick={() => {
+                            toast(`Bạn có chắc chắn muốn xóa sản phẩm ${item.name} không`, {
+                                type: "warning",
+                                autoClose: 2000,
+                                onClick: () => {
+                                    handleDelete(item._id);
+                                    toast.success(`Đã xóa sản phẩm ${item.name} thành công!`);
+                                },
+                            });
+                        }}
+                    >
                         <svg
                             stroke="currentColor"
                             fill="currentColor"
