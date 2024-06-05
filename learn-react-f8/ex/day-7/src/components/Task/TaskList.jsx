@@ -15,6 +15,7 @@ import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addColumn, dragColumn, dragTask } from "../../store/reducers/taskSlice";
 import TaskItem from "./TaskItem";
+import { updateTask } from "../../store/middlewares/taskMiddleware";
 
 const TaskList = () => {
     const { tasks, status } = useSelector((state) => state.task);
@@ -42,6 +43,7 @@ const TaskList = () => {
         setDataActiveColumn(null);
         setActiveColumn(null);
         setActiveTask(null);
+        dispatch(updateTask({}));
     };
 
     const handleDragOver = (event) => {

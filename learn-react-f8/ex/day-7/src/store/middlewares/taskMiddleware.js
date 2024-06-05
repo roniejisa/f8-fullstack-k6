@@ -20,25 +20,19 @@ export const getTasks = createAsyncThunk("task/getTasks", async (_, { rejectWith
 
 export const addTask = createAsyncThunk("task/addTask", async (data, { getState }) => {
     // try {
-        const state = getState();
-        const { columns, tasks } = state.task.tasks;
+    const state = getState();
+    const { columns, tasks } = state.task.tasks;
     // Nếu bị lỗi phải đóng dòng này lại thì mới thêm được cột mới
-    const dataNew = tasks.map((task) => {
-        return {
-            content: task.content,
-            column: task.column,
-            columnName: columns.find((column) => column.column === task.column).columnName,
-        };
-    });
-    
-    dataNew.push({
+    const dataTasks = getNewTask(tasks, columns, data);
+
+    dataTasks.push({
         content: "new",
         column: data.column,
         columnName: data.columnName,
     });
-    
+
     const token = localStorage.getItem("token");
-    const { response, result } = await http.post("/tasks", dataNew, {
+    const { response, result } = await http.post("/tasks", dataTasks, {
         "X-Api-Key": token,
     });
 
@@ -54,19 +48,12 @@ export const addTask = createAsyncThunk("task/addTask", async (data, { getState 
 export const deleteColumn = createAsyncThunk("task/deleteColumn", async (data, { getState }) => {
     const state = getState();
     const { columns, tasks } = state.task.tasks;
-    const dataNew = tasks
-        .filter((task) => {
-            return task.column !== data.column;
-        })
-        .map((task) => {
-            return {
-                content: task.content,
-                column: task.column,
-                columnName: columns.find((column) => column.column === task.column).columnName,
-            };
-        });
+    const dataNew = tasks.filter((task) => {
+        return task.column !== data.column;
+    });
+    const dataTasks = getNewTask(dataNew, columns, data);
     const token = localStorage.getItem("token");
-    const { response, result } = await http.post("/tasks", dataNew, {
+    const { response, result } = await http.post("/tasks", dataTasks, {
         "X-Api-Key": token,
     });
 
@@ -79,17 +66,10 @@ export const deleteColumn = createAsyncThunk("task/deleteColumn", async (data, {
 export const deleteTask = createAsyncThunk("task/deleteTask", async (data, { getState }) => {
     const state = getState();
     const { columns, tasks } = state.task.tasks;
-    const dataTasks = tasks
-    .filter((task) => {
-            return task._id !== data._id;
-        })
-        .map((task) => {
-            return {
-                content: task.content,
-                column: task.column,
-                columnName: columns.find((column) => column.column === task.column).columnName,
-            };
-        });
+    const newTasks = tasks.filter((task) => {
+        return task._id !== data._id;
+    });
+    const dataTasks = getNewTask(newTasks, columns, data);
     const token = localStorage.getItem("token");
     const { response, result } = await http.post("/tasks", dataTasks, {
         "X-Api-Key": token,
@@ -105,18 +85,7 @@ export const deleteTask = createAsyncThunk("task/deleteTask", async (data, { get
 export const updateTask = createAsyncThunk("task/updateTask", async (data, { getState }) => {
     const state = getState();
     const { tasks, columns } = state.task.tasks;
-    const dataTasks = tasks.map((task) => {
-        let content = task.content;
-        if (task._id === data.id) {
-            content = data.value;
-        }
-        return {
-            content,
-            column: task.column,
-            columnName: columns.find((column) => column.column === task.column).columnName,
-        };
-    });
-
+    const dataTasks = getNewTask(tasks, columns, data);
     const token = localStorage.getItem("token");
     const { response, result } = await http.post("/tasks", dataTasks, {
         "X-Api-Key": token,
@@ -128,3 +97,27 @@ export const updateTask = createAsyncThunk("task/updateTask", async (data, { get
     result.idEdit = data.id;
     return result;
 });
+
+function getNewTask(tasks, columns, data = {}) {
+    const dataTasks = tasks
+        .map((task) => {
+            let content = task.content;
+            if (task._id === data.id) {
+                content = data.value;
+            }
+            const index = columns.findIndex((column) => column.column === task.column);
+            return {
+                content,
+                column: task.column,
+                columnName: columns[index].columnName,
+                indexColumn: index,
+            };
+        })
+        .sort((a, b) => a.indexColumn - b.indexColumn)
+        .map((task) => {
+            delete task.indexColumn;
+            return task;
+        });
+
+    return dataTasks;
+}
