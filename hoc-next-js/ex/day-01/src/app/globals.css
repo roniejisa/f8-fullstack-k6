@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    [data-theme="dark"] {
+        @apply bg-slate-800 text-white;
+    }
+
+    [data-theme="dark"] header {
+        @apply bg-slate-700;
+    }
+
+    [data-theme="dark"] .section-title {
+        @apply font-semibold bg-slate-700;
+    }
+
+    .section-title {
+        @apply text-white text-xl px-2 py-1 font-semibold bg-orange-400 my-4 rounded-sm;
+    }
+
+    .switch-i18n {
+        @apply bg-white rounded-lg;
+    }
+
+    [data-theme="dark"] .switch-i18n {
+        @apply bg-slate-500 text-white;
+    }
+}

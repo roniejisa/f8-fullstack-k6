@@ -1,0 +1,17 @@
+{
+    "Profile": {
+        "title": "Home",
+        "contact": "Contact",
+        "project": "My Project",
+        "favorite": "My Favorite",
+        "skill": "Skills",
+        "histories": "Histories",
+        "phone": "Phone",
+        "experience": "Experience",
+        "fullName": "Name",
+        "address": "Address"
+    },
+    "Footer": {
+        "title": "@Copyright 2024 RONIEJISA. Fullstack."
+    }
+}

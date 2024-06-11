@@ -1,0 +1,17 @@
+{
+    "Profile": {
+        "title": "Trang chủ",
+        "contact": "Thông tin liên hệ",
+        "project": "Dự án cá nhân",
+        "favorite": "Sở thích cá nhân",
+        "skill": "Các kỹ năng của tôi",
+        "histories": "Lịch sử",
+        "phone": "Số điện thoại",
+        "experience": "Kinh nghiệm làm việc",
+        "fullName":"Họ và tên",
+        "address":"Địa chỉ"
+    },
+    "Footer": {
+        "title": "@Copyright 2024 RONIEJISA. Fullstack."
+    }
+}
