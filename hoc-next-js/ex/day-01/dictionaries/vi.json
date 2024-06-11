@@ -1,6 +1,6 @@
 {
     "Profile": {
-        "title": "Trang chủ",
+        "title": "Hồ sơ năng lực",
         "contact": "Thông tin liên hệ",
         "project": "Dự án cá nhân",
         "favorite": "Sở thích cá nhân",
@@ -9,7 +9,9 @@
         "phone": "Số điện thoại",
         "experience": "Kinh nghiệm làm việc",
         "fullName":"Họ và tên",
-        "address":"Địa chỉ"
+        "address":"Địa chỉ",
+        "keywords": "Học lập trình, React, Nodejs, NextJs",
+        "description": "Học lập trình để đi làm"
     },
     "Footer": {
         "title": "@Copyright 2024 RONIEJISA. Fullstack."
