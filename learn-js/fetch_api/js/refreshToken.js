@@ -1,52 +1,17 @@
-// const requestRefresh = async () => {
-//     console.log("Request refresh token");
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve(Math.random());
-//         }, 1000);
-//     });
-// };
-// let isExpired = false;
-// let isHasToken = false;
-// let token = false;
-// let refreshTokenPromise = false;
-// const requestApi = (url) => {
-//     setTimeout(async () => {
-//         // Giả sử khi gọi api /courses => Token bị hết hạn
-//         if (url === "/courses" && !token) {
-//             isExpired = true;
-//         }
-//         if (isExpired) {
-//             if (!refreshTokenPromise) {
-//                 refreshTokenPromise = requestRefresh();
-//             }
-//             const newToken = await refreshTokenPromise;
-//             token = newToken;
-//             console.log("Call API: " + url + "new token: " + token);
-//         } else {
-//             console.log("Call API: " + url + "myToken");
-//         }
-//     }, 1000);
-// };
-
-// requestApi("/courses");
-// requestApi("/test");
-// requestApi("/oke");
-
 export const httpClient = {
-    url: "",
+    baseUrl: "",
     token: null,
-    send: async function (
-        url,
-        method = "GET",
-        body = null,
-        headers = {},
-        params = {}
-    ) {
+    refreshTokenPromise: null,
+    send: async function (url, method = "GET", body = null, headers = {}) {
+        let response = {};
+        if (!this.baseUrl) {
+            throw new Error("Vui lòng cập nhật baseUrl");
+        }
+        // Kiểm tra có phải refresh hay không ở chỗ này!
         const initialHeader = {
             "Content-Type": "application/json",
         };
-        // try {
+        let newUrl = this.baseUrl;
         if (this.token) {
             initialHeader.Authorization = `Bearer ${this.token}`;
         }
@@ -58,31 +23,66 @@ export const httpClient = {
         if (body) {
             options.body = JSON.stringify(body);
         }
-        if (params) {
-            this.url += url + "?" + new URLSearchParams(params).toString();
+        newUrl = newUrl + url;
+        try {
+            const response = await fetch(newUrl, options);
+            const result = await response.json();
+            if (headers.isRefresh) {
+                return { response, result };
+            }
+            if (!response.ok) {
+                throw new Error(result?.message);
+            }
+            return { response, result };
+        } catch (e) {
+            // Lưu vào Storage
+            if (!this.refreshTokenPromise) {
+                this.refreshTokenPromise = this.getRefreshToken();
+            }
+            const newToken = await this.refreshTokenPromise;
+            if (!newToken) {
+                return response;
+            }
+            this.token = newToken.data.access_token;
+            // Gọi lại request bị failed
+            return this.send(url, method, body, headers);
+            // Xử lý cấp lại accessToken khi hết hạn
+            // throw new Error(e.message);
         }
-
-        const response = await fetch(url, options);
-        const data = await response.json();
-        // if (!response.ok) {
-        //     throw new Error(response.statusText);
-        // }
-        return { response, data };
-        // } catch (e) {}
     },
-    get: function (url, params = {}, headers = {}) {
-        return this.send(url, "GET", null, headers, params);
+    getRefreshToken: async function () {
+        try {
+            const { refresh_token } = JSON.parse(localStorage.getItem("token"));
+            const { response, result: tokens } = await this.post(
+                "/auth/refresh-token",
+                { refreshToken: refresh_token },
+                {
+                    isRefresh: true,
+                }
+            );
+            if (!response.ok) {
+                throw new Error("Refresh token không hợp lệ");
+            }
+            localStorage.setItem("token", JSON.stringify(tokens.data));
+            return tokens;
+        } catch (e) {
+            localStorage.removeItem("token");
+            return false;
+        }
     },
-    post: function (url, body = {}, headers = {}, params = {}) {
-        return this.send(url, "POST", body, headers, params);
+    get: function (url, headers = {}) {
+        return this.send(url, "GET", null, headers);
     },
-    put: function (url, body = {}, headers = {}, params = {}) {
-        return this.send(url, "PUT", body, headers, params);
+    post: function (url, body = {}, headers = {}) {
+        return this.send(url, "POST", body, headers);
     },
-    patch: function (url, body = {}, headers = {}, params = {}) {
-        return this.send(url, "PATCH", body, headers, params);
+    put: function (url, body = {}, headers = {}) {
+        return this.send(url, "PUT", body, headers);
     },
-    delete: function (url, body = {}, headers = {}, params = {}) {
-        return this.send(url, "DELETE", body, headers, params);
+    patch: function (url, body = {}, headers = {}) {
+        return this.send(url, "PATCH", body, headers);
+    },
+    delete: function (url, body = {}, headers = {}) {
+        return this.send(url, "DELETE", body, headers);
     },
 };

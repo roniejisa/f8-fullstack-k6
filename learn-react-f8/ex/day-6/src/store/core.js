@@ -4,6 +4,5 @@ export const compileReducers = (reducers) => {
         Object.keys(reducers).forEach((key) => {
             newState[key] = reducers[key](state[key], action);
         });
-        return newState;
     };
 };
