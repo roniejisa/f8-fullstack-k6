@@ -1,6 +1,6 @@
 import HelloWorld from "@/components/HelloWorld";
 export default function Home() {
-  console.log("Home page");
+  console.log("Trang chủ");
   return (
     <div>
       <h1>Hello anh em F8</h1>

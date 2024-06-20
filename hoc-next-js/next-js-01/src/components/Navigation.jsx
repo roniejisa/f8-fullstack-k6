@@ -3,7 +3,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 const Navigation = () => {
     const pathname = usePathname();
-    console.log(pathname);
     return (
         <ul>
             <li>
