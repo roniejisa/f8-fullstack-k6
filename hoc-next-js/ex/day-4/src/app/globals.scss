@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --icon: white;
+    --orange: #ffa500;
+    --text: #666;
+    --border-input-color: #0000001a;
+    --border-input-color-hover: #ffa500;
+    --text-input: black;
+    --background: white;
+    --box: white;
+    --modal-text-btn: black;
+}
+
+.dark {
+    --text-input: white;
+    --icon: #ffa500;
+    --text: #ffa500;
+    --border-input-color: #ffa500;
+    --border-input-color-hover: transparent;
+    --background: #202020;
+    --box: #1b1b1b;
+    --modal-text-btn: white;
+}
+
+body {
+    background: var(--background);
+}
+
+.btn {
+    @apply text-xl py-2 px-4 bg-orange text-[var(--background)] inline-block;
+}
+
+nav {
+    li {
+        a {
+            padding: 0 8px;
+            color: #efefef;
+            font-size: 20px;
+            transition: color 300ms ease;
+            &:hover,
+            &:active {
+                color: var(--orange);
+            }
+        }
+    }
+}
+input::-webkit-calendar-picker-indicator {
+    color: var(--text-input);
+}
+@media screen and (max-width: 768px) {
+    nav {
+        transition: 300ms ease-in-out;
+        transition-property: visibility, opacity, clip-path;
+        clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+        background: #333333e6;
+        visibility: visible;
+        width: 100%;
+        padding: 17px;
+
+        &.show {
+            opacity: 1;
+            visibility: visible;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        li {
+            a {
+                display: block;
+                border-radius: 4px;
+                padding: 12px;
+                margin: 12px;
+                background: rgba(34, 34, 34, 0.75);
+                font-size: 1rem;
+                color: #efefef;
+            }
+        }
+    }
+}

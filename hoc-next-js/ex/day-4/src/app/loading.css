@@ -1,0 +1,51 @@
+.rs-loading-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+.rsl-wave {
+    font-size: var(--rs-l-size, 5rem);
+    color: var(--rs-l-color, #ffa500);
+    display: inline-flex;
+    align-items: center;
+    width: 1.25em;
+    height: 1.25em;
+}
+.rsl-wave--icon {
+    display: block;
+    background: currentColor;
+    border-radius: 99px;
+    width: 0.25em;
+    height: 0.25em;
+    margin-right: 0.25em;
+    margin-bottom: -0.25em;
+    -webkit-animation: loadingWave 0.56s linear infinite;
+    animation: loadingWave 0.56s linear infinite;
+    -webkit-transform: translateY(0.0001%);
+    transform: translateY(0.0001%);
+}
+@-webkit-keyframes loadingWave {
+    50% {
+        -webkit-transform: translateY(-0.25em);
+        transform: translateY(-0.25em);
+    }
+}
+@keyframes loadingWave {
+    50% {
+        -webkit-transform: translateY(-0.25em);
+        transform: translateY(-0.25em);
+    }
+}
+.rsl-wave--icon:nth-child(2) {
+    -webkit-animation-delay: -0.14s;
+    animation-delay: -0.14s;
+}
+.rsl-wave--icon:nth-child(3) {
+    -webkit-animation-delay: -0.28s;
+    animation-delay: -0.28s;
+    margin-right: 0;
+}
