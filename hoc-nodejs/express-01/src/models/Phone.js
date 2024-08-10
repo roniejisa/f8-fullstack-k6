@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-    class User extends Model {
+    class Phone extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -9,37 +9,30 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            User.hasMany(models.Phone, {
-                as: "phones",
+            Phone.belongsTo(models.User, {
                 foreignKey: "user_id",
-            });
-
-            User.hasMany(models.Post, {
-                foreignKey: "user_id",
-                as: "posts",
+                as: "user",
             });
         }
     }
-    User.init(
+    Phone.init(
         {
             id: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true,
             },
-            fullname: DataTypes.STRING,
-            password: DataTypes.STRING,
-            fullname: DataTypes.STRING,
-            status: DataTypes.BOOLEAN,
+            user_id: DataTypes.STRING,
+            value: DataTypes.STRING,
         },
         {
             sequelize,
-            modelName: "User",
-            tableName: "users",
+            modelName: "Phone",
+            tableName: "phones",
             createdAt: "created_at",
             updatedAt: "updated_at",
             // timestamps: false -- Nếu không muốn có created_at và updated_at thì chuyển thành false
         }
     );
-    return User;
+    return Phone;
 };

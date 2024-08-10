@@ -105,3 +105,8 @@
 ::1 - - [30/Jul/2024:02:07:28 +0000] "GET /favicon.ico HTTP/1.1" 304 -
 ::1 - - [30/Jul/2024:02:07:29 +0000] "GET /favicon.ico HTTP/1.1" 304 -
 ::1 - - [30/Jul/2024:02:07:29 +0000] "GET /favicon.ico HTTP/1.1" 200 239
+::1 - - [30/Jul/2024:02:08:48 +0000] "GET /favicon.ico HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [30/Jul/2024:04:41:50 +0000] "GET /create-post/1 HTTP/1.1" 200 239
+::1 - - [06/Aug/2024:02:56:14 +0000] "GET /favicon.ico HTTP/1.1" 200 239
+::ffff:127.0.0.1 - - [06/Aug/2024:03:31:00 +0000] "POST /categories/3/create-posts HTTP/1.1" 200 239
+::ffff:127.0.0.1 - - [06/Aug/2024:04:50:25 +0000] "POST /delete-post/1 HTTP/1.1" 200 239

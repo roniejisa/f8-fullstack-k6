@@ -1,45 +1,47 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-    class User extends Model {
+    class Category extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            // define association here
-            User.hasMany(models.Phone, {
-                as: "phones",
-                foreignKey: "user_id",
+            Category.hasMany(models.Category, {
+                foreignKey: "parent_id",
+                as: "children",
             });
 
-            User.hasMany(models.Post, {
-                foreignKey: "user_id",
+            Category.belongsTo(models.Category, {
+                foreignKey: "parent_id",
+            });
+
+            Category.belongsToMany(models.Post, {
+                through: "post_category",
+                foreignKey: "category_id",
+                otherKey: "post_id",
                 as: "posts",
             });
         }
     }
-    User.init(
+    Category.init(
         {
             id: {
                 type: DataTypes.INTEGER,
-                autoIncrement: true,
                 primaryKey: true,
+                autoIncrement: true,
             },
-            fullname: DataTypes.STRING,
-            password: DataTypes.STRING,
-            fullname: DataTypes.STRING,
-            status: DataTypes.BOOLEAN,
+            name: DataTypes.STRING,
+            parent_id: DataTypes.INTEGER,
         },
         {
             sequelize,
-            modelName: "User",
-            tableName: "users",
+            modelName: "Category",
+            tableName: "categories",
             createdAt: "created_at",
             updatedAt: "updated_at",
-            // timestamps: false -- Nếu không muốn có created_at và updated_at thì chuyển thành false
         }
     );
-    return User;
+    return Category;
 };
