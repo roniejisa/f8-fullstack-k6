@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import React from "react";
-const getProduct = async (id) => {
+export const getProduct = async (id) => {
     const response = await fetch("https://api.escuelajs.co/api/v1/products/"+id);
     if(response.status === 400){
         return false;

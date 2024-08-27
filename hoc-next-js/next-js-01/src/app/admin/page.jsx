@@ -1,6 +1,3 @@
-import { cookies, cookies, headers } from "next/headers";
-import React from "react";
-
 const AdminPage = () => {
     // const headerList = headers();
     // console.log(headerList.get("x-api-key"));

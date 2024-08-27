@@ -1,7 +1,13 @@
 "use server";
 import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 export const handleSubmit = async (form) => {
     const content = form.get("content");
+    if(!content){
+        return {
+            status: false,
+        }
+    }
     const res = await fetch("http://localhost:4000/todos", {
         method: "POST",
         headers: {
@@ -12,7 +18,9 @@ export const handleSubmit = async (form) => {
     if (res.ok) {
         revalidateTag("todo-list");
         form.content = "";
-        return true;
+        return redirect("/todo");
     }
-    return false;
+    return {
+        status: false
+    };
 };

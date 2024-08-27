@@ -1,125 +1,49 @@
 {
-  "todos": [
+  "todos": [],
+  "users": [
     {
       "id": 1,
-      "content": "Đi học",
-      "isCompleted": false
+      "username": "admin",
+      "password": "admin",
+      "isAdmin": true
     },
     {
-      "content": "Ok google",
-      "id": 2
+      "id": 2,
+      "username": "user2",
+      "password": "user2",
+      "isAdmin": false
     },
     {
-      "content": "1232131",
-      "id": 3
+      "id": 3,
+      "username": "user3",
+      "password": "user3",
+      "isAdmin": false
     },
     {
-      "content": "43242",
+      "username": "hehehe",
       "id": 4
     },
     {
-      "content": "34535",
+      "username": "haha",
       "id": 5
     },
     {
-      "content": "",
+      "username": "elod4ajk",
       "id": 6
+    }
+  ],
+  "user-content": [
+    {
+      "user_id": 1,
+      "content": "content 1"
     },
     {
-      "content": "1231",
-      "id": 7
+      "user_id": 2,
+      "content": "content 2"
     },
     {
-      "content": "3232",
-      "id": 8
-    },
-    {
-      "content": "12312",
-      "id": 9
-    },
-    {
-      "content": "34234",
-      "id": 10
-    },
-    {
-      "content": "2342",
-      "id": 11
-    },
-    {
-      "content": "2342",
-      "id": 12
-    },
-    {
-      "content": "43434",
-      "id": 13
-    },
-    {
-      "content": "345435",
-      "id": 14
-    },
-    {
-      "content": "6546",
-      "id": 15
-    },
-    {
-      "content": "",
-      "id": 16
-    },
-    {
-      "content": "567567",
-      "id": 17
-    },
-    {
-      "content": "",
-      "id": 18
-    },
-    {
-      "content": "",
-      "id": 19
-    },
-    {
-      "content": "",
-      "id": 20
-    },
-    {
-      "content": "",
-      "id": 21
-    },
-    {
-      "content": "",
-      "id": 22
-    },
-    {
-      "content": "1",
-      "id": 23
-    },
-    {
-      "content": "2",
-      "id": 24
-    },
-    {
-      "content": "3",
-      "id": 25
-    },
-    {
-      "content": "",
-      "id": 26
-    },
-    {
-      "content": "4",
-      "id": 27
-    },
-    {
-      "content": "5",
-      "id": 28
-    },
-    {
-      "content": "6",
-      "id": 29
-    },
-    {
-      "content": "7",
-      "id": 30
+      "user_id": 3,
+      "content": "content 3"
     }
   ]
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useFormState, useState } from "react";
+import { useRef, useState } from "react";
 import { handleSubmit } from "./action";
 
 const FormAction = () => {
@@ -15,7 +15,7 @@ const FormAction = () => {
         <>
             <form
                 action={async (form) => {
-                    const status = await handleSubmit(form);
+                    const { status } = await handleSubmit(form);
                     if (status) {
                         formRef.current.reset();
                         return setMsg("Thêm thành công");
@@ -25,9 +25,13 @@ const FormAction = () => {
                 ref={formRef}
                 className="flex flex-col"
             >
-                <input type="text" name="content" className="border outline-none p-2 rounded-lg" />
-                <button type="submit">Thêm todo</button>
-                <p>{msg && msg}</p>
+                <div className="flex gap-1">
+                    <input type="text" name="content" className="border outline-none p-2 rounded-lg" />
+                    <button type="submit" className="bg-red-400 text-white rounded-md">
+                        Thêm todo
+                    </button>
+                    <p>{msg && msg}</p>
+                </div>
             </form>
         </>
     );

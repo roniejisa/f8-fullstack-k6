@@ -22,13 +22,13 @@ export const middleware = (request) => {
     // response.headers.set("x-abc", "next-js");
 
     // Rewrite URL
-    if (pathname === "/san-pham") {
-        return NextResponse.rewrite(new URL("/products", request.url));
-    }
-
-    if (pathname === "/products") {
-        return NextResponse.redirect(new URL("/san-pham", request.url));
-    }
+    // if (pathname.startsWith("/san-pham")) {
+    //     return NextResponse.rewrite(new URL("/products", request.url));
+    // }
+    // console.log(request.url);
+    // if (pathname.startsWith("/products")) {
+    //     return NextResponse.redirect(new URL("/san-pham", request.url));
+    // }
 
     return response;
 };
