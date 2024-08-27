@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const port = 1234;
 const app = express();
@@ -10,12 +11,14 @@ const morgan = require("morgan");
 var expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const cors = require("cors");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(expressLayouts);
 app.set("layout", path.join(__dirname, "views/layouts/default"));
 app.use(express.static("public"));
 app.use(flash());
+
 //app.method(path, callback <=> handler)
 //method: get, post, delete, put, patch
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +26,7 @@ app.use(express.json());
 app.use(express.text());
 app.use(express.raw());
 app.use(cookieParser()); // Xử lý cookie
+app.use(cors());
 app.use(
     session({
         secret: "F8_FULLSTACK_K6",

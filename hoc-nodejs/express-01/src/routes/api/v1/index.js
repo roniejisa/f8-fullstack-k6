@@ -1,0 +1,11 @@
+const express = require("express");
+const router = express.Router();
+const userRouter = require("./user");
+const authRouter = require("./auth");
+const permissionRouter = require("./permission");
+const roleRouter = require("./role");
+router.use("/users", userRouter);
+router.use("/auth", authRouter);
+router.use("/role", roleRouter);
+router.use("/permission", permissionRouter);
+module.exports = router;

@@ -1,33 +1,111 @@
-const { User } = require("../models");
+const { User, Session } = require("../models");
+var jwt = require("jsonwebtoken");
+const { verify } = require("../utils/hash");
+const { errorResponse, successResponse } = require("../utils/response");
+const { signIn, verifyToken, createRefreshToken, verifyRefreshToken } = require("../utils/jwt");
+const redis = require("../utils/redis");
+const permission = require("../utils/permission");
 module.exports = {
-    loginForm: (req, res) => {
-        if (req.session.user) {
-            return res.redirect("/");
-        }
-        const error = req.flash("error");
-        return res.render("auth/login", { error: Array.isArray(error) && error.length ? error[0] : null });
-    },
     login: async (req, res) => {
-        if (req.body.email === "" || req.body.password === "") {
-            req.flash("error", "Thieu thong tin dang nhap");
-            return res.redirect("/login");
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return errorResponse(res, undefined, "Vui lòng điền email và password", 403);
         }
         const user = await User.findOne({
             where: {
-                email: req.body.email,
-                password: req.body.password,
+                email,
             },
         });
-        if (user) {
-            req.session.user = user;
-        } else {
-            req.flash("error", "Thong tin dang nhap khong dung");
-            return res.redirect("/login");
+        // Kiểm tra email có tồn tại không
+        if (!user) {
+            return errorResponse(res, undefined, "Tài khoản không tồn tại", 401);
         }
-        return res.redirect("/");
+
+        const check = verify(password, user.password);
+        if (!check) {
+            return errorResponse(res, undefined, "Tài khoản không tồn tại", 401);
+        }
+        var accessToken = signIn({ id: user.id, fullname: user.fullname });
+        var refreshToken = createRefreshToken(user.id);
+
+        const tokenList = {
+            refreshToken,
+        };
+        await redis.connect();
+        await redis.setData(`refreshToken-${refreshToken}`, JSON.stringify(tokenList), 86400);
+        await redis.disconnect();
+        var ip = req.get("x-forwarded-for") || req.socket.remoteAddress || null;
+        return successResponse(
+            res,
+            {
+                accessToken,
+                refreshToken,
+            },
+            200,
+            "Đăng nhập thành công!"
+        );
     },
     logout: async (req, res) => {
-        req.session.user = null;
-        return res.redirect("/login");
+        const { accessToken } = req;
+        await redis.connect();
+        await redis.setData(`blacklist-${accessToken}`, accessToken, 3000);
+        await redis.disconnect();
+        console.log("ok");
+    },
+    profile: async (req, res) => {
+        const user = req.user;
+        const userId = user.id;
+        const permissions = await permission(userId);
+        user.setDataValue("permissions", permissions);
+        return successResponse(res, user, 200, "Success");
+    },
+    refreshToken: async (req, res) => {
+        const { refreshToken } = req.body;
+        if (!refreshToken) {
+            return errorResponse(res, undefined, "Vui lòng cung cấp refresh token", 401);
+        }
+
+        await redis.connect();
+        if (!(await redis.getData(`refreshToken-${refreshToken}`))) {
+            return errorResponse(res, undefined, "Vui lòng cung cấp refresh token", 401);
+        }
+        // try {
+        const { userId } = verifyRefreshToken(refreshToken);
+        const user = await User.findByPk(userId);
+        // Kiểm tra email có tồn tại không
+        if (!user) {
+            return errorResponse(res, undefined, "Tài khoản không tồn tại", 401);
+        }
+
+        var accessToken = signIn({ id: user.id, fullname: user.fullname });
+        var newRefreshToken = createRefreshToken(user.id);
+
+        const tokenList = {
+            refreshToken: newRefreshToken,
+        };
+        await redis.connect();
+        await redis.setData(`refreshToken-${newRefreshToken}`, JSON.stringify(tokenList), 86400);
+        await redis.disconnect();
+        var ip = req.get("x-forwarded-for") || req.socket.remoteAddress || null;
+        return successResponse(
+            res,
+            {
+                accessToken,
+                refreshToken: newRefreshToken,
+            },
+            200,
+            "Refresh token success!"
+        );
+        // } catch (e) {
+        //     console.log(1);
+        //     return errorResponse(res, undefined, "Vui lòng cung cấp refresh token", 401);
+        // }
+    },
+    revokeToken: async (req, res) => {
+        const { refreshToken } = req.body;
+        await redis.connect();
+        await redis.deleteData(`refreshToken-${refreshToken}`);
+        await redis.disconnect();
+        return successResponse(res, undefined, 200, "ok");
     },
 };

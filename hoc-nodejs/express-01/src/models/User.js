@@ -18,6 +18,20 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: "user_id",
                 as: "posts",
             });
+
+            User.belongsToMany(models.Permission, {
+                through: "users_permission",
+                foreignKey: "user_id",
+                otherKey: "permission_id",
+                as: "permissions",
+            });
+
+            User.belongsToMany(models.Role, {
+                through: "user_role",
+                foreignKey: "user_id",
+                otherKey: "role_id",
+                as: "roles",
+            });
         }
     }
     User.init(
@@ -29,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             fullname: DataTypes.STRING,
             password: DataTypes.STRING,
-            fullname: DataTypes.STRING,
+            email: DataTypes.STRING,
             status: DataTypes.BOOLEAN,
         },
         {
@@ -38,6 +52,8 @@ module.exports = (sequelize, DataTypes) => {
             tableName: "users",
             createdAt: "created_at",
             updatedAt: "updated_at",
+            deletedAt: "deleted_at",
+            paranoid: true,
             // timestamps: false -- Nếu không muốn có created_at và updated_at thì chuyển thành false
         }
     );

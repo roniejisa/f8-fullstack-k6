@@ -1,9 +1,4 @@
 const express = require("express");
 const router = express.Router();
-router.get("/users", (req,res) => {
-    return res.json({
-        status:200,
-        message:"hehe"
-    })
-})
+router.use("/v1", require("./api/v1/index"));
 module.exports = router;
